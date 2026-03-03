@@ -42,9 +42,14 @@ Nous placerons ici les étapes de réalisation du projet, telles que les livrabl
 
 ## Idée de Niveaux
 
-  [Niveaux](https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16)
+[Niveaux](https://anokolisa.itch.io/sidescroller-pixelart-sprites-asset-pack-forest-16x16)
+
+## Note héritage des objets
+
+    - les objets du même type devrons être implementer par héritage. Les collision épouse la taille de l'image( manuellement ) faire des "ressouces" (pour chaque objets ) pour accueillire la scene
+        -Base item ( toute les ressources hérite de ) reçois un image et colision
+        -Dragable item ()
+        - export_group --> export
 
 <hr>
 <p align="center"><img src="./_bin/end.png" alt="drawing" width="150"/></p>
-
-
