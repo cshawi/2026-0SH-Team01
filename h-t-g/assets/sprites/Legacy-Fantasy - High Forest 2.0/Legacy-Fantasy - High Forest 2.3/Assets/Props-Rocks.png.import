@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0nvnknq7rd7k"
-path="res://.godot/imported/Props-Rocks.png-89ac16c6129f2f6d5ea809248e6f41e6.ctex"
+path="res://.godot/imported/Props-Rocks.png-d54692c09a61dd0c8ade7753450f49ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png"
-dest_files=["res://.godot/imported/Props-Rocks.png-89ac16c6129f2f6d5ea809248e6f41e6.ctex"]
+source_file="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png"
+dest_files=["res://.godot/imported/Props-Rocks.png-d54692c09a61dd0c8ade7753450f49ff.ctex"]
 
 [params]
 
