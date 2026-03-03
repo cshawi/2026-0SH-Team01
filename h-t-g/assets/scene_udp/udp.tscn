@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3s75irsp70yf"]
+
+[ext_resource type="Script" uid="uid://b45k8cq3wu4ne" path="res://assets/scene_udp/udp.gd" id="1_g320w"]
+
+[node name="Udp" type="Node2D"]
+script = ExtResource("1_g320w")
