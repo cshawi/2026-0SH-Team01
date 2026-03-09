@@ -1,6 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://fi0msd8c345h"]
+[gd_scene load_steps=13 format=3 uid="uid://fi0msd8c345h"]
 
 [ext_resource type="Texture2D" uid="uid://cl7xlbyj8tx3y" path="res://assets/icons/Walk.png" id="1_4lnto"]
+[ext_resource type="PackedScene" uid="uid://vc4darec1r7c" path="res://scenes/didactitiel_part1.tscn" id="2_8r5u2"]
+[ext_resource type="PackedScene" uid="uid://i6dmyw578gio" path="res://scenes/didactitiel_part2.tscn" id="3_t2ej4"]
+[ext_resource type="Script" uid="uid://cyarh5s1qcppk" path="res://scenes/camera_2d.gd" id="4_t2ej4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpa2w"]
 atlas = ExtResource("1_4lnto")
@@ -54,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1462o")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }]
@@ -62,6 +65,23 @@ animations = [{
 [node name="World_Tomy" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(2, -29)
 sprite_frames = SubResource("SpriteFrames_7qnci")
-frame = 2
+frame_progress = 0.67607915
+
+[node name="Didactitiel_part1" parent="." instance=ExtResource("2_8r5u2")]
+
+[node name="Didactitiel_part2" parent="." instance=ExtResource("3_t2ej4")]
+position = Vector2(640, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 8
+limit_right = 1280
+limit_bottom = 368
+limit_smoothed = true
+script = ExtResource("4_t2ej4")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(641, 360)
