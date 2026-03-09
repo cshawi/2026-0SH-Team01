@@ -1,5 +1,23 @@
-[gd_scene format=3 uid="uid://prcuwbbocwdq"]
+[gd_scene load_steps=4 format=3 uid="uid://prcuwbbocwdq"]
+
+[ext_resource type="Texture2D" uid="uid://daoo30v2e2n6p" path="res://assets/icons/icon.svg" id="1_s4sqf"]
+[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="2_kt8pq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo0wk"]
+size = Vector2(1174, 133)
 
 [node name="World" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(318, 413)
+shape = SubResource("RectangleShape2D_xo0wk")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(294, 411)
+scale = Vector2(9.38672, 1)
+texture = ExtResource("1_s4sqf")
+
+[node name="FullMotionObject" parent="." instance=ExtResource("2_kt8pq")]
+position = Vector2(280, 0)

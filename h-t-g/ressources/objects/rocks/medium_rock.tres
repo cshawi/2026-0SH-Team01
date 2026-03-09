@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=2 format=3 uid="uid://ddvcphkb37vmr"]
+
+[ext_resource type="Script" path="res://scripts/ressources/objects/moveable_config.gd" id="1_4mxr4"]
+
+[resource]
+script = ExtResource("1_4mxr4")
+vitess = 0.0
+friction = 0.8
+bounce = 0.0
+push_force_required = 5.0
+max_velocity = 5.0
+gravity_scale = 1.0
+can_rotate = false
+is_static_until_pushed = false
+can_be_pushed = true
+can_be_pulled = false
+can_be_carried = false
+is_destructible = false
+durability = 100
+damage_on_impact = 0
+spawn_particles_on_impact = false

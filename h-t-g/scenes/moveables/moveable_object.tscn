@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://djkv5jmkahema"]
+
+[ext_resource type="Script" path="res://scripts/moveableObjects/moveable_object.gd" id="1_a00gy"]
+[ext_resource type="Resource" uid="uid://d3na574taum6t" path="res://ressources/objects/rocks/large_rock.tres" id="2_2cq4o"]
+[ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="3_niwhi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ksmd"]
+atlas = ExtResource("3_niwhi")
+region = Rect2(6.42198, 1.8679, 54.5218, 78.9123)
+
+[node name="large_rock" type="RigidBody2D" groups=["MoveableObjects"]]
+position = Vector2(-11, -56)
+script = ExtResource("1_a00gy")
+config = ExtResource("2_2cq4o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_4ksmd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1.66893e-06, 0.500004)
+scale = Vector2(1.6875, 2.46875)
+build_mode = 1
+polygon = PackedVector2Array(-9.88996e-07, -16.4051, -4.14815, -14.7848, -8.88889, -8.3038, -15.4074, 6.68354, -16, 7.89873, -16, 12.7595, -12.4444, 15.5949, 16, 15.5949, 16, 1.01266, 13.6296, -0.607597, 14.2222, -2.22785, 13.037, -3.03798, 12.4444, -5.06329, 3.55555, -16)

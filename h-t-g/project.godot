@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="H-T-G"
+run/main_scene="res://scenes/moveables/moveable_object.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.svg"
 
@@ -21,6 +22,10 @@ window/size/viewport_height=360
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+MoveableObjects=""
 
 [rendering]
 
