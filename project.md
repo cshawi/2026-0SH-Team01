@@ -51,5 +51,10 @@ Nous placerons ici les étapes de réalisation du projet, telles que les livrabl
         -Dragable item ()
         - export_group --> export
 
+## Ajout d'ennemie
+
+    -ennemie drop lot -->
+    -Focre du joueur
+
 <hr>
 <p align="center"><img src="./_bin/end.png" alt="drawing" width="150"/></p>
