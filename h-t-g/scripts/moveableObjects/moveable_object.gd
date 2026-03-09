@@ -39,8 +39,8 @@ func _ready():
 	apply_config()
 
 func _process(delta: float) -> void:
-	if(is_selected):
-		action()
+	#if(is_selected):
+	action();
 	pass
 	
 func action():

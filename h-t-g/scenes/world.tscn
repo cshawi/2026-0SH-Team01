@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://prcuwbbocwdq"]
+[gd_scene load_steps=6 format=3 uid="uid://prcuwbbocwdq"]
 
 [ext_resource type="Texture2D" uid="uid://daoo30v2e2n6p" path="res://assets/icons/icon.svg" id="1_s4sqf"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="2_kt8pq"]
+[ext_resource type="PackedScene" uid="uid://dncsx7cx4k2h" path="res://scenes/static/full_static_object.tscn" id="3_mdtvx"]
+[ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/doors/close/door.tres" id="4_hstml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo0wk"]
 size = Vector2(1174, 133)
 
 [node name="World" type="Node2D"]
+position = Vector2(-2, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -20,4 +23,8 @@ scale = Vector2(9.38672, 1)
 texture = ExtResource("1_s4sqf")
 
 [node name="FullMotionObject" parent="." instance=ExtResource("2_kt8pq")]
-position = Vector2(280, 0)
+position = Vector2(258, 207)
+
+[node name="FullStaticObject" parent="." instance=ExtResource("3_mdtvx")]
+position = Vector2(361, 284)
+config = ExtResource("4_hstml")
