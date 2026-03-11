@@ -1,16 +1,16 @@
 [gd_resource type="TileSet" load_steps=17 format=3 uid="uid://ua02pdlp8574"]
 
-[ext_resource type="Texture2D" uid="uid://de7sidwnkhlra" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="1_en0al"]
-[ext_resource type="Texture2D" uid="uid://clchnmpen0e5e" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="2_or65l"]
-[ext_resource type="Texture2D" uid="uid://c6f21f7oemb8o" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="3_u3x2h"]
-[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="4_vgc4d"]
-[ext_resource type="Texture2D" uid="uid://cq30dcplpip1c" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Trees/Yellow-Tree.png" id="5_dltpg"]
-[ext_resource type="Texture2D" uid="uid://cgf0lqyupj3tb" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Trees/Green-Tree.png" id="6_dc1yr"]
-[ext_resource type="Texture2D" uid="uid://r4ex2t2g6u4t" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Trees/Background.png" id="7_iuoid"]
-[ext_resource type="Texture2D" uid="uid://d0nvnknq7rd7k" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png" id="8_vgc4d"]
+[ext_resource type="Texture2D" uid="uid://de7sidwnkhlra" path="res://assets/sprites/Background/Buildings.png" id="1_a08sy"]
+[ext_resource type="Texture2D" uid="uid://clchnmpen0e5e" path="res://assets/sprites/Background/Interior-01.png" id="2_e5ign"]
+[ext_resource type="Texture2D" uid="uid://c6f21f7oemb8o" path="res://assets/sprites/Background/Tiles.png" id="3_nxbmv"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Background/Tree-Assets.png" id="4_jinbe"]
+[ext_resource type="Texture2D" uid="uid://cjff6gqwrow82" path="res://assets/sprites/Objects/Trees/Yellow-Tree.png" id="5_sxlvg"]
+[ext_resource type="Texture2D" uid="uid://coswkrnhvb3s0" path="res://assets/sprites/Objects/Trees/Green-Tree.png" id="6_dic2w"]
+[ext_resource type="Texture2D" uid="uid://r4ex2t2g6u4t" path="res://assets/sprites/Background/Background.png" id="7_jokw7"]
+[ext_resource type="Texture2D" uid="uid://d0nvnknq7rd7k" path="res://assets/sprites/Background/Props-Rocks.png" id="8_gj2m0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
-texture = ExtResource("1_en0al")
+texture = ExtResource("1_a08sy")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -643,7 +643,7 @@ texture = ExtResource("1_en0al")
 9:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nkto"]
-texture = ExtResource("2_or65l")
+texture = ExtResource("2_e5ign")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -910,16 +910,14 @@ texture = ExtResource("2_or65l")
 7:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exudw"]
-texture = ExtResource("3_u3x2h")
+texture = ExtResource("3_nxbmv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
 6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.719435, 8, 8, 4.31661, 8, 8)
 7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 3.41732, 0.899294, 8)
 9:0/0 = 0
 10:0/0 = 0
 11:0/0 = 0
@@ -943,9 +941,9 @@ texture = ExtResource("3_u3x2h")
 6:1/0 = 0
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -4.13675, -1.43887, -8, 8, -8, 8, 8)
 7:1/0 = 0
-7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 1.97845, -8, 8, -4.13675, 8, 8)
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1.2590122, -8, 8, -1.978447, 8, 8, -8, 8)
 8:1/0 = 0
-8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.93534, 8, 3.41732, 8, 8, -8, 8)
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.8274593, 8, 8, -8, 8)
 9:1/0 = 0
 10:1/0 = 0
 11:1/0 = 0
@@ -1409,7 +1407,7 @@ texture = ExtResource("3_u3x2h")
 19:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nvcuu"]
-texture = ExtResource("4_vgc4d")
+texture = ExtResource("4_jinbe")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1699,7 +1697,7 @@ texture = ExtResource("4_vgc4d")
 18:23/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uuoex"]
-texture = ExtResource("5_dltpg")
+texture = ExtResource("5_sxlvg")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -4668,7 +4666,7 @@ texture = ExtResource("5_dltpg")
 70:74/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvt3m"]
-texture = ExtResource("6_dc1yr")
+texture = ExtResource("6_dic2w")
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
@@ -7637,7 +7635,7 @@ texture = ExtResource("6_dc1yr")
 70:74/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qraoe"]
-texture = ExtResource("7_iuoid")
+texture = ExtResource("7_jokw7")
 7:0/0 = 0
 8:0/0 = 0
 11:0/0 = 0
@@ -8333,7 +8331,7 @@ texture = ExtResource("7_iuoid")
 13:8/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dltpg"]
-texture = ExtResource("8_vgc4d")
+texture = ExtResource("8_gj2m0")
 1:0/0 = 0
 2:0/0 = 0
 4:0/0 = 0

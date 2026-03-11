@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://vc4darec1r7c"]
 
-[ext_resource type="Texture2D" uid="uid://b0tqa1wy53v71" path="res://assets/sprites/Legacy-Fantasy - High Forest 2.0/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_u5k3k"]
-[ext_resource type="TileSet" uid="uid://s5ceul43hb5k" path="res://scenes/buildings.tres" id="2_cw47k"]
+[ext_resource type="Texture2D" uid="uid://bdjpc5185k1uh" path="res://assets/sprites/Background/BG_Sky.png" id="1_u5k3k"]
+[ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="2_cw47k"]
 
 [node name="Didactitiel_part1" type="Node2D"]
 
