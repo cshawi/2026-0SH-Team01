@@ -1,6 +1,22 @@
 <p align="center"><img src="./_bin/logo.svg" alt="drawing" width="100"/></p>
 <h4 align="center">0SH - Gestion de projet (2026)</h4>
-<h2 align="center">[NOM DE CODE]</h2>
+
+
+# Calendrier du projet
+
+|  Date |                   Matière en classe                    |    Projet     |
+| ----: | :----------------------------------------------------: | :-----------: |
+| 02-20 |              Création d'un projet GitHub               | Planification |
+| 02-27 |           Structuration des attribution de tâches      |  Livrable #1  |
+| 03-06 |                        Relâche                         |               |
+| 03-13 |                                                        |               |
+| 03-20 |                                                        |               |
+| 03-27 |                                                        |               |
+| 04-03 |                    Congé de Pâques                     |               |
+| 04-10 |                                                        |               |
+| 04-17 |                                                        |               |
+| 04-24 |                                                        |               |
+| 05-01 | Présentation des projets en classe (Épreuve terminale) |  Livrable #4  |
 
 # 1. Mise en situation (client)
 
@@ -21,16 +37,6 @@ Afin de valider une architecture distribuée et adaptée aux contraintes temps r
 Du côté de Godot, le dernier paquets reçus sera lu et il sera utilisé à chaque frame pour interpréter les gestes (position, orientation, pincement) et contrôler les interactions dans le jeu.
 
 Cette architecture répartie (**Python + MediaPipe** sur une machine, **Godot** sur une autre) démontre la faisabilité d’un pipeline temps réel performant, combinant vision par ordinateur, communication réseau à faible latence et intégration interactive dans un moteur de jeu.
-
-## 3.1 Introduction
-
-## 3.2 Besoin
-
-## 3.3 ...
-
-# 4. Planification
-
-Nous placerons ici les étapes de réalisation du projet, telles que les livrables et les paramètres.
 
 <hr>
 <p align="center"><img src="./_bin/end.png" alt="drawing" width="150"/></p>
