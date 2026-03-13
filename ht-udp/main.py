@@ -9,6 +9,7 @@ GODOT_IP = "127.0.0.1"
 GODOT_PORT = 4280
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
+
 cap = cv2.VideoCapture(0)
 
 mp_hands = mp.solutions.hands
