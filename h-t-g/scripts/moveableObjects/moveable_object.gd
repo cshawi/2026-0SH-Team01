@@ -39,9 +39,14 @@ func _ready():
 	apply_config()
 
 func _process(delta: float) -> void:
-	#if(is_selected):
-	action();
-	pass
+	if(is_selected):
+		action();
+	
+func activate(cursor: MagicCursor):
+	print("je suis activer")
+	
+func desactivate():
+	print("je suis desactiver")
 	
 func action():
 	pass

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://brwc0jotdfqc1"]
 
-[ext_resource type="Script" uid="uid://bqmk0clstpcfv" path="res://scripts/cursor/magic_cursor.gd" id="1_ogrta"]
-[ext_resource type="Shader" uid="uid://btqc6wgvuk1j2" path="res://scripts/shaders/magic_cursor.gdshader" id="2_mkgxw"]
+[ext_resource type="Script" path="res://scripts/cursor/magic_cursor.gd" id="1_ogrta"]
+[ext_resource type="Shader" path="res://scripts/shaders/magic_cursor.gdshader" id="2_mkgxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ee8ag"]
 shader = ExtResource("2_mkgxw")
@@ -34,11 +34,11 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_fa0id"]
-colors = PackedColorArray(0.28627452, 1, 1, 1, 0.28627452, 0.5019608, 1, 0)
+colors = PackedColorArray(0.286275, 1, 1, 1, 0.286275, 0.501961, 1, 0)
 
-[node name="MagicCursor" type="Area2D"]
+[node name="MagicCursor" type="Area2D" groups=["MoveableObjects"]]
 script = ExtResource("1_ogrta")
-color = Color(0.19921005, 0.42818522, 1, 1)
+color = Color(0.19921, 0.428185, 1, 1)
 mouse_mode = false
 
 [node name="Distorsion" type="ColorRect" parent="."]
@@ -62,7 +62,7 @@ shape = SubResource("CircleShape2D_bw1ip")
 texture = SubResource("GradientTexture2D_ee8ag")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0.63529414, 1, 0.7607843)
+self_modulate = Color(0, 0.635294, 1, 0.760784)
 position = Vector2(0, -0.5)
 texture = SubResource("GradientTexture2D_mkgxw")
 

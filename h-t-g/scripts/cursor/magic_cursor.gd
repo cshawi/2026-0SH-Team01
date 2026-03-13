@@ -1,3 +1,4 @@
+class_name MagicCursor
 extends Area2D
 
 @export_group("Visual")
@@ -7,7 +8,12 @@ extends Area2D
 @export_group("Utils")
 @export var mouse_mode := true
 @export var lerp_weight := 0.15
+
 var is_holding := false
+var closest_object = null
+
+const MAX_INT = (1 << 63) - 1
+
 
 func _ready() -> void:
 	initialize_visual()
@@ -27,13 +33,22 @@ func change_color(new_color):
 
 func _process(delta: float) -> void:
 	if Udp.is_pinching:
+		grab_object()
 		change_color(Color.RED)
 	else:
+		resetObject();
 		change_color(Color.AQUA)
+		
+		
 	if mouse_mode:
 		mouse()
 	else:
 		hand_tracking()
+
+func resetObject():
+	is_holding = false
+	closest_object.desactivate()
+	closest_object = null
 
 func mouse():
 	global_position = get_global_mouse_position()
@@ -44,3 +59,29 @@ func hand_tracking():
 	global_position = global_position.lerp(Udp.hand_position, lerp_weight)
 	#if Udp.is_pinching:
 		#mouse_mode = true
+
+
+func grab_object():
+	
+	if is_holding: return
+	
+	var closest_distance = MAX_INT
+	
+	var objects = get_overlapping_bodies()
+	
+	for object in objects:
+		
+		if object.is_in_group("Objects"):
+			var distance = object.distance_to(global_position)
+			
+			if distance < closest_distance: 
+				closest_distance = distance
+				closest_object = object
+	
+	if closest_object:
+		is_holding = true
+		if closest_object is MoveableObject:
+			closest_object.activate(self) 
+		if closest_object is StaticObject:
+			closest_object.activate()
+			

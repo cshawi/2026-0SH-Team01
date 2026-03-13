@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="The Hand of Fate"
-run/main_scene="uid://da4mjycku34dl"
-config/features=PackedStringArray("4.5")
+run/main_scene="res://scenes/world_tomy.tscn"
+config/features=PackedStringArray("4.3")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,7 +29,7 @@ window/stretch/aspect="expand"
 
 [global_group]
 
-MoveableObjects=""
+Objects=""
 
 [rendering]
 
