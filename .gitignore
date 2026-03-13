@@ -1,0 +1,28 @@
+# venv
+ht-udp/venv/
+.env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+#Godot
+h-t-g/.godot
+# Mac
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# fichiers spécifiques
+config.json
+secret.txt
+
+# dossiers spécifiques
+data/
+models/
