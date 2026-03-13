@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfrardhy30mqr"
-path="res://.godot/imported/Charge_1.png-7667aeff766da67cf50c37d139d7839d.ctex"
+uid="uid://bcuta35gn812k"
+path="res://.godot/imported/thf_title.png-132b65b8f781f855cfd85bb4b61a6a9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Wanderer Magican/Charge_1.png"
-dest_files=["res://.godot/imported/Charge_1.png-7667aeff766da67cf50c37d139d7839d.ctex"]
+source_file="res://assets/icons/thf_title.png"
+dest_files=["res://.godot/imported/thf_title.png-132b65b8f781f855cfd85bb4b61a6a9e.ctex"]
 
 [params]
 
