@@ -1,23 +1,6 @@
 <p align="center"><img src="./_bin/logo.svg" alt="drawing" width="100"/></p>
 <h4 align="center">0SH - Gestion de projet (2026)</h4>
 
-
-# Calendrier du projet
-
-|  Date |                   Matière en classe                    |    Projet     |
-| ----: | :----------------------------------------------------: | :-----------: |
-| 02-20 |              Création d'un projet GitHub               | Planification |
-| 02-27 |           Structuration des attribution de tâches      |  Livrable #1  |
-| 03-06 |                        Relâche                         |               |
-| 03-13 |                                                        |               |
-| 03-20 |                                                        |               |
-| 03-27 |                                                        |               |
-| 04-03 |                    Congé de Pâques                     |               |
-| 04-10 |                                                        |               |
-| 04-17 |                                                        |               |
-| 04-24 |                                                        |               |
-| 05-01 | Présentation des projets en classe (Épreuve terminale) |  Livrable #4  |
-
 # 1. Mise en situation (client)
 
 Il demande d'avoir un jeu intéractif avec la main pour créer un lien physique entre le joueur et le résultat numérique. Il souhaite que le style de jeux soit fonctionnel avec la main, pour la facilitée d'accès au produit.
