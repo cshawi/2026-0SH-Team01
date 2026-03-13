@@ -22,6 +22,7 @@ h-t-g/.godot
 # fichiers spécifiques
 config.json
 secret.txt
+*.xcf
 
 # dossiers spécifiques
 data/
