@@ -7,7 +7,7 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(346, 178)
-scale = Vector2(6.1640625, 3.609375)
+scale = Vector2(6.16406, 3.60938)
 texture = ExtResource("2_44tsi")
 
 [node name="MagicCursor" parent="." instance=ExtResource("1_co7rp")]
