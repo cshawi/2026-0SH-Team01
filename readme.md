@@ -9,9 +9,9 @@ Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez exp
 
 <hr><p align="Center"><img src="./_bin/end.png" alt="drawing" width="100"/></p>
 
-- Décrivez le produit **actuellement** en "production".
+### Description du produit final
+Écrivez ici une courte description de 2 ou 3 phrases de votre projet.
 
-- Créez un guide pas-à-pas permettant de lancer votre application en prenant pour acquis que le lecteur n'aura effectué qu'un `git clone` local à ce stade.
 
 # Comment partir le projet
 
