@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="H-T-G"
-config/features=PackedStringArray("4.3")
+run/main_scene="uid://da4mjycku34dl"
+config/features=PackedStringArray("4.5")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Udp="*res://scripts/protocol/udp.gd"
 
 [display]
 

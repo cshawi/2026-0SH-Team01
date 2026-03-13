@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://brwc0jotdfqc1"]
+
+[ext_resource type="Script" uid="uid://bqmk0clstpcfv" path="res://scripts/cursor/magic_cursor.gd" id="1_ogrta"]
+[ext_resource type="Shader" uid="uid://btqc6wgvuk1j2" path="res://scripts/shaders/magic_cursor.gdshader" id="2_mkgxw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee8ag"]
+shader = ExtResource("2_mkgxw")
+shader_parameter/strength = -0.05
+shader_parameter/size = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bw1ip"]
+
+[sub_resource type="Gradient" id="Gradient_mkgxw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ee8ag"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_mkgxw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.2)
+
+[sub_resource type="Gradient" id="Gradient_ogrta"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mkgxw"]
+gradient = SubResource("Gradient_ogrta")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.2)
+
+[sub_resource type="Curve" id="Curve_ee8ag"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_fa0id"]
+colors = PackedColorArray(0.28627452, 1, 1, 1, 0.28627452, 0.5019608, 1, 0)
+
+[node name="MagicCursor" type="Area2D"]
+script = ExtResource("1_ogrta")
+color = Color(0.19921005, 0.42818522, 1, 1)
+mouse_mode = false
+
+[node name="Distorsion" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ee8ag")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bw1ip")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_ee8ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.63529414, 1, 0.7607843)
+position = Vector2(0, -0.5)
+texture = SubResource("GradientTexture2D_mkgxw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 15.0
+gravity = Vector2(0, 0)
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.4
+radial_accel_min = -10.0
+scale_amount_curve = SubResource("Curve_ee8ag")
+color_ramp = SubResource("Gradient_fa0id")

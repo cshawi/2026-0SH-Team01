@@ -10,21 +10,24 @@ GODOT_PORT = 4280
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(
     static_image_mode=False, # Indique qu'on traite une vidéo, pas des photos
-    max_num_hands=1,         # Une main
+    max_num_hands=1,         # Une seule main
     model_complexity=0       # Utilise le modèle d'IA le plus rapide
 )
 
+new_width = 640
+new_height = 360
+
 while cap.isOpened():
-    success, img = cap.read()
+    success, frame = cap.read()
+    img = cv2.resize(frame, (new_width, new_height))
+    img = cv2.flip(img, 1)
+
     if not success: break
 
-    img = cv2.flip(img, 1)
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(img_rgb)
 
