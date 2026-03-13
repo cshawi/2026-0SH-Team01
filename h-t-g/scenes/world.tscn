@@ -28,3 +28,4 @@ position = Vector2(258, 207)
 [node name="FullStaticObject" parent="." instance=ExtResource("3_mdtvx")]
 position = Vector2(361, 284)
 config = ExtResource("4_hstml")
+is_click = true

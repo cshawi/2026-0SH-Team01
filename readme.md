@@ -5,13 +5,7 @@
 
 ### Description du produit final
 
-Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez expérimenter la télékinésie dans un monde de magie et de fantaisie.
-
-<hr><p align="Center"><img src="./_bin/end.png" alt="drawing" width="100"/></p>
-
-### Description du produit final
-
-Écrivez ici une courte description de 2 ou 3 phrases de votre projet.
+Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez expérimenter la télékinésie dans un monde fantastique.
 
 # Comment partir le projet
 

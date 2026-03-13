@@ -22,7 +22,9 @@ Vous **devez** utiliser **Python 3.12**. Les versions plus récentes ne sont pas
    .\venv\Scripts\activate
    ```
 
-   ```macos
+   ### MacOS
+
+   ```bash
    source venv/bin/activate
    ```
 
@@ -39,7 +41,9 @@ Vous **devez** utiliser **Python 3.12**. Les versions plus récentes ne sont pas
    .\venv\Scripts\activate
    ```
 
-   ```macos
+   ### MacOS
+
+   ```bash
    source venv/bin/activate
    ```
 
