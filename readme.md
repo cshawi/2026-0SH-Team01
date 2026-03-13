@@ -10,8 +10,8 @@ Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez exp
 <hr><p align="Center"><img src="./_bin/end.png" alt="drawing" width="100"/></p>
 
 ### Description du produit final
-Écrivez ici une courte description de 2 ou 3 phrases de votre projet.
 
+Écrivez ici une courte description de 2 ou 3 phrases de votre projet.
 
 # Comment partir le projet
 
@@ -20,13 +20,13 @@ Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez exp
 |  Date |                   Matière en classe                    |    Projet     |
 | ----: | :----------------------------------------------------: | :-----------: |
 | 02-20 |              Création d'un projet GitHub               | Planification |
-| 02-27 |        Structuration des attribution de tâches         |               |
+| 02-27 |                                                        |               |
 | 03-06 |                        Relâche                         |               |
-| 03-13 |                                                        |  Livrable #1  |
-| 03-20 |                                                        |  Livrable #2  |
+| 03-13 |        Structuration des attribution de tâches         |  Livrable #1  |
+| 03-20 |              Présentation du didactitiel               |  Livrable #2  |
 | 03-27 |                                                        |               |
 | 04-03 |                    Congé de Pâques                     |               |
-| 04-10 |             Menu, Fonctionnalité générale,             |  Livrable #3  |
+| 04-10 |          Menu, Fonctionnalité générale, Mobs           |  Livrable #3  |
 | 04-17 |                                                        |               |
 | 04-24 |                                                        |               |
 | 05-01 | Présentation des projets en classe (Épreuve terminale) |  Livrable #4  |

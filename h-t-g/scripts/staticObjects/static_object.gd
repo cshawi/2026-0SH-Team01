@@ -5,8 +5,9 @@ class_name StaticObject
 @export var config: StaticObjectConfig
 
 #@export_group("Interaction")
-var is_click :bool = false;
-var is_open :bool = false;
+@export var is_click :bool = false;
+@export var is_open :bool = false;
+
 var weight :float=0.0;
 func _ready():
 	apply_config()
