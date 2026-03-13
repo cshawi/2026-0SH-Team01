@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxn3atg6enjve"]
+
+[ext_resource type="Script" path="res://scripts/staticObjects/static_object.gd" id="1_hwbgp"]
+
+[node name="StaticObject" type="Node2D"]
+script = ExtResource("1_hwbgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
