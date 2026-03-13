@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://da4mjycku34dl"]
+
+[ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="1_co7rp"]
+[ext_resource type="Texture2D" uid="uid://daoo30v2e2n6p" path="res://assets/icons/icon.svg" id="2_44tsi"]
+
+[node name="MainLiam" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(346, 178)
+scale = Vector2(6.1640625, 3.609375)
+texture = ExtResource("2_44tsi")
+
+[node name="MagicCursor" parent="." instance=ExtResource("1_co7rp")]
