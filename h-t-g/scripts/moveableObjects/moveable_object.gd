@@ -1,5 +1,5 @@
 @tool
-extends RigidBody2D
+extends CharacterBody2D
 class_name MoveableObject
 
 @export var config: MoveableConfig
@@ -10,7 +10,9 @@ var collision_shape: Shape2D;
 var weight: float;
 
 #("Physique")
-var vitess: float
+@export var speed:=200.0
+@export var  damping:=0.0
+
 var friction: float
 var bounce: float
 var push_force_required: float
@@ -35,22 +37,32 @@ var is_grounded: bool
 var last_pusher: Node
 var current_velocity: Vector2
 
+var magic_cursor: MagicCursor
+var player_strength
 func _ready():
 	apply_config()
 
 func _process(delta: float) -> void:
-	if(is_selected):
+	if(magic_cursor):
 		action();
 	
-func activate(cursor: MagicCursor):
-	print("je suis activer")
+func activate(cursor: MagicCursor, strength):
+	magic_cursor = cursor
+	player_strength = strength
+	
+	print("Activate =>", magic_cursor )
+	#comment assigner une postion en x et y pour un rigide body2d
 	
 func desactivate():
-	print("je suis desactiver")
+	magic_cursor = null
+	print("Desactivat => " , magic_cursor)
 	
 func action():
+	
 	pass
+	
 
+	
 func apply_config():
 	if config == null:
 		push_warning("MoveableObject: config manquante")
@@ -59,12 +71,11 @@ func apply_config():
 	weight = config.weight
 	$CollisionPolygon2D.polygon = config.collision_polygon
 	$Sprite2D.texture = config.texture
-	vitess = config.vitess
+	speed = config.vitess
 	friction = config.friction
 	bounce = config.bounce
 	push_force_required = config.push_force_required
 	max_velocity = config.max_velocity
-	gravity_scale = config.gravity_scale
 	can_rotate = config.can_rotate
 	is_static_until_pushed = config.is_static_until_pushed
 

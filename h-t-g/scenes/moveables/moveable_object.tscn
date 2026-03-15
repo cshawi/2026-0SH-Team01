@@ -8,10 +8,12 @@
 atlas = ExtResource("3_57tiy")
 region = Rect2(6, 2, 56, 78)
 
-[node name="large_rock" type="RigidBody2D" groups=["MoveableObjects"]]
+[node name="MoveableObject" type="CharacterBody2D" groups=["MoveableObjects", "Objects"]]
 position = Vector2(-11, -56)
 script = ExtResource("1_a00gy")
 config = ExtResource("2_2cq4o")
+speed = 900000.0
+damping = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_v4q05")

@@ -46,7 +46,9 @@ func _process(delta: float) -> void:
 		hand_tracking()
 
 func resetObject():
+	if not is_holding: return
 	is_holding = false
+	
 	closest_object.desactivate()
 	closest_object = null
 
@@ -70,18 +72,18 @@ func grab_object():
 	var objects = get_overlapping_bodies()
 	
 	for object in objects:
-		
 		if object.is_in_group("Objects"):
-			var distance = object.distance_to(global_position)
+			var distance = object.global_position.distance_to(global_position)
 			
 			if distance < closest_distance: 
 				closest_distance = distance
 				closest_object = object
 	
+	print(closest_object)
 	if closest_object:
 		is_holding = true
 		if closest_object is MoveableObject:
-			closest_object.activate(self) 
+			closest_object.activate(self,get_parent().STRENGHT)
 		if closest_object is StaticObject:
 			closest_object.activate()
 			

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://d3na574taum6t"]
 
-[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_12n81"]
+[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_12n81"]
 [ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="2_1fxu4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4q05"]
@@ -9,6 +9,22 @@ region = Rect2(6, 2, 56, 78)
 
 [resource]
 script = ExtResource("1_12n81")
+vitess = 2000.0
+friction = 0.8
+bounce = 0.0
+push_force_required = 1.0
+max_velocity = 5.0
+gravity_scale = 1.0
+can_rotate = false
+is_static_until_pushed = false
+can_be_pushed = true
+can_be_pulled = false
+can_be_carried = false
+is_destructible = false
+durability = 100
+damage_on_impact = 0
+spawn_particles_on_impact = false
 name = "large_rock"
 texture = SubResource("AtlasTexture_v4q05")
 collision_polygon = PackedVector2Array(-9.88996e-07, -16.4051, -4.14815, -14.7848, -8.88889, -8.3038, -15.4074, 6.68354, -16, 7.89873, -16, 12.7595, -12.4444, 15.5949, 16, 15.5949, 16, 1.01266, 13.6296, -0.607597, 14.2222, -2.22785, 13.037, -3.03798, 12.4444, -5.06329, 3.55555, -16)
+weight = 0.0

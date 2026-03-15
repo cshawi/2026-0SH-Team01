@@ -12,6 +12,8 @@ class_name Player
 const SPEED = 100
 const JUMP_FORCE = -350
 const GRAVITY = 900
+const STRENGHT = 100 
+
 
 var muzzle_offset: Vector2
 var enemies_in_range: Array[Node2D] = []

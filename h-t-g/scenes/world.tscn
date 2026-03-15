@@ -24,6 +24,8 @@ texture = ExtResource("1_s4sqf")
 
 [node name="FullMotionObject" parent="." instance=ExtResource("2_kt8pq")]
 position = Vector2(258, 207)
+speed = 200.0
+damping = 0.0
 
 [node name="FullStaticObject" parent="." instance=ExtResource("3_mdtvx")]
 position = Vector2(361, 284)

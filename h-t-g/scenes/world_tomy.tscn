@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fi0msd8c345h"]
+[gd_scene load_steps=5 format=3 uid="uid://fi0msd8c345h"]
 
 [ext_resource type="PackedScene" uid="uid://vc4darec1r7c" path="res://scenes/Levels Scenes/didactitiel_part1.tscn" id="2_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="3_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://i6dmyw578gio" path="res://scenes/Levels Scenes/didactitiel_part2.tscn" id="3_t2ej4"]
+[ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="4_rnj1a"]
 
 [node name="World_Tomy" type="Node2D"]
 
@@ -13,3 +14,11 @@ position = Vector2(640, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_8r5u2")]
 position = Vector2(49, 294)
+
+[node name="large_rock" parent="." instance=ExtResource("4_rnj1a")]
+position = Vector2(169, 157)
+speed = 2000.0
+
+[node name="large_rock2" parent="." instance=ExtResource("4_rnj1a")]
+position = Vector2(386, 156)
+speed = 2000.0

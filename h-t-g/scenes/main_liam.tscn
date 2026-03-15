@@ -11,5 +11,3 @@ scale = Vector2(6.16406, 3.60938)
 texture = ExtResource("2_44tsi")
 
 [node name="MagicCursor" parent="." instance=ExtResource("1_co7rp")]
-size = null
-lerp_weight = null
