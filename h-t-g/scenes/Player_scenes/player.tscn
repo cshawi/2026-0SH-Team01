@@ -492,6 +492,9 @@ shape = SubResource("CircleShape2D_tgep5")
 position = Vector2(66, -10)
 
 [node name="MagicCursor" parent="." instance=ExtResource("9_rh45m")]
+size = null
+mouse_mode = true
+lerp_weight = null
 
 [connection signal="animation_finished" from="PlayerAnimation" to="." method="_on_player_animation_animation_finished"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

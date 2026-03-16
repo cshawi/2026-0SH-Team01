@@ -8,7 +8,8 @@ atlas = ExtResource("3_57tiy")
 region = Rect2(6, 2, 56, 78)
 
 [node name="MoveableObject" type="CharacterBody2D" groups=["MoveableObjects", "Objects"]]
-position = Vector2(-11, -56)
+position = Vector2(0, 1735093500)
+velocity = Vector2(0, 1845918.3)
 script = ExtResource("1_a00gy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

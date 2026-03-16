@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		
 func _physics_process(delta: float) -> void:
 	if magic_cursor:
-		action()
+		action(delta)
 	else:
 		gravity(delta)
 		
@@ -74,23 +74,26 @@ func desactivate():
 	magic_cursor = null
 	print("Desactivat => " , magic_cursor)
 	
-func action():
+func action(delta):
 	var distance = (magic_cursor.global_position - global_position)
 	if distance.length() > 150:
 		desactivate()
 		return
 	
 	velocity = distance * player_strength / weight
-	move_and_slide()
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = Vector2.ZERO
 
 func apply_config():
 	if config == null:
 		push_warning("MoveableObject: config manquante")
 		return
-	name = config.name
-	weight = config.weight
-	$CollisionPolygon2D.polygon = config.collision_polygon
-	$Sprite2D.texture = config.texture
+	var params = config.duplicate()
+	name = params.name
+	weight = params.weight
+	$CollisionPolygon2D.polygon = params.collision_polygon
+	$Sprite2D.texture = params.texture
 	#speed = config.vitess
 	#friction = config.friction
 	#bounce = config.bounce
