@@ -58,7 +58,8 @@ func mouse():
 		#mouse_mode = false
 
 func hand_tracking():
-	global_position = global_position.lerp(Udp.hand_position, lerp_weight)
+	var world_pos := get_viewport().get_canvas_transform().affine_inverse() * Udp.hand_screen_position
+	global_position = global_position.lerp(world_pos, lerp_weight)
 	#if Udp.is_pinching:
 		#mouse_mode = true
 
