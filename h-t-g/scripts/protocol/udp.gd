@@ -4,7 +4,7 @@ var server := UDPServer.new()
 var port := 4280
 var active_peer : PacketPeerUDP = null
 
-var hand_position := Vector2.ZERO
+var hand_screen_position := Vector2.ZERO
 var is_pinching := false
 var last_pinch := false
 var pinching_distance := 0.05
@@ -31,7 +31,7 @@ func _update_data(message: String, _delta):
 		var point1 = Vector2(coords[0].to_float(), coords[1].to_float())
 		var point2 = Vector2(coords[2].to_float(), coords[3].to_float())
 		
-		var viewport_size = get_viewport_rect().size
+		var viewport_size = get_viewport().get_visible_rect().size
 		
 		var dist = point1.distance_to(point2)
 		
@@ -47,5 +47,7 @@ func _update_data(message: String, _delta):
 		else:
 			is_pinching = last_pinch
 		
-		hand_position.x = (point1.x + point2.x) / 2.0 * viewport_size.x
-		hand_position.y = (point1.y + point2.y) / 2.0 * viewport_size.y
+		hand_screen_position = Vector2(
+			(point1.x + point2.x) / 2.0 * viewport_size.x,
+			(point1.y + point2.y) / 2.0 * viewport_size.y
+		)

@@ -72,12 +72,12 @@ func apply_config():
 	$CollisionPolygon2D.polygon = config.collision_polygon
 	$Sprite2D.texture = config.texture
 	speed = config.vitess
-	friction = config.friction
-	bounce = config.bounce
-	push_force_required = config.push_force_required
-	max_velocity = config.max_velocity
-	can_rotate = config.can_rotate
-	is_static_until_pushed = config.is_static_until_pushed
+	#friction = config.friction
+	#bounce = config.bounce
+	#push_force_required = config.push_force_required
+	#max_velocity = config.max_velocity
+	#can_rotate = config.can_rotate
+	#is_static_until_pushed = config.is_static_until_pushed
 
 	is_destructible = config.is_destructible
 	durability = config.durability

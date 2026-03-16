@@ -17,8 +17,6 @@ position = Vector2(49, 294)
 
 [node name="large_rock" parent="." instance=ExtResource("4_rnj1a")]
 position = Vector2(169, 157)
-speed = 2000.0
 
 [node name="large_rock2" parent="." instance=ExtResource("4_rnj1a")]
 position = Vector2(386, 156)
-speed = 2000.0

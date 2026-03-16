@@ -32,7 +32,7 @@ func change_color(new_color):
 	$CPUParticles2D.color_ramp.set_color(0, new_color.lightened(0.5))
 
 func _process(delta: float) -> void:
-	if Udp.is_pinching:
+	if Udp.is_pinching if not mouse_mode else Input.is_action_pressed("Cast"):
 		grab_object()
 		change_color(Color.RED)
 	else:
@@ -58,7 +58,8 @@ func mouse():
 		#mouse_mode = false
 
 func hand_tracking():
-	global_position = global_position.lerp(Udp.hand_position, lerp_weight)
+	var world_pos := get_viewport().get_canvas_transform().affine_inverse() * Udp.hand_screen_position
+	global_position = global_position.lerp(world_pos, lerp_weight)
 	#if Udp.is_pinching:
 		#mouse_mode = true
 
