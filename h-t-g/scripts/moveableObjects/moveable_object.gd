@@ -4,10 +4,12 @@ class_name MoveableObject
 
 @export var config: MoveableConfig
 
+const GRAVITY = 980
+
 #("Information")
-var texture: Texture2D;
-var collision_shape: Shape2D;
-var weight: float;
+var texture: Texture2D
+var collision_shape: Shape2D
+var weight: float
 
 #("Physique")
 @export var speed:=200.0
@@ -43,8 +45,23 @@ func _ready():
 	apply_config()
 
 func _process(delta: float) -> void:
-	if(magic_cursor):
-		action();
+	#if(magic_cursor):
+		#action()
+	pass
+		
+func _physics_process(delta: float) -> void:
+	if magic_cursor:
+		action()
+	else:
+		gravity(delta)
+		
+func gravity(delta):
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
+	else:
+		velocity.x = move_toward(velocity.x, 0, 15)
+		
+	move_and_slide()
 	
 func activate(cursor: MagicCursor, strength):
 	magic_cursor = cursor
@@ -58,11 +75,14 @@ func desactivate():
 	print("Desactivat => " , magic_cursor)
 	
 func action():
+	var distance = (magic_cursor.global_position - global_position)
+	if distance.length() > 150:
+		desactivate()
+		return
 	
-	pass
-	
+	velocity = distance * player_strength / weight
+	move_and_slide()
 
-	
 func apply_config():
 	if config == null:
 		push_warning("MoveableObject: config manquante")
@@ -71,19 +91,19 @@ func apply_config():
 	weight = config.weight
 	$CollisionPolygon2D.polygon = config.collision_polygon
 	$Sprite2D.texture = config.texture
-	speed = config.vitess
-	friction = config.friction
-	bounce = config.bounce
-	push_force_required = config.push_force_required
-	max_velocity = config.max_velocity
-	can_rotate = config.can_rotate
-	is_static_until_pushed = config.is_static_until_pushed
+	#speed = config.vitess
+	#friction = config.friction
+	#bounce = config.bounce
+	#push_force_required = config.push_force_required
+	#max_velocity = config.max_velocity
+	#can_rotate = config.can_rotate
+	#is_static_until_pushed = config.is_static_until_pushed
 
-	is_destructible = config.is_destructible
-	durability = config.durability
-	damage_on_impact = config.damage_on_impact
-
-	move_sound = config.move_sound
-	impact_sound = config.impact_sound
-	break_sound = config.break_sound
-	spawn_particles_on_impact = config.spawn_particles_on_impact
+	#is_destructible = config.is_destructible
+	#durability = config.durability
+	#damage_on_impact = config.damage_on_impact
+#
+	#move_sound = config.move_sound
+	#impact_sound = config.impact_sound
+	#break_sound = config.break_sound
+	#spawn_particles_on_impact = config.spawn_particles_on_impact

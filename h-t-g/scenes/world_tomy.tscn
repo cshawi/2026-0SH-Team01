@@ -1,9 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://fi0msd8c345h"]
+[gd_scene load_steps=10 format=3 uid="uid://fi0msd8c345h"]
 
 [ext_resource type="PackedScene" uid="uid://vc4darec1r7c" path="res://scenes/Levels Scenes/didactitiel_part1.tscn" id="2_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="3_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://i6dmyw578gio" path="res://scenes/Levels Scenes/didactitiel_part2.tscn" id="3_t2ej4"]
 [ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="4_rnj1a"]
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="5_mh7kv"]
+[ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="6_ff0pj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4q05"]
+atlas = ExtResource("6_ff0pj")
+region = Rect2(6, 2, 56, 78)
+
+[sub_resource type="Resource" id="Resource_1462o"]
+script = ExtResource("5_mh7kv")
+vitess = 2000.0
+push_force_required = 1.0
+name = "large_rock"
+texture = SubResource("AtlasTexture_v4q05")
+collision_polygon = PackedVector2Array(-9.88996e-07, -16.4051, -4.14815, -14.7848, -8.88889, -8.3038, -15.4074, 6.68354, -16, 7.89873, -16, 12.7595, -12.4444, 15.5949, 16, 15.5949, 16, 1.01266, 13.6296, -0.607597, 14.2222, -2.22785, 13.037, -3.03798, 12.4444, -5.06329, 3.55555, -16)
+weight = 100.0
+
+[sub_resource type="Resource" id="Resource_mh7kv"]
+script = ExtResource("5_mh7kv")
+vitess = 2000.0
+push_force_required = 1.0
+name = "large_rock"
+texture = SubResource("AtlasTexture_v4q05")
+collision_polygon = PackedVector2Array(-9.88996e-07, -16.4051, -4.14815, -14.7848, -8.88889, -8.3038, -15.4074, 6.68354, -16, 7.89873, -16, 12.7595, -12.4444, 15.5949, 16, 15.5949, 16, 1.01266, 13.6296, -0.607597, 14.2222, -2.22785, 13.037, -3.03798, 12.4444, -5.06329, 3.55555, -16)
+weight = 10.0
 
 [node name="World_Tomy" type="Node2D"]
 
@@ -16,9 +40,16 @@ position = Vector2(640, 0)
 position = Vector2(49, 294)
 
 [node name="large_rock" parent="." instance=ExtResource("4_rnj1a")]
-position = Vector2(169, 157)
+position = Vector2(169, 297.2062)
+velocity = Vector2(0, 16.333334)
 speed = 2000.0
 
 [node name="large_rock2" parent="." instance=ExtResource("4_rnj1a")]
-position = Vector2(386, 156)
+position = Vector2(324, 296.93958)
+config = SubResource("Resource_1462o")
+speed = 2000.0
+
+[node name="large_rock3" parent="." instance=ExtResource("4_rnj1a")]
+position = Vector2(470, 296.9994)
+config = SubResource("Resource_mh7kv")
 speed = 2000.0

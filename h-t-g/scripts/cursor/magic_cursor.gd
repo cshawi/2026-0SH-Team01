@@ -32,7 +32,7 @@ func change_color(new_color):
 	$CPUParticles2D.color_ramp.set_color(0, new_color.lightened(0.5))
 
 func _process(delta: float) -> void:
-	if Udp.is_pinching:
+	if Udp.is_pinching if not mouse_mode else Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		grab_object()
 		change_color(Color.RED)
 	else:
