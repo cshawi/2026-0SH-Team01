@@ -5,7 +5,7 @@
 
 ### Description du produit final
 
-Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez expérimenter la télékinésie dans un monde fantastique.
+Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez expérimenter la télékinésie dans un univers fantastique.
 
 # Comment partir le projet
 
