@@ -6,11 +6,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ildie"]
 atlas = ExtResource("3_34prj")
-region = Rect2(95.852, 127.824, 32.0272, 32.0661)
+region = Rect2(95.852, 130.841, 32.0272, 29.0492)
 
-[node name="large_rock" type="CharacterBody2D" groups=["MoveableObjects", "Objects"]]
+[node name="MoveableObject" type="RigidBody2D" groups=["MoveableObjects", "Objects"]]
 position = Vector2(0, 1.92094e+09)
-velocity = Vector2(0, 1.94232e+06)
+contact_monitor = true
 script = ExtResource("1_a00gy")
 config = ExtResource("2_7n7ry")
 
@@ -20,3 +20,5 @@ texture = SubResource("AtlasTexture_ildie")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1.66893e-06, 0.500004)
 polygon = PackedVector2Array(-9.88996e-07, -16.4051, -4.14815, -14.7848, -8.88889, -8.3038, -15.4074, 6.68354, -16, 7.89873, -16, 12.7595, -12.4444, 15.5949, 16, 15.5949, 16, 1.01266, 13.6296, -0.607597, 14.2222, -2.22785, 13.037, -3.03798, 12.4444, -5.06329, 3.55555, -16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

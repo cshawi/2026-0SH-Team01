@@ -12,7 +12,7 @@ class_name Player
 const SPEED = 100
 const JUMP_FORCE = -350
 const GRAVITY = 900
-const STRENGHT = 100 
+const STRENGHT = 200
 
 
 var muzzle_offset: Vector2
