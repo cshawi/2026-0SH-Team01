@@ -27,6 +27,5 @@ func apply_config():
 	name = config.name
 	$CollisionPolygon2D.polygon = config.collision_polygon
 	$Sprite2D.texture = config.texture
-	weight = config.weight
 	is_click = config.is_click;
 	is_open = config.is_open;

@@ -4,18 +4,7 @@
 
 [resource]
 script = ExtResource("1_4mxr4")
-vitess = 0.0
-friction = 0.8
-bounce = 0.0
-push_force_required = 5.0
-max_velocity = 5.0
-gravity_scale = 1.0
-can_rotate = false
-is_static_until_pushed = false
-can_be_pushed = true
-can_be_pulled = false
-can_be_carried = false
-is_destructible = false
-durability = 100
-damage_on_impact = 0
-spawn_particles_on_impact = false
+gravity = 980
+weight = 100
+name = ""
+collision_polygon = PackedVector2Array()

@@ -1,19 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://djkv5jmkahema"]
+[gd_scene load_steps=5 format=3 uid="uid://djkv5jmkahema"]
 
-[ext_resource type="Script" uid="uid://bwsi0xsdxmmrk" path="res://scripts/moveableObjects/moveable_object.gd" id="1_a00gy"]
-[ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="3_57tiy"]
+[ext_resource type="Script" path="res://scripts/moveableObjects/moveable_object.gd" id="1_a00gy"]
+[ext_resource type="Resource" uid="uid://d3na574taum6t" path="res://ressources/objects/rocks/large_rock.tres" id="2_nao7o"]
+[ext_resource type="Texture2D" uid="uid://dknns7d5e8yrd" path="res://assets/sprites/Objects/Box/Interior-01.png" id="3_34prj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v4q05"]
-atlas = ExtResource("3_57tiy")
-region = Rect2(6, 2, 56, 78)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ildie"]
+atlas = ExtResource("3_34prj")
+region = Rect2(95.852, 127.824, 32.0272, 32.0661)
 
-[node name="MoveableObject" type="CharacterBody2D" groups=["MoveableObjects", "Objects"]]
-position = Vector2(0, 1735093500)
-velocity = Vector2(0, 1845918.3)
+[node name="large_rock" type="CharacterBody2D" groups=["MoveableObjects", "Objects"]]
+position = Vector2(0, 1.92094e+09)
+velocity = Vector2(0, 1.94232e+06)
 script = ExtResource("1_a00gy")
+config = ExtResource("2_nao7o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_v4q05")
+texture = SubResource("AtlasTexture_ildie")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1.66893e-06, 0.500004)

@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://prcuwbbocwdq"]
+[gd_scene load_steps=8 format=3 uid="uid://prcuwbbocwdq"]
 
 [ext_resource type="Texture2D" uid="uid://daoo30v2e2n6p" path="res://assets/icons/icon.svg" id="1_s4sqf"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="2_kt8pq"]
 [ext_resource type="PackedScene" uid="uid://dncsx7cx4k2h" path="res://scenes/static/full_static_object.tscn" id="3_mdtvx"]
 [ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/doors/door.tres" id="4_hstml"]
+[ext_resource type="Texture2D" uid="uid://dknns7d5e8yrd" path="res://assets/sprites/Objects/Box/Interior-01.png" id="5_d2hxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo0wk"]
 size = Vector2(1174, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ildie"]
+atlas = ExtResource("5_d2hxq")
+region = Rect2(95.852, 127.824, 32.0272, 32.0661)
 
 [node name="World" type="Node2D"]
 position = Vector2(-2, 0)
@@ -22,12 +27,20 @@ position = Vector2(294, 411)
 scale = Vector2(9.38672, 1)
 texture = ExtResource("1_s4sqf")
 
-[node name="FullMotionObject" parent="." instance=ExtResource("2_kt8pq")]
-position = Vector2(258, 207)
-speed = 200.0
-damping = 0.0
-
 [node name="FullStaticObject" parent="." instance=ExtResource("3_mdtvx")]
 position = Vector2(361, 284)
 config = ExtResource("4_hstml")
 is_click = true
+
+[node name="FullMotionObject" parent="." instance=ExtResource("2_kt8pq")]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("AtlasTexture_ildie")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(0.0507824, 2.78125)
+scale = Vector2(0.417633, 0.317383)
+polygon = PackedVector2Array(-16.1345, -18.4615, -16.1345, 17.2308, 18.2857, 17.2308, 18.2857, -18.4615, 13.9832, -22.1538, -11.8319, -22.1538)

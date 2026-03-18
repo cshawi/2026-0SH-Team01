@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx3h1p2q21gld"]
+[gd_scene load_steps=4 format=3 uid="uid://cx3h1p2q21gld"]
 
 [ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="1_ddolp"]
-[ext_resource type="Script" path="res://scripts/moveableObjects/full_motion_object.gd" id="2_4ku6g"]
+[ext_resource type="Script" path="res://scripts/moveableObjects/full_motion_object.gd" id="2_57fly"]
+[ext_resource type="Resource" uid="uid://bhjelwx334jj4" path="res://ressources/objects/Box/small_box.tres" id="3_q8lfw"]
 
 [node name="FullMotionObject" instance=ExtResource("1_ddolp")]
+top_level = true
 position = Vector2(0, 0)
-script = ExtResource("2_4ku6g")
+script = ExtResource("2_57fly")
+config = ExtResource("3_q8lfw")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = null
 
 [node name="CollisionPolygon2D" parent="." index="1"]
+build_mode = 0
 polygon = PackedVector2Array()
