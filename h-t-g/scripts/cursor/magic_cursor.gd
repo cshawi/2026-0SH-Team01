@@ -54,6 +54,7 @@ func resetObject():
 
 func mouse():
 	global_position = get_global_mouse_position()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		#mouse_mode = false
 
