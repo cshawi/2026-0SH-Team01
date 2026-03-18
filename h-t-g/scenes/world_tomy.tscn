@@ -24,9 +24,11 @@ position = Vector2(49, 294)
 [node name="FullMotionObject" parent="." instance=ExtResource("8_7m5vl")]
 top_level = false
 position = Vector2(196, 276)
+contact_monitor = false
 config = ExtResource("5_ff0pj")
 
 [node name="FullMotionObject2" parent="." instance=ExtResource("8_7m5vl")]
 position = Vector2(403, 229)
 
 [editable path="Player"]
+contact_monitor = false

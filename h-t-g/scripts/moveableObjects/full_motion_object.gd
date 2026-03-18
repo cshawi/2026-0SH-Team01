@@ -15,10 +15,3 @@ func set_object_scale():
 	#scale.y = 1.5 
 	pass
 	
-	 
-	
-func _ready() -> void:
-	super()
-	randomize()
-	set_weight()
-	#set_object_scale()

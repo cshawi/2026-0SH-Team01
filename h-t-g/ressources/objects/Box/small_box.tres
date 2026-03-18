@@ -5,12 +5,12 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ildie"]
 atlas = ExtResource("2_yybo1")
-region = Rect2(95.852, 127.824, 32.0272, 32.0661)
+region = Rect2(95.852, 130.841, 32.0272, 29.0492)
 
 [resource]
 script = ExtResource("1_rghob")
-gravity = 100
-weight = 10
+gravity_scale = 2.0
+weight = 11
 name = "small_box"
 texture = SubResource("AtlasTexture_ildie")
-collision_polygon = PackedVector2Array(-16, -13, -16, 16, 16, 16, 16, -13)
+collision_polygon = PackedVector2Array(-16, 14, 16, 14, 16, -15, -16, -15)

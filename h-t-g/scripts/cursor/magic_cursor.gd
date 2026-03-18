@@ -11,6 +11,7 @@ extends Area2D
 
 var is_holding := false
 var closest_object = null
+var first_time:=true
 
 const MAX_INT = (1 << 63) - 1
 
@@ -33,12 +34,14 @@ func change_color(new_color):
 
 func _process(delta: float) -> void:
 	if Udp.is_pinching if not mouse_mode else Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		grab_object()
+		if first_time:
+			grab_object()
+			first_time = false
 		change_color(Color.RED)
 	else:
 		resetObject();
 		change_color(Color.AQUA)
-		
+		first_time = true
 		
 	if mouse_mode:
 		mouse()
