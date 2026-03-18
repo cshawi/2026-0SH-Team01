@@ -13,4 +13,4 @@ gravity = 100
 weight = 10
 name = "small_box"
 texture = SubResource("AtlasTexture_ildie")
-collision_polygon = PackedVector2Array(-16.1345, -18.4615, -16.1345, 17.2308, 18.2857, 17.2308, 18.2857, -18.4615, 13.9832, -22.1538, -11.8319, -22.1538)
+collision_polygon = PackedVector2Array(-16, -13, -16, 16, 16, 16, 16, -13)

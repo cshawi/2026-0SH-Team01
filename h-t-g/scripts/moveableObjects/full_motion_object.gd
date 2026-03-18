@@ -21,4 +21,4 @@ func _ready() -> void:
 	super()
 	randomize()
 	set_weight()
-	set_object_scale()
+	#set_object_scale()

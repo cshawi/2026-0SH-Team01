@@ -8,3 +8,4 @@ script = ExtResource("1_sepm1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
