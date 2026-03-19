@@ -19,7 +19,6 @@ func _ready():
 		body_entered.connect(_on_body_entered)
 		
 func _physics_process(delta: float) -> void:
-
 	if magic_cursor:
 		action(delta)
 

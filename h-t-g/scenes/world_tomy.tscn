@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fi0msd8c345h"]
+[gd_scene load_steps=9 format=3 uid="uid://fi0msd8c345h"]
 
 [ext_resource type="Script" uid="uid://blgr6at4pygqw" path="res://scripts/world_tomy.gd" id="1_ff0pj"]
 [ext_resource type="PackedScene" uid="uid://vc4darec1r7c" path="res://scenes/Levels Scenes/didactitiel_scenes/didactitiel_part1.tscn" id="2_8r5u2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://d3na574taum6t" path="res://ressources/objects/rocks/large_rock.tres" id="5_ff0pj"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/Levels Scenes/didactitiel_scenes/limit_wall.tscn" id="6_mh7kv"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="8_7m5vl"]
+[ext_resource type="Resource" uid="uid://bhjelwx334jj4" path="res://ressources/objects/Box/small_box.tres" id="8_1462o"]
 
 [node name="World_Tomy" type="Node2D"]
 script = ExtResource("1_ff0pj")
@@ -23,12 +24,34 @@ position = Vector2(49, 294)
 
 [node name="FullMotionObject" parent="." instance=ExtResource("8_7m5vl")]
 top_level = false
-position = Vector2(196, 276)
+position = Vector2(1179, 241)
 contact_monitor = false
 config = ExtResource("5_ff0pj")
 
 [node name="FullMotionObject2" parent="." instance=ExtResource("8_7m5vl")]
 position = Vector2(403, 229)
+config = ExtResource("8_1462o")
+
+[node name="FullMotionObject3" parent="." instance=ExtResource("8_7m5vl")]
+position = Vector2(640, 157)
+
+[node name="FullMotionObject4" parent="." instance=ExtResource("8_7m5vl")]
+position = Vector2(264, 146)
+config = ExtResource("8_1462o")
+
+[node name="FullMotionObject5" parent="." instance=ExtResource("8_7m5vl")]
+position = Vector2(301, 286)
+mass = 10.0
+config = ExtResource("8_1462o")
+
+[node name="FullMotionObject6" parent="." instance=ExtResource("8_7m5vl")]
+position = Vector2(290, 273)
+mass = 50.0
+config = ExtResource("8_1462o")
+
+[node name="FullMotionObject7" parent="." instance=ExtResource("8_7m5vl")]
+position = Vector2(266, 262)
+mass = 7.0
+config = ExtResource("8_1462o")
 
 [editable path="Player"]
-contact_monitor = false

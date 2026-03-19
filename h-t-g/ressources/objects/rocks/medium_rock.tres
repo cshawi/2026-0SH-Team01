@@ -1,10 +1,6 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=2 format=3 uid="uid://ddvcphkb37vmr"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_4mxr4"]
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_4mxr4"]
 
 [resource]
 script = ExtResource("1_4mxr4")
-gravity = 980
-weight = 100
-name = ""
-collision_polygon = PackedVector2Array()

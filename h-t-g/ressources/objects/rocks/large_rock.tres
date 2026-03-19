@@ -9,7 +9,6 @@ region = Rect2(6, 2, 56, 78)
 
 [resource]
 script = ExtResource("1_12n81")
-gravity_scale = 1.0
 weight = 400
 name = "large_rock"
 texture = SubResource("AtlasTexture_v4q05")
