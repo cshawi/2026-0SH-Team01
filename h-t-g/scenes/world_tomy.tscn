@@ -33,7 +33,7 @@ position = Vector2(403, 229)
 config = ExtResource("8_1462o")
 
 [node name="FullMotionObject3" parent="." instance=ExtResource("8_7m5vl")]
-position = Vector2(640, 157)
+position = Vector2(578, 77)
 
 [node name="FullMotionObject4" parent="." instance=ExtResource("8_7m5vl")]
 position = Vector2(264, 146)

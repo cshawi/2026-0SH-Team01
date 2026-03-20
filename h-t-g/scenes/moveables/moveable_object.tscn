@@ -1,15 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://djkv5jmkahema"]
+[gd_scene load_steps=5 format=3 uid="uid://djkv5jmkahema"]
 
 [ext_resource type="Script" uid="uid://bwsi0xsdxmmrk" path="res://scripts/moveableObjects/moveable_object.gd" id="1_a00gy"]
 [ext_resource type="Resource" uid="uid://c7mr4ergnkt8h" path="res://ressources/objects/rocks/green_large_rock.tres" id="2_orjgr"]
-[ext_resource type="Texture2D" uid="uid://d0nvnknq7rd7k" path="res://assets/sprites/Background/Props-Rocks.png" id="3_ytvhd"]
+[ext_resource type="Texture2D" uid="uid://b3hbshufrag2k" path="res://assets/sprites/Objects/Rocks/Rocks64x64_no_background.png" id="3_orjgr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l1bcj"]
-atlas = ExtResource("3_ytvhd")
-region = Rect2(63.85965, 112.05474, 63.50891, 48.06373)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yn0c7"]
-atlas = SubResource("AtlasTexture_l1bcj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_orjgr"]
+atlas = ExtResource("3_orjgr")
+region = Rect2(691, 325.50208, 333, 310.4978)
 
 [node name="MoveableObject" type="RigidBody2D" groups=["MoveableObjects", "Objects"]]
 contact_monitor = true
@@ -17,9 +14,10 @@ script = ExtResource("1_a00gy")
 config = ExtResource("2_orjgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_yn0c7")
+texture = SubResource("AtlasTexture_orjgr")
+region_rect = Rect2(691, 325.50208, 333, 310.4978)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -24, 9, -24, 16, -21, 19, -17, 19, -9, 23, -9, 28, -4, 29, -2, 30, -1, 31, 1, 32, 5, 32, 19, 31, 23, 29, 24, -26, 24, -30, 20, -31, 16, -31, 0, -30, -1, -28, -12, -24, -16, -22, -18, -20, -19, -17, -19, -13, -21, -5, -23)
+polygon = PackedVector2Array(-5, -136, 9, -136, 26, -133, 44, -128, 54, -124, 67, -119, 79, -115, 91, -114, 100, -111, 106, -108, 109, -104, 111, -103, 115, -97, 124, -81, 126, -70, 135, -56, 140, -38, 141, -31, 141, 21, 140, 29, 137, 40, 136, 44, 134, 48, 130, 59, 130, 66, 147, 85, 151, 88, 151, 96, 150, 99, 143, 104, 128, 104, -153, 104, -155, 99, -155, 93, -154, 90, -152, 85, -137, 74, -138, 63, -142, 56, -143, 52, -147, 48, -148, 36, -148, 5, -148, -14, -151, -34, -150, -40, -142, -47, -135, -50, -128, -51, -128, -63, -126, -72, -124, -80, -121, -89, -120, -93, -112, -96, -105, -101, -90, -106, -69, -110, -66, -112, -56, -115, -46, -123)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

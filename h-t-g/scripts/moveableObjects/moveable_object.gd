@@ -42,13 +42,7 @@ func desactivate():
 	magic_cursor = null
 	
 func action(delta):
-	var distance = magic_cursor.global_position - global_position
-	
-	if distance.length() > max_distance:
-		desactivate()
-		return
-	
-	linear_velocity = distance * player_strength/mass
+	pass
 	
 func apply_config():
 	if config == null:
