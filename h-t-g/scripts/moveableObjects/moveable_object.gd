@@ -9,7 +9,7 @@ var collision_shape: Shape2D
 var weight: float
 var magic_cursor: MagicCursor
 var player_strength
-var max_distance = 150.0
+var max_distance = 100.0
 
 func _ready():
 	apply_config()

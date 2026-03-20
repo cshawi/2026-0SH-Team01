@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://el4uy8p87deo"]
+[gd_scene load_steps=6 format=3 uid="uid://el4uy8p87deo"]
 
 [ext_resource type="Texture2D" uid="uid://b0m5q5aot1ujd" path="res://assets/sprites/HUD/SpriteSheet.png" id="1_3ax4m"]
+[ext_resource type="Script" uid="uid://bl0gox6crk0q7" path="res://scripts/utils/roll_player_help.gd" id="1_jmgty"]
 [ext_resource type="PackedScene" uid="uid://dqarbbrum648e" path="res://scenes/utils/message_display.tscn" id="2_jmgty"]
 [ext_resource type="FontFile" uid="uid://r1bm2fkq4gmx" path="res://assets/fonts/Creepster-Regular.ttf" id="3_dwq3c"]
 
@@ -13,8 +14,12 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -317.0
+offset_bottom = -220.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_jmgty")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(163, 70)
@@ -38,3 +43,8 @@ offset_bottom = 38.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_dwq3c")
 text = "Astuce"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

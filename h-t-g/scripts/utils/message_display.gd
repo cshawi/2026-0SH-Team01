@@ -10,15 +10,13 @@ var last_character := 0
 @export var typing_speed := 15.0
 
 func _ready() -> void:
-	set_message("bonjour le monde, ca va bbien")
-	show_message()
+	pass
 
 func _process(delta: float) -> void:
 	if writing: write(delta)
 
 func set_message(message: String):
 	text = message
-	hide_message()
 	
 func show_message():
 	writing = true
