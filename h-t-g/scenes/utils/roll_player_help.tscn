@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://el4uy8p87deo"]
+
+[ext_resource type="Texture2D" uid="uid://b0m5q5aot1ujd" path="res://assets/sprites/HUD/SpriteSheet.png" id="1_3ax4m"]
+[ext_resource type="PackedScene" uid="uid://dqarbbrum648e" path="res://scenes/utils/message_display.tscn" id="2_jmgty"]
+[ext_resource type="FontFile" uid="uid://r1bm2fkq4gmx" path="res://assets/fonts/Creepster-Regular.ttf" id="3_dwq3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4baif"]
+atlas = ExtResource("1_3ax4m")
+region = Rect2(30.205627, 29.264793, 162.00409, 69.43032)
+
+[node name="RollPlayerHelp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(163, 70)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_4baif")
+
+[node name="MessageDisplay" parent="." instance=ExtResource("2_jmgty")]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 37.0
+offset_right = 302.0
+offset_bottom = 122.0
+theme_override_colors/default_color = Color(0.5529412, 0.003921569, 0.003921569, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 75.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dwq3c")
+text = "Astuce"
