@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2gnj3mfmutr0"]
+
+[ext_resource type="Script" uid="uid://20nucp3rsef" path="res://scripts/utils/message_display.gd" id="1_f4fnt"]
+[ext_resource type="FontFile" uid="uid://r1bm2fkq4gmx" path="res://assets/fonts/Creepster-Regular.ttf" id="1_hk12j"]
+[ext_resource type="AudioStream" uid="uid://cbpav1ohfwmws" path="res://assets/audio/sounds/text_effect.mp3" id="2_tuwps"]
+
+[node name="MessageDisplay" type="RichTextLabel"]
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_fonts/normal_font = ExtResource("1_hk12j")
+text = "ahubsfd hjb haf"
+script = ExtResource("1_f4fnt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tuwps")
+volume_db = -10.0
