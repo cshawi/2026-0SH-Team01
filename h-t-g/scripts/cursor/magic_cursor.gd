@@ -12,6 +12,7 @@ extends Area2D
 var is_holding := false
 var closest_object = null
 var first_time:=true
+var default_strength = 10 #si le joueur ne fait pas partie de la scène
 
 const MAX_INT = (1 << 63) - 1
 
@@ -88,7 +89,7 @@ func grab_object():
 	if closest_object:
 		is_holding = true
 		if closest_object is MoveableObject:
-			closest_object.activate(self,get_parent().STRENGHT)
+			closest_object.activate(self,get_parent().STRENGHT if get_parent() is Player else default_strength)
 		if closest_object is StaticObject:
 			closest_object.activate()
 			
