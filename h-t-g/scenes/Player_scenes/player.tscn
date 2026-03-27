@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=3 uid="uid://cxfmddpxdyk6e"]
 
-[ext_resource type="Script" path="res://scripts/PlayerScripts/player.gd" id="1_c6c2d"]
+[ext_resource type="Script" uid="uid://dkorxokbrng2l" path="res://scripts/PlayerScripts/player.gd" id="1_c6c2d"]
 [ext_resource type="Texture2D" uid="uid://d1qiktfy6dij3" path="res://assets/icons/Wanderer Magican/Attack_1.png" id="1_m4mlr"]
 [ext_resource type="Texture2D" uid="uid://sq4jm5r73hf2" path="res://assets/icons/Wanderer Magican/Attack_2.png" id="2_c6c2d"]
 [ext_resource type="Texture2D" uid="uid://d2a7ig6r5rq8w" path="res://assets/icons/Wanderer Magican/Jump.png" id="4_1colh"]
@@ -494,7 +494,6 @@ shape = SubResource("CircleShape2D_tgep5")
 position = Vector2(66, -10)
 
 [node name="MagicCursor" parent="." instance=ExtResource("9_rh45m")]
-mouse_mode = true
 
 [connection signal="animation_finished" from="PlayerAnimation" to="." method="_on_player_animation_animation_finished"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

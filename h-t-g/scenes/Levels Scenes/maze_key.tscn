@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://bfmh21xoewkho"]
+[gd_scene load_steps=9 format=4 uid="uid://bfmh21xoewkho"]
 
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="1_pj52y"]
 [ext_resource type="Script" uid="uid://dk3e0lth3a8bd" path="res://scripts/point_light_2d.gd" id="2_xf706"]
+[ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="3_xf706"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_iwvkc"]
 polygon = PackedVector2Array(105, 89, 631, 89, 631, 416, 601, 416, 601, 363, 105, 363)
@@ -52,7 +53,6 @@ tile_map_data = PackedByteArray("AAAaAAcAAgAPABQAAAA=")
 tile_set = ExtResource("1_pj52y")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -64,3 +64,6 @@ energy = 2.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ufran")
 script = ExtResource("2_xf706")
+
+[node name="MagicCursor" parent="." instance=ExtResource("3_xf706")]
+visible = false
