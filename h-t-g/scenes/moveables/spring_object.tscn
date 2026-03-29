@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8qssg02kxtsr"]
+
+[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="1_0siig"]
+[ext_resource type="Script" uid="uid://114kviv5etlh" path="res://scripts/moveableObjects/spring_object.gd" id="2_j3qie"]
+
+[node name="SpringObject" instance=ExtResource("1_0siig")]
+script = ExtResource("2_j3qie")
+resistance = 1.0
+power = 5.0
+max_compression = 64.0

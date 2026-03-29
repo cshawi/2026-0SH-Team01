@@ -13,7 +13,7 @@ class_name World_Tomy
 @onready var roll_player_help_2: RollPlayerHelp = $RollPlayerHelp2
 
 
-
+const BOX_AMOUNT := 6
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,7 +35,7 @@ func _on_hint_area_body_entered(body: Node2D) -> void:
 		hint_area.queue_free()
 		roll_player_help.set_message("Oh non!!! Une énorme roche bloque le passage... Servez-vous de ces boîtes et de votre magie pour passer.")
 		roll_player_help.show_message()
-		for i in range(5):
+		for i in range(BOX_AMOUNT):
 			spawner.spawn(object, Vector2(randi_range(150, 250), -50), small_box)
 			await get_tree().create_timer(0.25).timeout
 

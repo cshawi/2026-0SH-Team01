@@ -3,7 +3,6 @@ class_name MoveableObject
 
 @export var config: MoveableConfig
 
-
 var texture: Texture2D
 var collision_shape: Shape2D
 var weight: float
@@ -15,22 +14,10 @@ func _ready():
 	apply_config()
 	contact_monitor = true
 	max_contacts_reported = 4
-	if not body_entered.is_connected(_on_body_entered):
-		body_entered.connect(_on_body_entered)
 		
 func _physics_process(delta: float) -> void:
 	if magic_cursor:
 		action(delta)
-
-func _on_body_entered(body):
-	if body.name == "Player":
-		on_touch_player(body)
-		
-func on_touch_player(player):
-	desactivate()
-	linear_velocity = Vector2.ZERO
-	apply_impulse(Vector2.DOWN * 200)
-	
 
 func activate(cursor, strength):
 	magic_cursor = cursor

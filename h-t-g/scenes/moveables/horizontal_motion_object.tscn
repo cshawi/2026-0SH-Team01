@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwjelobj0fnl6"]
+
+[ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="1_qxu6a"]
+[ext_resource type="Script" uid="uid://crf5ge7wv2v6r" path="res://scripts/moveableObjects/horizontal_motion_object.gd" id="2_r8i41"]
+
+[node name="HorizontalMotionObject" instance=ExtResource("1_qxu6a")]
+script = ExtResource("2_r8i41")
