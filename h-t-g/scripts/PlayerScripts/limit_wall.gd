@@ -14,8 +14,8 @@ func add_wall(x_position: int):
 	var collision_shape = CollisionShape2D.new()
 	var segment = SegmentShape2D.new()
 	
-	segment.a = Vector2(x_position, 0)
-	segment.b = Vector2(x_position, 360)
+	segment.a = Vector2(x_position, -1000000)
+	segment.b = Vector2(x_position, 1000000)
 	
 	collision_shape.shape = segment
 	add_child(collision_shape)

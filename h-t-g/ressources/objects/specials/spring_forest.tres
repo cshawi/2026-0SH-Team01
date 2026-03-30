@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://dhie1jnlgoudb"]
+
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_yeieh"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Background/Tree-Assets.png" id="2_jpvwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytvhd"]
+atlas = ExtResource("2_jpvwe")
+region = Rect2(1.2421227, 304.41418, 77.537094, 96.244965)
+
+[resource]
+script = ExtResource("1_yeieh")
+texture = SubResource("AtlasTexture_ytvhd")
+collision_polygon = PackedVector2Array(-37, -47, 36, -47, 36, -39, 33, -35, 29, -31, -30, -31, -34, -35, -37, -39)
+metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

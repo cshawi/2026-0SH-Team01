@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn26ctdle27cq"]
+
+[ext_resource type="Script" uid="uid://duo1p8bo71dlo" path="res://scripts/levels/forest_level_manager.gd" id="1_7ltgr"]
+[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="2_6ksvg"]
+[ext_resource type="PackedScene" uid="uid://yivjj3ou6wfr" path="res://scenes/Levels Scenes/forest_level_part_1.tscn" id="2_fsu8y"]
+[ext_resource type="PackedScene" uid="uid://e2p06qf5uhyg" path="res://scenes/Levels Scenes/forest_level.tscn" id="3_6ksvg"]
+[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/spawner.tscn" id="5_41dh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wai4"]
+size = Vector2(647, 63)
+
+[node name="ForestLevelManager" type="Node2D"]
+script = ExtResource("1_7ltgr")
+
+[node name="LimitWall" parent="." instance=ExtResource("2_6ksvg")]
+
+[node name="ForestLevelPart1" parent="." instance=ExtResource("2_fsu8y")]
+script = null
+
+[node name="ForestLevel" parent="." instance=ExtResource("3_6ksvg")]
+script = null
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(204, 419)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(118, 32)
+shape = SubResource("RectangleShape2D_4wai4")
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(49, 250)
+
+[node name="Spawner" parent="." instance=ExtResource("5_41dh6")]

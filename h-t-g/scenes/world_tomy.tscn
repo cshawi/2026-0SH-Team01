@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="3_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://i6dmyw578gio" path="res://scenes/Levels Scenes/didactitiel_scenes/didactitiel_part2.tscn" id="3_t2ej4"]
 [ext_resource type="Resource" uid="uid://d3na574taum6t" path="res://ressources/objects/rocks/large_rock.tres" id="5_ff0pj"]
-[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/Levels Scenes/didactitiel_scenes/limit_wall.tscn" id="6_mh7kv"]
+[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="6_mh7kv"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="8_7m5vl"]
 [ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/spawner.tscn" id="9_7qnci"]
 [ext_resource type="PackedScene" uid="uid://el4uy8p87deo" path="res://scenes/utils/roll_player_help.tscn" id="9_afalf"]
