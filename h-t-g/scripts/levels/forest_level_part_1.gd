@@ -1,28 +1,25 @@
 extends Node2D
+class_name ForestLevelPart1
 
+@onready var teleport_timer: Timer = $TeleportTimer
 
-@onready var limit_wall: LimitWall = $LimitWall
-@onready var player_view: Camera2D = $Player/PlayerView
-@onready var player_spawn_point: Marker2D = $PlayerSpawnPoint
-@onready var spawner: Spawner = $Spawner
+signal teleport(target: String)
 
-const PLAYER_PATH := preload("uid://cxfmddpxdyk6e")
-var player: Player
+var top_limit = -530
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	limit_wall.add_wall(0)
-	limit_wall.add_wall(640)
-	player_view.limit_left = limit_wall.get_child(0).shape.a.x
-	player_view.limit_right = limit_wall.get_child(1).shape.a.x
-	print("Forest ready")
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func _on_portal_area_body_entered(body: Node2D) -> void:
+	teleport_timer.start()
 
-func _on_death_zone_body_entered(body: Node2D) -> void:
-	if body is Player:
-		body.global_position = player_spawn_point.global_position
+func _on_portal_area_body_exited(body: Node2D) -> void:
+	teleport_timer.stop()
+
+func _on_teleport_timer_timeout() -> void:
+	teleport.emit("Part_2")

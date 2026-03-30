@@ -1,16 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://yivjj3ou6wfr"]
+[gd_scene load_steps=8 format=4 uid="uid://yivjj3ou6wfr"]
 
 [ext_resource type="Script" uid="uid://d3olidtqaj4p6" path="res://scripts/levels/forest_level_part_1.gd" id="1_kkk14"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="1_kure8"]
 [ext_resource type="Texture2D" uid="uid://bdjpc5185k1uh" path="res://assets/sprites/Background/BG_Sky.png" id="1_tf33i"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="2_byv5x"]
-[ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="3_80bmr"]
 [ext_resource type="PackedScene" uid="uid://b2b47emjp0rtc" path="res://scenes/moveables/spring_object.tscn" id="5_cycul"]
 [ext_resource type="Resource" uid="uid://dhie1jnlgoudb" path="res://ressources/objects/specials/spring_forest.tres" id="6_cycul"]
-[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/spawner.tscn" id="8_km7rj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a57tu"]
-size = Vector2(647, 63)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byv5x"]
+radius = 14.0
+height = 58.0
 
 [node name="ForestLevelPart1" type="Node2D"]
 script = ExtResource("1_kkk14")
@@ -117,34 +116,18 @@ position = Vector2(-6, -5)
 tile_map_data = PackedByteArray("AAACABIAAgAVAA8AAAAYAAUAAgAVAA8AAAAjAAUAAgAVAA8AAAAXAAMAAgAUAA8AAAAXAAQAAgAUABAAAAAHAAYAAwAOAAEAAAAHAAcAAwAOAAIAAAAHAAgAAwAOAAMAAAAHAAkAAwAOAAQAAAAIAAYAAwAPAAEAAAAIAAcAAwAPAAIAAAAIAAgAAwAPAAMAAAAIAAkAAwAPAAQAAAAJAAUAAwAQAAAAAAAJAAYAAwAQAAEAAAAJAAcAAwAQAAIAAAAJAAgAAwAQAAMAAAAJAAkAAwAQAAQAAAAJAAoAAwAQAAUAAAAKAAUAAwARAAAAAAAKAAYAAwARAAEAAAAKAAcAAwARAAIAAAAKAAgAAwARAAMAAAAKAAkAAwARAAQAAAAKAAoAAwARAAUAAAALAAUAAwASAAAAAAALAAYAAwASAAEAAAALAAcAAwASAAIAAAALAAgAAwASAAMAAAALAAkAAwASAAQAAAALAAoAAwASAAUAAAAMAAYAAwATAAEAAAAMAAcAAwATAAIAAAAMAAgAAwATAAMAAAAMAAkAAwATAAQAAAANAAYAAwAUAAEAAAANAAcAAwAUAAIAAAANAAgAAwAUAAMAAAANAAkAAwAUAAQAAAAGAAYAAwANAAEAAAAGAAcAAwANAAIAAAAGAAgAAwANAAMAAAAGAAkAAwANAAQAAAAIAAUAAwAPAAAAAAAIAAoAAwAPAAUAAAAjAPL/AwANABMAAAAjAPP/AwANABQAAAAjAPT/AwANABUAAAAjAPX/AwANABYAAAAkAPL/AwAOABMAAAAkAPP/AwAOABQAAAAkAPT/AwAOABUAAAAkAPX/AwAOABYAAAAlAPH/AwAPABIAAAAlAPL/AwAPABMAAAAlAPP/AwAPABQAAAAlAPT/AwAPABUAAAAlAPX/AwAPABYAAAAlAPb/AwAPABcAAAAmAPH/AwAQABIAAAAmAPL/AwAQABMAAAAmAPP/AwAQABQAAAAmAPT/AwAQABUAAAAmAPX/AwAQABYAAAAmAPb/AwAQABcAAAAnAPH/AwARABIAAAAnAPL/AwARABMAAAAnAPP/AwARABQAAAAnAPT/AwARABUAAAAnAPX/AwARABYAAAAnAPb/AwARABcAAAAoAPH/AwASABIAAAAoAPL/AwASABMAAAAoAPP/AwASABQAAAAoAPT/AwASABUAAAAoAPX/AwASABYAAAAoAPb/AwASABcAAAApAPL/AwATABMAAAApAPP/AwATABQAAAApAPT/AwATABUAAAApAPX/AwATABYAAAAqAPL/AwAUABMAAAAqAPP/AwAUABQAAAAqAPT/AwAUABUAAAAqAPX/AwAUABYAAAA=")
 tile_set = ExtResource("1_kure8")
 
-[node name="Player" parent="." instance=ExtResource("3_80bmr")]
-visible = false
-z_index = 1
-position = Vector2(49, 250)
-
-[node name="PlayerView" parent="Player" index="3"]
-limit_top = -530
-limit_bottom = 360
-
-[node name="MagicCursor" parent="Player" index="6"]
-mouse_mode = true
-
-[node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(204, 419)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
-position = Vector2(118, 32)
-shape = SubResource("RectangleShape2D_a57tu")
-
-[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
-visible = false
-position = Vector2(49, 250)
-
-[node name="PlayerSpawnPoint2" type="Marker2D" parent="."]
+[node name="PlayerSpawnPoint1" type="Marker2D" parent="."]
 position = Vector2(229, -433)
 
-[node name="Spawner" parent="." instance=ExtResource("8_km7rj")]
+[node name="PortalArea" type="Area2D" parent="."]
 
-[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea"]
+position = Vector2(367, -496)
+shape = SubResource("CapsuleShape2D_byv5x")
 
-[editable path="Player"]
+[node name="TeleportTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="PortalArea" to="." method="_on_portal_area_body_entered"]
+[connection signal="body_exited" from="PortalArea" to="." method="_on_portal_area_body_exited"]
+[connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]

@@ -9,6 +9,7 @@ region = Rect2(1.2421227, 304.41418, 77.537094, 96.244965)
 
 [resource]
 script = ExtResource("1_yeieh")
+name = "Spring"
 texture = SubResource("AtlasTexture_ytvhd")
 collision_polygon = PackedVector2Array(-37, -47, 36, -47, 36, -39, 33, -35, 29, -31, -30, -31, -34, -35, -37, -39)
 metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

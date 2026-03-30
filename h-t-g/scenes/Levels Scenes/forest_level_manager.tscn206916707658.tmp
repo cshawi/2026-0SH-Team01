@@ -32,5 +32,3 @@ position = Vector2(49, 250)
 [node name="Spawner" parent="." instance=ExtResource("5_41dh6")]
 
 [node name="FadeTransition" parent="." instance=ExtResource("6_fsu8y")]
-
-[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

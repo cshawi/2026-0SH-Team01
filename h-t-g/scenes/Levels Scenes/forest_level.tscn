@@ -5,12 +5,15 @@
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="1_kmayv"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="2_ovbee"]
 [ext_resource type="PackedScene" uid="uid://b2b47emjp0rtc" path="res://scenes/moveables/spring_object.tscn" id="3_lremp"]
-[ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="3_vdx2x"]
 [ext_resource type="Resource" uid="uid://dhie1jnlgoudb" path="res://ressources/objects/specials/spring_forest.tres" id="4_1hvjd"]
 [ext_resource type="PackedScene" uid="uid://tl6einth7v3u" path="res://scenes/moveables/horizontal_motion_object.tscn" id="5_it3ns"]
 [ext_resource type="Resource" uid="uid://bxfg3nr85voap" path="res://ressources/objects/Horizontals/Mushroom.tres" id="6_1onvx"]
 
-[node name="ForestLevel" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1onvx"]
+radius = 14.0
+height = 58.0
+
+[node name="ForestLevelPart2" type="Node2D"]
 script = ExtResource("1_35dy3")
 
 [node name="LimitWall" parent="." instance=ExtResource("2_ovbee")]
@@ -90,11 +93,18 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAPABQAAwAPAAYAAAAPABUAAwAPAAcAAAAQABQAAwAQAAYAAAAQABUAAwAQAAcAAAARABQAAwARAAYAAAARABUAAwARAAcAAAASABQAAwASAAYAAAASABUAAwASAAcAAAATABUAAwATAAcAAAAUABUAAwAUAAcAAAAWABQAAwAUAAcAAAANABUAAwANAAcAAAANABYAAwANAAgAAAAOABUAAwAOAAcAAAAOABYAAwAOAAgAAAAPABYAAwAPAAgAAAAQABYAAwAQAAgAAAARABYAAwARAAgAAAASABYAAwASAAgAAAATABYAAwATAAgAAAAUABYAAwAUAAgAAAAWABUAAwANAAcAAAAWABYAAwANAAgAAAAXABUAAwAOAAcAAAAXABYAAwAOAAgAAAAYABQAAwAPAAYAAAAYABUAAwAPAAcAAAAYABYAAwAPAAgAAAAZABQAAwAQAAYAAAAZABUAAwAQAAcAAAAZABYAAwAQAAgAAAAaABQAAwARAAYAAAAaABUAAwARAAcAAAAaABYAAwARAAgAAAAbABQAAwASAAYAAAAbABUAAwASAAcAAAAbABYAAwASAAgAAAAcABUAAwATAAcAAAAcABYAAwATAAgAAAAAABQAAwAPAAYAAAAAABUAAwAPAAcAAAAAABYAAwAPAAgAAAABABQAAwAQAAYAAAABABUAAwAQAAcAAAABABYAAwAQAAgAAAACABQAAwARAAYAAAACABUAAwARAAcAAAACABYAAwARAAgAAAADABQAAwASAAYAAAADABUAAwASAAcAAAADABYAAwASAAgAAAAEABUAAwATAAcAAAAEABYAAwATAAgAAAAFABUAAwAUAAcAAAAFABYAAwAUAAgAAAANAAQABwAMABAAAAAOAAQABwAKABIAAAAPAAQABwAOABAAAAAQAAQABwAMABIAAAARAAQABwALABIAAAASAAQABwAJABAAAAATAAQABwAPABAAAAAUAAQABwAJABEAAAAdABYAAwAUAAcAAAAeABQAAwANAAEAAAAeABUAAwANAAIAAAAeABYAAwANAAMAAAAfABQAAwAOAAEAAAAfABUAAwAOAAIAAAAfABYAAwAOAAMAAAAgABMAAwAPAAAAAAAgABQAAwAPAAEAAAAgABUAAwAPAAIAAAAgABYAAwAPAAMAAAAhABMAAwAQAAAAAAAhABQAAwAQAAEAAAAhABUAAwAQAAIAAAAhABYAAwAQAAMAAAAiABMAAwARAAAAAAAiABQAAwARAAEAAAAiABUAAwARAAIAAAAiABYAAwARAAMAAAAjABMAAwASAAAAAAAjABQAAwASAAEAAAAjABUAAwASAAIAAAAjABYAAwASAAMAAAAkABQAAwATAAEAAAAkABUAAwATAAIAAAAkABYAAwATAAMAAAAdABcAAwAUAAgAAAAeABcAAwANAAQAAAAfABcAAwAOAAQAAAAgABcAAwAPAAQAAAAhABcAAwAQAAQAAAAiABcAAwARAAQAAAAjABcAAwASAAQAAAAkABcAAwATAAQAAAA=")
 tile_set = ExtResource("1_kmayv")
 
-[node name="Player" parent="." instance=ExtResource("3_vdx2x")]
-visible = false
-position = Vector2(49, 262)
+[node name="PlayerSpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(59, 273)
 
-[node name="MagicCursor" parent="Player" index="6"]
-mouse_mode = true
+[node name="PortalArea" type="Area2D" parent="."]
 
-[editable path="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea"]
+position = Vector2(17, 273)
+shape = SubResource("CapsuleShape2D_1onvx")
+
+[node name="TeleportTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="PortalArea" to="." method="_on_portal_area_body_entered"]
+[connection signal="body_exited" from="PortalArea" to="." method="_on_portal_area_body_exited"]
+[connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]

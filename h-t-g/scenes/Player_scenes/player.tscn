@@ -479,9 +479,9 @@ shape = SubResource("CapsuleShape2D_15gd1")
 
 [node name="PlayerView" type="Camera2D" parent="."]
 limit_left = 0
-limit_top = 8
+limit_top = 0
 limit_right = 1280
-limit_bottom = 368
+limit_bottom = 360
 script = ExtResource("9_1colh")
 
 [node name="AttackRange" type="Area2D" parent="."]
