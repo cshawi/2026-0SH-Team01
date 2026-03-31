@@ -32,7 +32,6 @@ func _ready() -> void:
 	
 	
 	print("Forest ready")
-	print(player_view.limit_top)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,6 +79,7 @@ func go_to_part_1() -> void:
 	
 func respawn(body: Node2D):
 	body.global_position = player_spawn_point.global_position
+
 func on_teleport(target: String):
 	match target:
 		"Part_1":
