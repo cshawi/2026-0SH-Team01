@@ -14,10 +14,14 @@ class_name World_Tomy
 
 
 const BOX_AMOUNT := 6
+var temp_next_level := "res://scenes/Levels Scenes/forest_level_manager.tscn"
+
+signal level_finished() #mettre ne paramètre player.current_hp
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameMaster.register_level(self)
 	limit_wall.add_wall(0)
 	limit_wall.add_wall(1280)
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x
@@ -49,5 +53,6 @@ func _on_hint_area_2_body_entered(body: Node2D) -> void:
 
 func _on_hint_area_3_body_entered(body: Node2D) -> void:
 	if body is Player:
+		#level_finished.emit()
 		await get_tree().create_timer(1).timeout
-		get_tree().quit()
+		await Fade_transition.play_transition(GameMaster.change_to_level, temp_next_level)

@@ -19,6 +19,8 @@ config/icon="res://assets/icons/thf_logo.png"
 [autoload]
 
 Udp="*res://scripts/protocol/udp.gd"
+GameMaster="*res://scripts/game_manager.gd"
+Fade_transition="*res://scenes/utils/fade_transition.tscn"
 
 [display]
 

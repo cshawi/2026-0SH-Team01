@@ -7,21 +7,24 @@ extends Node2D
 @onready var forest_level_part_1: ForestLevelPart1 = $ForestLevelPart1
 @onready var forest_level_part_2: ForestLevelPart2 = $ForestLevelPart2
 
-@onready var fade_transition: FadeTransition = $FadeTransition
 
 @onready var player_path := preload("res://scenes/Player_scenes/player.tscn")
 var player: Player
 var player_view: Camera2D
 
+var temp_next_level := "res://scenes/Levels Scenes/maze_key.tscn"
+
+signal level_finished() #mettre ne paramètre player.current_hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameMaster.register_level(self)
 	limit_wall.add_wall(0)
 	limit_wall.add_wall(640)
 	
 	player = spawner.spawn(player_path, player_spawn_point.global_position)
 	player_view = player.get_node("PlayerView")
-	player.get_node("MagicCursor").mouse_mode = true
+	player.get_node("MagicCursor").mouse_mode = GameMaster.mouse_mode
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x
 	player_view.limit_right = limit_wall.get_child(1).shape.a.x
 	
@@ -50,7 +53,7 @@ func set_active_part(active_part: Node):
 			if player_view:
 				player_view.limit_top = part.top_limit
 		else:
-			Node.PROCESS_MODE_DISABLED
+			part.process_mode = Node.PROCESS_MODE_DISABLED
 		set_collisions_enabled(part, is_active)
 
 func set_collisions_enabled(node: Node, enabled: bool) -> void:
@@ -83,11 +86,18 @@ func respawn(body: Node2D):
 func on_teleport(target: String):
 	match target:
 		"Part_1":
-			await fade_transition.play_transition(go_to_part_1)
+			await Fade_transition.play_transition(go_to_part_1)
 		"Part_2":
-			await fade_transition.play_transition(go_to_part_2)
+			await Fade_transition.play_transition(go_to_part_2)
 			
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		await fade_transition.play_transition(respawn, body)
+		await Fade_transition.play_transition(respawn, body)
+
+
+func _on_end_level_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		await get_tree().create_timer(1).timeout
+		await Fade_transition.play_transition(GameMaster.change_to_level, temp_next_level)
+		#level_finished.emit() #ajouter player.current_hp

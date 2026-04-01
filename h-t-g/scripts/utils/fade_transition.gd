@@ -25,5 +25,5 @@ func fade_in() -> void:
 
 func play_transition(action: Callable, p1 = null) -> void:
 	await fade_out()
-	action.call(p1) if p1 else action.call()  #reçoit la fonction à exécuter après le fade
+	await action.call(p1) if p1 else await action.call()  #reçoit la fonction à exécuter après le fade
 	await fade_in()

@@ -74,6 +74,9 @@ grow_vertical = 1
 [node name="Player" parent="." instance=ExtResource("3_8r5u2")]
 position = Vector2(49, 294)
 
+[node name="MagicCursor" parent="Player" index="6"]
+mouse_mode = true
+
 [connection signal="body_entered" from="HintArea" to="." method="_on_hint_area_body_entered"]
 [connection signal="body_entered" from="HintArea2" to="." method="_on_hint_area_2_body_entered"]
 [connection signal="body_entered" from="HintArea3" to="." method="_on_hint_area_3_body_entered"]

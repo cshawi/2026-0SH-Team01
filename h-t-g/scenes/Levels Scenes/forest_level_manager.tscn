@@ -5,10 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://yivjj3ou6wfr" path="res://scenes/Levels Scenes/forest_level_part_1.tscn" id="2_fsu8y"]
 [ext_resource type="PackedScene" uid="uid://e2p06qf5uhyg" path="res://scenes/Levels Scenes/forest_level.tscn" id="3_6ksvg"]
 [ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/spawner.tscn" id="5_41dh6"]
-[ext_resource type="PackedScene" uid="uid://bh5khdhptxxwx" path="res://scenes/utils/fade_transition.tscn" id="6_fsu8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wai4"]
 size = Vector2(647, 63)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fsu8y"]
+a = Vector2(678, 75)
+b = Vector2(678, 150)
 
 [node name="ForestLevelManager" type="Node2D"]
 script = ExtResource("1_7ltgr")
@@ -31,6 +34,11 @@ position = Vector2(49, 250)
 
 [node name="Spawner" parent="." instance=ExtResource("5_41dh6")]
 
-[node name="FadeTransition" parent="." instance=ExtResource("6_fsu8y")]
+[node name="EndLevelArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea"]
+position = Vector2(-43, -9)
+shape = SubResource("SegmentShape2D_fsu8y")
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="EndLevelArea" to="." method="_on_end_level_area_body_entered"]
