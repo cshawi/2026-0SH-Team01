@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=3 uid="uid://cxfmddpxdyk6e"]
 
-[ext_resource type="Script" uid="uid://dkorxokbrng2l" path="res://scripts/PlayerScripts/player.gd" id="1_c6c2d"]
+[ext_resource type="Script" path="res://scripts/PlayerScripts/player.gd" id="1_c6c2d"]
 [ext_resource type="Texture2D" uid="uid://d1qiktfy6dij3" path="res://assets/icons/Wanderer Magican/Attack_1.png" id="1_m4mlr"]
 [ext_resource type="Texture2D" uid="uid://sq4jm5r73hf2" path="res://assets/icons/Wanderer Magican/Attack_2.png" id="2_c6c2d"]
 [ext_resource type="Texture2D" uid="uid://d2a7ig6r5rq8w" path="res://assets/icons/Wanderer Magican/Jump.png" id="4_1colh"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bg28ha1w1mei3" path="res://assets/icons/Wanderer Magican/Idle.png" id="5_tgep5"]
 [ext_resource type="Texture2D" uid="uid://bcu68iar05g3m" path="res://assets/icons/Wanderer Magican/Walk.png" id="7_tgep5"]
 [ext_resource type="PackedScene" uid="uid://ckdo3m2fn4exm" path="res://scenes/Player_scenes/spell.tscn" id="8_c6c2d"]
-[ext_resource type="Script" uid="uid://dx8gyk5jdjrtu" path="res://scripts/PlayerScripts/player_view.gd" id="9_1colh"]
+[ext_resource type="Script" path="res://scripts/PlayerScripts/player_view.gd" id="9_1colh"]
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="9_rh45m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15gd1"]

@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://c7mr4ergnkt8h"]
 
-[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_66hll"]
+[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_66hll"]
 [ext_resource type="Texture2D" uid="uid://b3hbshufrag2k" path="res://assets/sprites/Objects/Rocks/Rocks64x64_no_background.png" id="2_5jxm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orjgr"]
 atlas = ExtResource("2_5jxm8")
-region = Rect2(691, 325.50208, 333, 310.4978)
+region = Rect2(691, 325.502, 333, 310.498)
 
 [resource]
 script = ExtResource("1_66hll")
+gravity_scale = 1.0
 weight = 2000
 name = "Green_large_rock"
 texture = SubResource("AtlasTexture_orjgr")

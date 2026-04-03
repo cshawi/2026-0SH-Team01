@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://fi0msd8c345h"]
 
-[ext_resource type="Script" uid="uid://blgr6at4pygqw" path="res://scripts/world_tomy.gd" id="1_ff0pj"]
+[ext_resource type="Script" path="res://scripts/world_tomy.gd" id="1_ff0pj"]
 [ext_resource type="PackedScene" uid="uid://vc4darec1r7c" path="res://scenes/Levels Scenes/didactitiel_scenes/didactitiel_part1.tscn" id="2_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="3_8r5u2"]
 [ext_resource type="PackedScene" uid="uid://i6dmyw578gio" path="res://scenes/Levels Scenes/didactitiel_scenes/didactitiel_part2.tscn" id="3_t2ej4"]
