@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://qi07vnpirsvw"]
+
+[ext_resource type="Script" path="res://scripts/menu/settings.gd" id="1_sfpbk"]
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sfpbk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 200.0
+offset_top = 64.0
+offset_right = 392.0
+offset_bottom = 104.0
+
+[node name="hand_tracking" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="hand_tracking_label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Hand tracking"
+
+[connection signal="pressed" from="HBoxContainer/hand_tracking" to="." method="_on_hand_tracking_pressed"]
