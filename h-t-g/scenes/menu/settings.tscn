@@ -8,10 +8,10 @@ anchors_preset = 0
 script = ExtResource("1_sfpbk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 56.0
-offset_top = 32.0
-offset_right = 248.0
-offset_bottom = 72.0
+offset_left = 200.0
+offset_top = 64.0
+offset_right = 392.0
+offset_bottom = 104.0
 
 [node name="hand_tracking" type="CheckButton" parent="HBoxContainer"]
 layout_mode = 2
