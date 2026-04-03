@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://clguftp3su843"]
+
+[node name="ObjectManager" type="Node2D"]
