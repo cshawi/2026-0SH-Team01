@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btevwal8ebevf"]
 
-[ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_2u3ty"]
+[ext_resource type="Script" uid="uid://b3uwm7ghewde7" path="res://scripts/menu/menu.gd" id="1_2u3ty"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_2u3ty")
 
 [node name="Start" type="Button" parent="."]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 64.0
 offset_right = 432.0
@@ -15,6 +16,7 @@ offset_bottom = 128.0
 text = "Start"
 
 [node name="Settings" type="Button" parent="."]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 208.0
 offset_right = 432.0
@@ -22,6 +24,7 @@ offset_bottom = 272.0
 text = "Leave"
 
 [node name="Exit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 136.0
 offset_right = 432.0

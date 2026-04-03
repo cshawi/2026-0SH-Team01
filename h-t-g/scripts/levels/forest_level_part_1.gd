@@ -16,10 +16,12 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_portal_area_body_entered(body: Node2D) -> void:
-	teleport_timer.start()
+	if body is Player:
+		teleport_timer.start()
 
 func _on_portal_area_body_exited(body: Node2D) -> void:
-	teleport_timer.stop()
+	if body is Player:
+		teleport_timer.stop()
 
 func _on_teleport_timer_timeout() -> void:
 	teleport.emit("Part_2")

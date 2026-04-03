@@ -294,7 +294,7 @@ resource_local_to_scene = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1msei"]
 size = Vector2(6.545288, 1.919136)
 
-[node name="Wasp" groups=["Objects"] instance=ExtResource("1_m24vh")]
+[node name="Wasp" groups=["Enemies", "Objects"] instance=ExtResource("1_m24vh")]
 script = ExtResource("2_toqa8")
 wing_force = 3.0
 wall_distance = 30.0

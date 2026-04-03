@@ -1,7 +1,6 @@
 extends Node2D
 class_name GameManager
 
-@onready var fade_transition: FadeTransition = $FadeTransition
 
 var mouse_mode := true #temporaire le temps d'avoir les paramètres
 var player_hp: float
