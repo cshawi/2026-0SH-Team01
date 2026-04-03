@@ -1,8 +1,24 @@
-[gd_scene format=3 uid="uid://ciwef0nwxfngc"]
+[gd_scene load_steps=2 format=3 uid="uid://ciwef0nwxfngc"]
+
+[ext_resource type="Script" uid="uid://dpa42yfau7tmo" path="res://scripts/utils/hud.gd" id="1_0fbou"]
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_0fbou")
 
 [node name="PlayerControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SettingsMenu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
