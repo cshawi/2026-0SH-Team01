@@ -53,8 +53,9 @@ func resetObject():
 	if not is_holding: return
 	is_holding = false
 	
-	closest_object.desactivate()
-	closest_object = null
+	if closest_object:
+		closest_object.desactivate()
+		closest_object = null
 
 func mouse():
 	global_position = get_global_mouse_position()
@@ -89,7 +90,12 @@ func grab_object():
 	if closest_object:
 		is_holding = true
 		if closest_object is MoveableObject:
-			closest_object.activate(self,get_parent().STRENGHT if get_parent() is Player else default_strength)
+			closest_object.activate(self,get_strength())
 		if closest_object is StaticObject:
 			closest_object.activate()
-			
+		var interactable = closest_object.get_node_or_null("InteractableComponent")
+		if interactable:
+			interactable.interact(self)
+
+func get_strength():
+	return get_parent().STRENGHT if get_parent() is Player else default_strength
