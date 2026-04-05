@@ -9,6 +9,7 @@ var weight: float
 var magic_cursor: MagicCursor
 var player_strength
 var max_distance = 100.0
+var density := 1.0
 
 func _ready():
 	apply_config()
@@ -39,5 +40,6 @@ func apply_config():
 	gravity_scale = params.gravity_scale
 	name = params.name
 	mass = params.weight
+	density = params.density
 	$CollisionPolygon2D.polygon = params.collision_polygon
 	$Sprite2D.texture = params.texture
