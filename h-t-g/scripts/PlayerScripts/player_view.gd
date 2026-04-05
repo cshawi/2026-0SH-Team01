@@ -3,6 +3,7 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	zoom = zoom / get_parent().scale
 	var map_limit = get_tree().current_scene.find_child("LimitWall")
 	
 	if map_limit:

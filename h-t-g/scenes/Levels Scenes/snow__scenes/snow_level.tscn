@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=4 uid="uid://co5eqwl20hx3c"]
+
+[ext_resource type="Texture2D" uid="uid://dmnwvg7uh7vrn" path="res://assets/sprites/WinterTileset/png/BG/BG.png" id="1_hes1u"]
+[ext_resource type="TileSet" uid="uid://b0xxufb7sy8q2" path="res://ressources/TileSet/winter_tile_set.tres" id="2_hes1u"]
+[ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="4_yngq0"]
+
+[node name="SnowLevel" type="Node2D"]
+
+[node name="BG_static" type="Sprite2D" parent="."]
+position = Vector2(901, 446)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_hes1u")
+
+[node name="Water" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAAYAAAABAAcAAAAHAAYAAAABAAcAAAAIAAYAAAABAAcAAAAJAAYAAAABAAcAAAAKAAYAAAABAAcAAAALAAYAAAABAAcAAAAMAAUAAAABAAYAAAAMAAYAAAABAAcAAAAGAAUAAAABAAYAAAAHAAUAAAABAAYAAAAIAAUAAAABAAYAAAAJAAUAAAABAAYAAAAKAAUAAAABAAYAAAALAAUAAAABAAYAAAADAAMAAAAHAAIAABACAAMAAAAIAAIAABABAAMAAAAJAAIAABAAAAMAAAAKAAIAABADAAQAAAAHAAMAABACAAQAAAAIAAMAABABAAQAAAAJAAMAABAAAAQAAAAKAAMAABADAAIAAAADAAUAAAAEAAIAAAAEAAUAAAAFAAIAAAAFAAUAAAALAAIAAAADAAUAAAAMAAIAAAAEAAUAAAANAAIAAAAFAAUAAAA=")
+tile_set = ExtResource("2_hes1u")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 54)
+tile_map_data = PackedByteArray("AAAHAAMAAAADAAUAAAAIAAMAAAAEAAUAAAAJAAMAAAAFAAUAAAA=")
+tile_set = ExtResource("2_hes1u")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAABAAUAAAABAAAAAAABAAYAAAABAAEAAAACAAUAAAABAAAAAAACAAYAAAABAAEAAAADAAUAAAABAAAAAAADAAYAAAABAAEAAAAEAAUAAAABAAAAAAAEAAYAAAABAAEAAAAFAAUAAAABAAAAAAAFAAYAAAABAAEAAAAGAAUAAAACAAAAAAAGAAYAAAACAAEAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAEAAAANAAUAAAABAAAAAAANAAYAAAABAAEAAAAOAAUAAAACAAAAAAAOAAYAAAACAAEAAAA=")
+tile_set = ExtResource("2_hes1u")
+
+[node name="Player" parent="." instance=ExtResource("4_yngq0")]
+position = Vector2(581, 534)
+scale = Vector2(3, 3)
+
+[node name="PlayerView" parent="Player" index="3"]
+limit_right = 1800
+limit_bottom = 900
+
+[editable path="Player"]
