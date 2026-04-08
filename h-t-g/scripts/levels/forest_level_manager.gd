@@ -12,7 +12,7 @@ extends Node2D
 var player: Player
 var player_view: Camera2D
 
-var temp_next_level := "res://scenes/Levels Scenes/maze_key.tscn"
+var temp_next_level := "res://scenes/Levels Scenes/snow__scenes/snow_level.tscn"
 
 signal level_finished() #mettre ne paramètre player.current_hp
 

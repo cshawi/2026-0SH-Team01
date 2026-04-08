@@ -2,7 +2,7 @@ extends Node2D
 class_name GameManager
 
 
-var mouse_mode := true #temporaire le temps d'avoir les paramètres
+var mouse_mode := false #temporaire le temps d'avoir les paramètres
 var player_hp: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,6 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 
