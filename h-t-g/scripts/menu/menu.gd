@@ -3,6 +3,11 @@ extends Control
 const tutorial_path = "res://scenes/world_tomy.tscn"
 const settings_path = "res://scenes/menu/settings.tscn"
 
+
+
+func _ready() -> void:
+	
+	pass	
 func change_scene(scene_path:String ):
 	await Fade_transition.play_transition(GameMaster.change_to_level,scene_path)
 	
