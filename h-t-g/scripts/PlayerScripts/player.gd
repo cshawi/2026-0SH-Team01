@@ -31,6 +31,7 @@ func _ready() -> void:
 	JUMP_FORCE *= scale.x
 	GRAVITY *= scale.x
 	
+	
 
 
 func _physics_process(delta):

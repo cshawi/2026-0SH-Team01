@@ -32,13 +32,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Start"
 
-[node name="TextureButton" type="TextureButton" parent="Start"]
-layout_mode = 0
-offset_right = 256.0
-offset_bottom = 72.0
-texture_normal = SubResource("AtlasTexture_wb1lk")
-stretch_mode = 1
-
 [node name="Settings" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
