@@ -37,6 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_e0arn")
 texture_hover = ExtResource("3_y1o0p")
+texture_focused = ExtResource("3_y1o0p")
 stretch_mode = 3
 
 [node name="Exit" type="TextureButton" parent="VBoxContainer"]
@@ -45,6 +46,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("3_037ec")
 texture_hover = ExtResource("5_y1o0p")
+texture_focused = ExtResource("5_y1o0p")
 stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]

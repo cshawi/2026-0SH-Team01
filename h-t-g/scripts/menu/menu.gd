@@ -2,12 +2,13 @@ extends Control
 
 const tutorial_path = "res://scenes/world_tomy.tscn"
 const settings_path = "res://scenes/menu/settings.tscn"
+@onready var start: Button = $VBoxContainer/Start
 
 
 
 func _ready() -> void:
-	
-	pass	
+	start.grab_focus()
+
 func change_scene(scene_path:String ):
 	await Fade_transition.play_transition(GameMaster.change_to_level,scene_path)
 	
