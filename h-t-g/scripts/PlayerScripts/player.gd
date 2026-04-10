@@ -8,6 +8,7 @@ class_name Player
 @onready var attack_range_shape: CollisionShape2D = $AttackRange/AttackRangeShape
 @onready var attack_range = attack_range_shape.shape.radius
 @onready var attack_range_area: Area2D = $AttackRange
+@onready var health_component: HealthComponent = $HealthComponent
 
 var SPEED = 100
 var JUMP_FORCE = -350
@@ -30,6 +31,7 @@ func _ready() -> void:
 	SPEED *= scale.x
 	JUMP_FORCE *= scale.x
 	GRAVITY *= scale.x
+	health_component.changed.connect(_on_health_changed)
 	
 	
 
@@ -90,6 +92,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+
+func _on_health_changed(health: float):
+	print("Vie restante: ", health)
 
 func _on_player_animation_animation_finished() -> void:
 	print(player_animation.animation)

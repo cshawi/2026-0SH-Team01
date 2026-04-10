@@ -118,6 +118,7 @@ tile_set = ExtResource("1_kure8")
 position = Vector2(332, -496)
 
 [node name="PortalArea" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea"]
 position = Vector2(367, -496)

@@ -33,18 +33,21 @@ config = ExtResource("5_ff0pj")
 position = Vector2(578, 232)
 
 [node name="HintArea" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea"]
 position = Vector2(539, 184)
 shape = SubResource("SegmentShape2D_1462o")
 
 [node name="HintArea2" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea2"]
 position = Vector2(1247, 181)
 shape = SubResource("SegmentShape2D_1462o")
 
 [node name="HintArea3" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea3"]
 position = Vector2(1521, 191)

@@ -97,6 +97,7 @@ tile_set = ExtResource("1_kmayv")
 position = Vector2(59, 273)
 
 [node name="PortalArea" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea"]
 position = Vector2(17, 273)

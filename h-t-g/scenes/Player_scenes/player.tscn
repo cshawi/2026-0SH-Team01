@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cxfmddpxdyk6e"]
+[gd_scene load_steps=70 format=3 uid="uid://cxfmddpxdyk6e"]
 
 [ext_resource type="Script" uid="uid://dkorxokbrng2l" path="res://scripts/PlayerScripts/player.gd" id="1_c6c2d"]
 [ext_resource type="Texture2D" uid="uid://d1qiktfy6dij3" path="res://assets/icons/Wanderer Magican/Attack_1.png" id="1_m4mlr"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ckdo3m2fn4exm" path="res://scenes/Player_scenes/spell.tscn" id="8_c6c2d"]
 [ext_resource type="Script" uid="uid://dx8gyk5jdjrtu" path="res://scripts/PlayerScripts/player_view.gd" id="9_1colh"]
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="9_rh45m"]
+[ext_resource type="PackedScene" uid="uid://cs36vcfjsy1n0" path="res://scenes/components/hurtbox_component.tscn" id="9_xjcw0"]
+[ext_resource type="PackedScene" uid="uid://31dhjcsuyqtg" path="res://scenes/components/health_component.tscn" id="12_7uw7n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15gd1"]
 radius = 15.0
@@ -458,6 +460,7 @@ animations = [{
 radius = 169.012
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_c6c2d")
 spell_scene = ExtResource("8_c6c2d")
 
@@ -470,10 +473,12 @@ position = Vector2(0, -29)
 sprite_frames = SubResource("SpriteFrames_tgep5")
 animation = &"idle"
 
-[node name="Hurtbox" type="Area2D" parent="."]
-visible = false
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("9_xjcw0")]
+collision_layer = 2
+collision_mask = 0
+health_component = NodePath("../HealthComponent")
 
-[node name="HurtboxShape" type="CollisionShape2D" parent="Hurtbox"]
+[node name="HurtboxShape" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_15gd1")
 
@@ -495,6 +500,8 @@ position = Vector2(66, -10)
 
 [node name="MagicCursor" parent="." instance=ExtResource("9_rh45m")]
 mouse_mode = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("12_7uw7n")]
 
 [connection signal="animation_finished" from="PlayerAnimation" to="." method="_on_player_animation_animation_finished"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
