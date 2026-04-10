@@ -1,60 +1,111 @@
 extends Control
 class_name BackgroundColor
 
-@export_group("Sky Settings")
-@export var sky_colors = {
-	"white": "#ffffff",
-	"blue": "#00b1ff",
-	"red": "#ff6676"
-}
-@export var color_sequence : Array[String] = ["white", "red", "blue", "red"]
-
 @export_group("Orbit Settings")
-@export var orbit_height := 375.0
-@export var transition_time := 60.0
+@export var orbit_width := 320
+@export var orbit_height := 150
+@export var cycle_duration := 60.0
+
+@export_group("Time Settings")
+#@export_range(0.0, 1.0, 0.01)
+@export var start_phase := 0.0 # 0 = crépuscule à gauche
 
 @onready var sky: ColorRect = $Sky
 @onready var orbit_center: Marker2D = $OrbitCenter
-@onready var sun_pivot: Node2D = $SunPivot
-@onready var sun_sprite: Sprite2D = $SunPivot/SunSprite
-@onready var moon_pivot: Node2D = $MoonPivot
-@onready var moon_sprite: Sprite2D = $MoonPivot/MoonSprite
+@onready var sun_sprite: Sprite2D = $SunSprite
+@onready var moon_sprite: Sprite2D = $MoonSprite
+@onready var background: TextureRect = $Background
+
+# IMPORTANT :
+# phase 0.00 = gauche = crépuscule / sunrise
+# phase 0.25 = haut = plein jour
+# phase 0.50 = droite = crépuscule / sunset
+# phase 0.75 = bas = nuit
+# phase 1.00 = retour à gauche
+
+@export var sky_steps: Array[Dictionary] = [
+	{ "t": 0.00, "color": "#ff8a5b" }, # crépuscule gauche
+	{ "t": 0.20, "color": "#6fc8ff" }, # transition rapide vers jour
+	{ "t": 0.38, "color": "#6fc8ff" }, # jour long
+	{ "t": 0.42, "color": "#ff7a59" }, # crépuscule droite
+	{ "t": 0.58, "color": "#0b1026" }, # transition rapide vers nuit
+	{ "t": 0.92, "color": "#0b1066" }, # nuit longue
+	{ "t": 1.00, "color": "#ff8a5b" }  # retour crépuscule gauche
+]
+
+@export var background_steps: Array[Dictionary] = [
+	{ "t": 0.00, "color": "#ffd0a8" },
+	{ "t": 0.20, "color": "#ffffff" },
+	{ "t": 0.38, "color": "#ffffff" },
+	{ "t": 0.42, "color": "#ffb08a" },
+	{ "t": 0.58, "color": "#5c6da8" },
+	{ "t": 0.92, "color": "#5c6da8" },
+	{ "t": 1.00, "color": "#ffd0a8" }
+]
 
 var orbit_speed := 0.0
-var current_color_index := 0
+var sun_angle := 0.0
+var moon_angle := 0.0
 
 func _ready() -> void:
-	sun_pivot.global_position = orbit_center.global_position
-	moon_pivot.global_position = orbit_center.global_position
-	
-	# Le soleil commence à 180° (gauche)
-	# La lune commence à 0° (droite) pour être à l'opposé
-	sun_pivot.rotation = deg_to_rad(180)
-	moon_pivot.rotation = deg_to_rad(0)
-	
-	# On décale les sprites sur l'axe X pour qu'ils suivent l'arc de cercle
-	sun_sprite.position.x = orbit_height
-	moon_sprite.position.x = orbit_height
-	
-	orbit_speed = deg_to_rad(360.0 / transition_time)
-	
-	if color_sequence.size() > 0:
-		sky.color = Color(sky_colors[color_sequence[0]])
-		start_color_cycle()
+	orbit_speed = TAU / cycle_duration
+
+	sun_angle = phase_to_angle(start_phase)
+	moon_angle = phase_to_angle(wrapf(start_phase + 0.5, 0.0, 1.0))
+
+	update_orbit_positions()
+	update_colors_from_orbit()
 
 func _physics_process(delta: float) -> void:
-	sun_pivot.rotation += orbit_speed * delta
-	moon_pivot.rotation += orbit_speed * delta
-	
-	# On annule la rotation sur les sprites pour qu'ils restent droits
-	sun_sprite.rotation = -sun_pivot.rotation
-	moon_sprite.rotation = -moon_pivot.rotation
+	sun_angle -= orbit_speed * delta
+	moon_angle -= orbit_speed * delta
 
-func start_color_cycle() -> void:
-	current_color_index = (current_color_index + 1) % color_sequence.size()
-	var target_color = Color(sky_colors[color_sequence[current_color_index]])
-	var step_duration = transition_time / color_sequence.size()
-	
-	var tween = create_tween()
-	tween.tween_property(sky, "color", target_color, step_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tween.finished.connect(start_color_cycle)
+	update_orbit_positions()
+	update_colors_from_orbit()
+
+func update_orbit_positions() -> void:
+	var center := orbit_center.global_position
+
+	sun_sprite.global_position = center + Vector2(
+		cos(sun_angle) * orbit_width,
+		-sin(sun_angle) * orbit_height
+	)
+
+	moon_sprite.global_position = center + Vector2(
+		cos(moon_angle) * orbit_width,
+		-sin(moon_angle) * orbit_height
+	)
+
+func update_colors_from_orbit() -> void:
+	var orbit_phase := angle_to_phase(sun_angle)
+
+	sky.color = sample_color_steps(sky_steps, orbit_phase)
+	background.modulate = sample_color_steps(background_steps, orbit_phase)
+
+func phase_to_angle(phase: float) -> float:
+	var wrapped_phase := wrapf(phase, 0.0, 1.0)
+	return PI - wrapped_phase * TAU
+
+func angle_to_phase(angle: float) -> float:
+	var wrapped := wrapf(PI - angle, 0.0, TAU)
+	return wrapped / TAU
+
+func sample_color_steps(steps: Array[Dictionary], t: float) -> Color:
+	if steps.is_empty():
+		return Color.WHITE
+
+	if steps.size() == 1:
+		return Color(steps[0]["color"])
+
+	for i in range(steps.size() - 1):
+		var a := steps[i]
+		var b := steps[i + 1]
+
+		var ta: float = a["t"]
+		var tb: float = b["t"]
+
+		if t >= ta and t <= tb:
+			var local_t := inverse_lerp(ta, tb, t)
+			return Color(a["color"]).lerp(Color(b["color"]), local_t)
+
+	return Color(steps[steps.size() - 1]["color"])
