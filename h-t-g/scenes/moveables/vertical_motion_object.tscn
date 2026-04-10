@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx5w337vbvb3h"]
+
+[ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="1_eywoc"]
+[ext_resource type="Script" uid="uid://cndhueddhjd1d" path="res://scripts/moveableObjects/vertical_motion_object.gd" id="2_ba46h"]
+
+[node name="VerticalMotionObject" instance=ExtResource("1_eywoc")]
+script = ExtResource("2_ba46h")
+limit_up = -100.0
+limit_down = 100.0
+is_absolute = false
+can_fall = true
+max_falling_speed = 980.0

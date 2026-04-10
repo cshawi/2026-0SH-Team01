@@ -9,9 +9,9 @@ class_name Player
 @onready var attack_range = attack_range_shape.shape.radius
 @onready var attack_range_area: Area2D = $AttackRange
 
-const SPEED = 100
-const JUMP_FORCE = -350
-const GRAVITY = 900
+var SPEED = 100
+var JUMP_FORCE = -350
+var GRAVITY = 900
 const STRENGHT = 200
 
 
@@ -27,6 +27,11 @@ var attack_animation: AnimatedSprite2D
 
 func _ready() -> void:
 	muzzle_offset = muzzle.position
+	SPEED *= scale.x
+	JUMP_FORCE *= scale.x
+	GRAVITY *= scale.x
+	
+	
 
 
 func _physics_process(delta):

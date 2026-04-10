@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/Player_scenes/ATH/progress_bar.tscn" id="1_t6c21"]
 
 [node name="HUD" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_0fbou")
 
 [node name="PlayerControl" type="Control" parent="."]
 layout_mode = 3

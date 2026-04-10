@@ -2,18 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="1_ddolp"]
 [ext_resource type="Script" uid="uid://coh8wcdtl334c" path="res://scripts/moveableObjects/full_motion_object.gd" id="2_57fly"]
-[ext_resource type="Texture2D" uid="uid://c6f21f7oemb8o" path="res://assets/sprites/Background/Tiles.png" id="3_isog3"]
+[ext_resource type="Texture2D" uid="uid://crfavkur4iap6" path="res://assets/sprites/WinterTileset/WinterTileSet_16x16-32x32.png" id="3_isog3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3qckf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5beol"]
 atlas = ExtResource("3_isog3")
-region = Rect2(241.2529, 321.0244, 14.127289, 10.558655)
+region = Rect2(206.67519, -1.1324005, 34.31337, 34.313362)
 
 [node name="FullMotionObject" instance=ExtResource("1_ddolp")]
 top_level = true
 script = ExtResource("2_57fly")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = SubResource("AtlasTexture_3qckf")
+texture = SubResource("AtlasTexture_5beol")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(4, -1, 4, 2, -5, 2, -5, -1)
+polygon = PackedVector2Array(16, -17, 16, 16, -16, 16, -16, -17)

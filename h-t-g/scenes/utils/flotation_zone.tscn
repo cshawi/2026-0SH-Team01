@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhaqunt2ug2nv"]
+
+[ext_resource type="Script" uid="uid://c5mt42gtqpjnp" path="res://scripts/utils/flotation_zone.gd" id="1_k4wms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcv38"]
+size = Vector2(704, 134)
+
+[node name="FlotationZone" type="Area2D"]
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 500.0
+linear_damp_space_override = 3
+linear_damp = 5.0
+angular_damp_space_override = 3
+angular_damp = 5.0
+script = ExtResource("1_k4wms")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dcv38")

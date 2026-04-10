@@ -9,7 +9,6 @@ region = Rect2(95.852, 130.841, 32.0272, 29.0492)
 
 [resource]
 script = ExtResource("1_rghob")
-gravity_scale = 2.0
 weight = 11
 name = "small_box"
 texture = SubResource("AtlasTexture_ildie")

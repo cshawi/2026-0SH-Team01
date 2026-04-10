@@ -7,9 +7,9 @@ var active_peer : PacketPeerUDP = null
 var hand_screen_position := Vector2.ZERO
 var is_pinching := false
 var last_pinch := false
-var pinching_distance := 0.05
+var pinching_distance := 0.1
 var buffer_timer := 0
-var buffer_delay := 0.4
+var buffer_delay := 0.2
 
 func _ready():
 	server.listen(port)

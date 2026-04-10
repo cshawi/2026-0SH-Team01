@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="9_rh45m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_15gd1"]
-radius = 16.0
-height = 64.0
+radius = 15.0
+height = 63.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7uw7n"]
 atlas = ExtResource("1_m4mlr")
@@ -479,9 +479,9 @@ shape = SubResource("CapsuleShape2D_15gd1")
 
 [node name="PlayerView" type="Camera2D" parent="."]
 limit_left = 0
-limit_top = 8
+limit_top = 0
 limit_right = 1280
-limit_bottom = 368
+limit_bottom = 360
 script = ExtResource("9_1colh")
 
 [node name="AttackRange" type="Area2D" parent="."]
@@ -494,6 +494,7 @@ shape = SubResource("CircleShape2D_tgep5")
 position = Vector2(66, -10)
 
 [node name="MagicCursor" parent="." instance=ExtResource("9_rh45m")]
+mouse_mode = true
 
 [connection signal="animation_finished" from="PlayerAnimation" to="." method="_on_player_animation_animation_finished"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
