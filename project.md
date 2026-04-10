@@ -34,6 +34,12 @@ Cette architecture répartie (**Python + MediaPipe** sur une machine, **Godot** 
 - Branchement au minimum 6 prises
 - Un écran assez grande (min 40po)
 
+### 3.2.1 En main
+
+- Portable
+- Joycon
+- Une main (LOL)
+
 ## 3.3 ...
 
 Il aura pour but de **vulgariser** la complexité derrière des projets aussi gros comme le casque de réalité augmenté.
