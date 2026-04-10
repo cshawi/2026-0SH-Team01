@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://ciwef0nwxfngc"]
+[gd_scene load_steps=2 format=3 uid="uid://ciwef0nwxfngc"]
+
+[ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/Player_scenes/ATH/progress_bar.tscn" id="1_t6c21"]
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="PlayerControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_right = 57.0
 offset_bottom = 40.0
+
+[node name="ProgressBar" parent="PlayerControl" instance=ExtResource("1_t6c21")]
+layout_mode = 0
