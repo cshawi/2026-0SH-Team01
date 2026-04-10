@@ -9,6 +9,10 @@ Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez exp
 
 # Comment partir le projet
 
+Prendre note qu'à la fin du projet, un seul fichier .exe sera clicable pour exécuter le tout.
+
+Pour le moment, ouvrir Godot et appuyer sur la touche f5.
+
 ## Configuration Python (Tracking MediaPipe)
 
 Ce module permet de détecter la main et d'envoyer les coordonnées à Godot via UDP
