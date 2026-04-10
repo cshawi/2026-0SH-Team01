@@ -22,6 +22,15 @@ hands = mp_hands.Hands(
 new_width = 640
 new_height = 360
 
+MIN_LIMIT = 0.25
+MAX_LIMIT = 0.75
+
+def remap_and_clamp(value, min_limit, max_limit):
+    # Formule de Remap : (val - min) / (max - min)
+    mapped = (value - min_limit) / (max_limit - min_limit)
+    # Clamp pour rester entre 0.0 et 1.0
+    return max(0.0, min(1.0, mapped))
+
 while cap.isOpened():
     success, frame = cap.read()
     img = cv2.resize(frame, (new_width, new_height))
@@ -34,10 +43,15 @@ while cap.isOpened():
 
     if results.multi_hand_landmarks:
         for hand_lms in results.multi_hand_landmarks:
-            pouce = hand_lms.landmark[4]
-            index = hand_lms.landmark[8]
+            p_raw = hand_lms.landmark[4] # Pouce
+            i_raw = hand_lms.landmark[8] # Index
 
-            message = f"{pouce.x:.3f},{pouce.y:.3f},{index.x:.3f},{index.y:.3f}"
+            p_x = remap_and_clamp(p_raw.x, MIN_LIMIT, MAX_LIMIT)
+            p_y = remap_and_clamp(p_raw.y, MIN_LIMIT, MAX_LIMIT)
+            i_x = remap_and_clamp(i_raw.x, MIN_LIMIT, MAX_LIMIT)
+            i_y = remap_and_clamp(i_raw.y, MIN_LIMIT, MAX_LIMIT)
+
+            message = f"{p_x:.3f},{p_y:.3f},{i_x:.3f},{i_y:.3f}"
 
             sock.sendto(message.encode(), (GODOT_IP, GODOT_PORT))
             

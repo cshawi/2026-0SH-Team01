@@ -27,7 +27,18 @@ Cette architecture répartie (**Python + MediaPipe** sur une machine, **Godot** 
 
 ## 3.2 Besoin
 
-Une table, un écran, une caméra externe.
+- Une table
+- Une chaise haut si possible (juste une)
+- Une caméra externe
+- Fil HDMI
+- Branchement au minimum 6 prises
+- Un écran assez grande (min 40po)
+
+### 3.2.1 En main
+
+- Portable
+- Joycon
+- Une main (LOL)
 
 ## 3.3 ...
 

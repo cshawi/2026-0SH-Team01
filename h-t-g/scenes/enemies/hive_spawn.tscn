@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjimg4cs48t7o"]
+
+[ext_resource type="Script" uid="uid://dtuxpt5qr5io4" path="res://scripts/enemies/hive_spawn.gd" id="1_3nu4s"]
+[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/spawner.tscn" id="2_ytons"]
+
+[node name="HiveSpawn" type="Marker2D"]
+script = ExtResource("1_3nu4s")
+
+[node name="Spawner" parent="." instance=ExtResource("2_ytons")]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

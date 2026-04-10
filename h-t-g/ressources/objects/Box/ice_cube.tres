@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://bwt3vseydx0ge"]
+
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_yb7fe"]
+[ext_resource type="Texture2D" uid="uid://crfavkur4iap6" path="res://assets/sprites/WinterTileset/WinterTileSet_16x16-32x32.png" id="2_phwub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku71k"]
+atlas = ExtResource("2_phwub")
+region = Rect2(254.7232, -0.2532339, 18.639923, 17.26997)
+
+[resource]
+script = ExtResource("1_yb7fe")
+weight = 10
+density = 0.8
+name = "Ice cube"
+texture = SubResource("AtlasTexture_ku71k")
+collision_polygon = PackedVector2Array(8.5, -8.5, 8.5, 7.5, -7.5, 7.5, -7.5, -8.5)
+metadata/_custom_type_script = "uid://cr1bkiuqvbqob"
