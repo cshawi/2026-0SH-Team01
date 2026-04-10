@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="1_0siig"]
 [ext_resource type="Script" uid="uid://114kviv5etlh" path="res://scripts/moveableObjects/spring_object.gd" id="2_j3qie"]
-[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Background/Tree-Assets.png" id="3_j3qie"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Tree-Assets.png" id="3_j3qie"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytvhd"]
 atlas = ExtResource("3_j3qie")

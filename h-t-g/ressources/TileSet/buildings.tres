@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://de7sidwnkhlra" path="res://assets/sprites/Background/Buildings.png" id="1_a08sy"]
 [ext_resource type="Texture2D" uid="uid://clchnmpen0e5e" path="res://assets/sprites/Background/Interior-01.png" id="2_e5ign"]
 [ext_resource type="Texture2D" uid="uid://c6f21f7oemb8o" path="res://assets/sprites/Background/Tiles.png" id="3_nxbmv"]
-[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Background/Tree-Assets.png" id="4_jinbe"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Tree-Assets.png" id="4_jinbe"]
 [ext_resource type="Texture2D" uid="uid://cjff6gqwrow82" path="res://assets/sprites/Objects/Trees/Yellow-Tree.png" id="5_sxlvg"]
 [ext_resource type="Texture2D" uid="uid://coswkrnhvb3s0" path="res://assets/sprites/Objects/Trees/Green-Tree.png" id="6_dic2w"]
 [ext_resource type="Texture2D" uid="uid://r4ex2t2g6u4t" path="res://assets/sprites/Background/Background.png" id="7_jokw7"]
