@@ -15,6 +15,7 @@ class_name BackgroundColor
 @onready var sun_sprite: Sprite2D = $SunSprite
 @onready var moon_sprite: Sprite2D = $MoonSprite
 @onready var background: TextureRect = $Background
+@onready var stars: TextureRect = $Stars
 
 # IMPORTANT :
 # phase 0.00 = gauche = crépuscule / sunrise
@@ -41,6 +42,14 @@ class_name BackgroundColor
 	{ "t": 0.58, "color": "#5c6da8" },
 	{ "t": 0.92, "color": "#5c6da8" },
 	{ "t": 1.00, "color": "#ffd0a8" }
+]
+
+@export var stars_opacity_steps: Array[Dictionary] = [
+	{ "t": 0.00, "a": 0.0 }, # Jour (gauche)
+	{ "t": 0.45, "a": 0.0 }, # Début transition soir
+	{ "t": 0.60, "a": 1.0 }, # Nuit pleine
+	{ "t": 0.90, "a": 1.0 }, # Fin de nuit
+	{ "t": 1.00, "a": 0.0 }  # Retour jour
 ]
 
 var orbit_speed := 0.0
@@ -81,6 +90,7 @@ func update_colors_from_orbit() -> void:
 
 	sky.color = sample_color_steps(sky_steps, orbit_phase)
 	background.modulate = sample_color_steps(background_steps, orbit_phase)
+	stars.modulate.a = sample_float_steps(stars_opacity_steps, orbit_phase)
 
 func phase_to_angle(phase: float) -> float:
 	var wrapped_phase := wrapf(phase, 0.0, 1.0)
@@ -109,3 +119,12 @@ func sample_color_steps(steps: Array[Dictionary], t: float) -> Color:
 			return Color(a["color"]).lerp(Color(b["color"]), local_t)
 
 	return Color(steps[steps.size() - 1]["color"])
+
+func sample_float_steps(steps: Array[Dictionary], t: float) -> float:
+	for i in range(steps.size() - 1):
+		var a := steps[i]
+		var b := steps[i + 1]
+		if t >= a["t"] and t <= b["t"]:
+			var local_t := inverse_lerp(a["t"], b["t"], t)
+			return lerp(float(a["a"]), float(b["a"]), local_t)
+	return steps[steps.size() - 1]["a"]
