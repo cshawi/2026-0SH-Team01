@@ -2,7 +2,8 @@ extends Control
 
 const tutorial_path = "res://scenes/world_tomy.tscn"
 const settings_path = "res://scenes/menu/settings.tscn"
-@onready var start: Button = $VBoxContainer/Start
+@onready var start: TextureButton = $VBoxContainer/Start
+
 
 
 

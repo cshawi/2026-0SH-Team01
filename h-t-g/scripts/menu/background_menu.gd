@@ -4,7 +4,7 @@ class_name BackgroundColor
 @export_group("Orbit Settings")
 @export var orbit_width := 320
 @export var orbit_height := 150
-@export var cycle_duration := 60.0
+@export var cycle_duration := 30.0
 
 @export_group("Time Settings")
 #@export_range(0.0, 1.0, 0.01)
@@ -15,7 +15,7 @@ class_name BackgroundColor
 @onready var sun_sprite: Sprite2D = $SunSprite
 @onready var moon_sprite: Sprite2D = $MoonSprite
 @onready var background: TextureRect = $Background
-@onready var stars: TextureRect = $Stars
+@onready var stars: Node2D = $Stars
 
 # IMPORTANT :
 # phase 0.00 = gauche = crépuscule / sunrise
@@ -46,10 +46,10 @@ class_name BackgroundColor
 
 @export var stars_opacity_steps: Array[Dictionary] = [
 	{ "t": 0.00, "a": 0.0 }, # Jour (gauche)
-	{ "t": 0.45, "a": 0.0 }, # Début transition soir
+	{ "t": 0.50, "a": 0.0 }, # Début transition soir
 	{ "t": 0.60, "a": 1.0 }, # Nuit pleine
-	{ "t": 0.90, "a": 1.0 }, # Fin de nuit
-	{ "t": 1.00, "a": 0.0 }  # Retour jour
+	{ "t": 0.85, "a": 1.0 }, # Fin de nuit
+	{ "t": 0.95, "a": 0.0 }  # Retour jour
 ]
 
 var orbit_speed := 0.0

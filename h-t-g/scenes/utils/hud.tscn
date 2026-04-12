@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciwef0nwxfngc"]
 
-[ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/Player_scenes/ATH/progress_bar.tscn" id="1_t6c21"]
 [ext_resource type="Script" uid="uid://dpa42yfau7tmo" path="res://scripts/utils/hud.gd" id="1_0fbou"]
+[ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/Player_scenes/ATH/progress_bar.tscn" id="1_t6c21"]
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 2
+visible = false
 script = ExtResource("1_0fbou")
 
 [node name="PlayerControl" type="Control" parent="."]
@@ -12,6 +13,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 57.0
 offset_bottom = 40.0
+
+[node name="ProgressBar" parent="PlayerControl" instance=ExtResource("1_t6c21")]
+layout_mode = 0
 
 [node name="PauseMenu" type="Control" parent="."]
 layout_mode = 3
@@ -24,6 +28,3 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ProgressBar" parent="PlayerControl" instance=ExtResource("1_t6c21")]
-layout_mode = 0

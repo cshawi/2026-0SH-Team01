@@ -1,11 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://btevwal8ebevf"]
+[gd_scene load_steps=20 format=3 uid="uid://btevwal8ebevf"]
 
 [ext_resource type="Script" uid="uid://b3uwm7ghewde7" path="res://scripts/menu/menu.gd" id="1_2u3ty"]
 [ext_resource type="Texture2D" uid="uid://bthup0hojaers" path="res://assets/sprites/HUD/settings.png" id="2_e0arn"]
 [ext_resource type="PackedScene" uid="uid://dm8apnovjc75d" path="res://scenes/menu/background_menu.tscn" id="2_r8yej"]
 [ext_resource type="Texture2D" uid="uid://b5rv75k2d0vym" path="res://assets/sprites/HUD/exit.png" id="3_037ec"]
+[ext_resource type="Texture2D" uid="uid://dc0x6k2f2ll47" path="res://assets/sprites/HUD/play.png" id="3_t0a87"]
 [ext_resource type="Texture2D" uid="uid://ciuaiurs76al3" path="res://assets/sprites/HUD/settings-hover.png" id="3_y1o0p"]
+[ext_resource type="Texture2D" uid="uid://cnksfxvchcbvi" path="res://assets/sprites/HUD/play-hover.png" id="4_qo0fc"]
 [ext_resource type="Texture2D" uid="uid://b7fv3unpiigeq" path="res://assets/sprites/HUD/exit-hover.png" id="5_y1o0p"]
+[ext_resource type="Texture2D" uid="uid://c2cyugrxihaev" path="res://assets/sprites/effects/fire_particle.png" id="9_f2fum"]
+[ext_resource type="Texture2D" uid="uid://vedhcvh6f7gt" path="res://assets/sprites/HUD/hand_title.png" id="9_k48pe"]
+[ext_resource type="Texture2D" uid="uid://bscqm2581ex1g" path="res://assets/sprites/HUD/title.png" id="10_f2fum"]
+
+[sub_resource type="CanvasItemMaterial" id="1"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="2"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 85.0781), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="3"]
+curve = SubResource("2")
+
+[sub_resource type="Gradient" id="Gradient_wdtkk"]
+offsets = PackedFloat32Array(0, 0.14285702, 0.53846157, 0.96153843)
+colors = PackedColorArray(0, 0, 0.803922, 1, 0.19488281, 0.20179349, 1, 1, 0.28606242, 0.38956198, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fv41j"]
+gradient = SubResource("Gradient_wdtkk")
+
+[sub_resource type="Curve" id="4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="5"]
+curve = SubResource("4")
+
+[sub_resource type="ParticleProcessMaterial" id="6"]
+emission_shape = 1
+emission_sphere_radius = 8.0
+angular_velocity_curve = SubResource("3")
+gravity = Vector3(0, -250, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("5")
+color_ramp = SubResource("GradientTexture1D_fv41j")
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -20,21 +60,26 @@ script = ExtResource("1_2u3ty")
 layout_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -310.5
-offset_right = 310.5
-offset_bottom = 359.0
-grow_horizontal = 2
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 964.0
+scale = Vector2(0.5, 0.5)
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2(275, 75)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Start"
+size_flags_vertical = 0
+texture_normal = ExtResource("3_t0a87")
+texture_hover = ExtResource("4_qo0fc")
+texture_focused = ExtResource("4_qo0fc")
+stretch_mode = 6
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Settings" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -42,16 +87,46 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("2_e0arn")
 texture_hover = ExtResource("3_y1o0p")
 texture_focused = ExtResource("3_y1o0p")
-stretch_mode = 3
+stretch_mode = 5
 
 [node name="Exit" type="TextureButton" parent="VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource("3_037ec")
 texture_hover = ExtResource("5_y1o0p")
 texture_focused = ExtResource("5_y1o0p")
-stretch_mode = 5
+stretch_mode = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(0, 0.64705884, 1, 1)
+material = SubResource("1")
+position = Vector2(190, 67)
+scale = Vector2(0.2, 0.2)
+amount = 32
+texture = ExtResource("9_f2fum")
+lifetime = 0.75
+process_material = SubResource("6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.00002
+offset_top = 50.999992
+offset_right = 1090.0
+offset_bottom = 471.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_k48pe")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -59.0
+offset_right = 1612.0
+offset_bottom = 965.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_f2fum")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

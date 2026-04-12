@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm8apnovjc75d"]
+[gd_scene load_steps=7 format=3 uid="uid://dm8apnovjc75d"]
 
 [ext_resource type="Script" uid="uid://baowhr0q13u6" path="res://scripts/menu/background_menu.gd" id="1_0u0f4"]
+[ext_resource type="Script" uid="uid://dmvxomam0hxac" path="res://scripts/menu/stars.gd" id="2_ee1k6"]
 [ext_resource type="Texture2D" uid="uid://ctyby243e3bai" path="res://assets/sprites/Background/menu_background_fixed.png" id="2_syoi4"]
 [ext_resource type="Texture2D" uid="uid://ckd4coqw4d81m" path="res://assets/sprites/HUD/sun_menu.png" id="3_6lfwj"]
-[ext_resource type="Texture2D" uid="uid://xcm4x8jt6ope" path="res://assets/sprites/HUD/moon_menu.jpg" id="3_hjxqk"]
+[ext_resource type="Texture2D" uid="uid://bitm5pl150bqs" path="res://assets/sprites/HUD/moon.png" id="3_ee1k6"]
+[ext_resource type="PackedScene" uid="uid://bk4do324ovs65" path="res://scenes/utils/star.tscn" id="3_fl546"]
 
 [node name="BackgroundMenu" type="Control"]
 layout_mode = 3
@@ -23,9 +25,13 @@ color = Color(0.41513574, 0.6220331, 0.9999973, 1)
 [node name="OrbitCenter" type="Marker2D" parent="."]
 position = Vector2(320, 180)
 
+[node name="Stars" type="Node2D" parent="."]
+script = ExtResource("2_ee1k6")
+star_scene = ExtResource("3_fl546")
+
 [node name="MoonSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_hjxqk")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_ee1k6")
 
 [node name="SunSprite" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -39,15 +45,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_syoi4")
-expand_mode = 2
-
-[node name="Stars" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_hjxqk")
 expand_mode = 2
