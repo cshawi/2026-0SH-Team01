@@ -3,7 +3,7 @@ class_name BackgroundColor
 
 @export_group("Orbit Settings")
 @export var orbit_width := 320
-@export var orbit_height := 150
+@export var orbit_height := 155
 @export var cycle_duration := 30.0
 
 @export_group("Time Settings")
