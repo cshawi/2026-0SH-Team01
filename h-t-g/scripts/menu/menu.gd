@@ -2,7 +2,7 @@ extends Control
 
 const tutorial_path = "res://scenes/world_tomy.tscn"
 const settings_path = "res://scenes/menu/settings.tscn"
-@onready var start: TextureButton = $VBoxContainer/Start
+@onready var start: TextureButton = $CenterContainer/VBoxContainer/Start
 
 
 
@@ -14,12 +14,18 @@ func change_scene(scene_path:String ):
 	await Fade_transition.play_transition(GameMaster.change_to_level,scene_path)
 	
 
+func set_ui_enabled(is_enabled: bool):
+	mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled else Control.MOUSE_FILTER_IGNORE
+
 func _on_button_pressed() -> void:
 	change_scene(tutorial_path)
 
 
 func _on_settings_pressed() -> void:
-	get_tree().change_scene_to_file(settings_path)
+	print("Menu: J'affiche les settings")
+	set_ui_enabled(false)
+	Hud.get_node("settings").go_back_to = "menu"
+	Hud.show_settings_menu()
 	
 
 

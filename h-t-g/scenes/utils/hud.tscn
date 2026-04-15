@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciwef0nwxfngc"]
+[gd_scene load_steps=5 format=3 uid="uid://ciwef0nwxfngc"]
 
 [ext_resource type="Script" uid="uid://dpa42yfau7tmo" path="res://scripts/utils/hud.gd" id="1_0fbou"]
 [ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/Player_scenes/ATH/progress_bar.tscn" id="1_t6c21"]
+[ext_resource type="PackedScene" uid="uid://d2x6ojp77dyod" path="res://scenes/utils/pause_menu.tscn" id="3_6xure"]
+[ext_resource type="PackedScene" uid="uid://qi07vnpirsvw" path="res://scenes/menu/settings.tscn" id="3_h743p"]
 
 [node name="HUD" type="CanvasLayer"]
-process_mode = 2
-visible = false
+process_mode = 3
 script = ExtResource("1_0fbou")
 
 [node name="PlayerControl" type="Control" parent="."]
@@ -17,14 +18,6 @@ offset_bottom = 40.0
 [node name="ProgressBar" parent="PlayerControl" instance=ExtResource("1_t6c21")]
 layout_mode = 0
 
-[node name="PauseMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PauseMenu" parent="." instance=ExtResource("3_6xure")]
 
-[node name="SettingsMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="settings" parent="." instance=ExtResource("3_h743p")]

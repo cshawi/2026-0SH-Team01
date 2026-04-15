@@ -59,11 +59,9 @@ position = Vector2(374, 80)
 config = ExtResource("3_f7sq8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_iwvkc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

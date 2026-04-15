@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://co5eqwl20hx3c"]
+[gd_scene load_steps=18 format=4 uid="uid://co5eqwl20hx3c"]
 
 [ext_resource type="Script" uid="uid://dt4gg5hi1ppxp" path="res://scripts/levels/Snow_level/snow_level.gd" id="1_1obls"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="2_6510p"]
@@ -20,6 +20,15 @@ size = Vector2(372, 63)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_k8t5i"]
 a = Vector2(0, -61)
 b = Vector2(0, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhm2u"]
+size = Vector2(109, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gysx5"]
+size = Vector2(109, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jbob"]
+size = Vector2(494, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8t5i"]
 size = Vector2(369, 92)
@@ -166,25 +175,25 @@ collision_mask = 3
 [node name="FlotationZone" parent="." instance=ExtResource("10_hnrja")]
 
 [node name="CollisionShape" parent="FlotationZone" index="0"]
-position = Vector2(239.5, 378)
-shape = SubResource("RectangleShape2D_k8t5i")
+position = Vector2(238.5, 378)
+shape = SubResource("RectangleShape2D_fhm2u")
 
 [node name="FlotationZone2" parent="." instance=ExtResource("10_hnrja")]
 
 [node name="CollisionShape" parent="FlotationZone2" index="0"]
-position = Vector2(656, 346)
-shape = SubResource("RectangleShape2D_k8t5i")
+position = Vector2(657.5, 346)
+shape = SubResource("RectangleShape2D_gysx5")
 
 [node name="FlotationZone3" parent="." instance=ExtResource("10_hnrja")]
 
 [node name="CollisionShape" parent="FlotationZone3" index="0"]
-position = Vector2(1431.75, 43)
-shape = SubResource("RectangleShape2D_k8t5i")
+position = Vector2(1433, 43)
+shape = SubResource("RectangleShape2D_3jbob")
 
 [node name="FlotationZone4" parent="." instance=ExtResource("10_hnrja")]
 
 [node name="CollisionShape" parent="FlotationZone4" index="0"]
-position = Vector2(2040.5, 146)
+position = Vector2(2040.5, 142)
 shape = SubResource("RectangleShape2D_k8t5i")
 
 [connection signal="body_entered" from="EndLevelArea" to="." method="_on_end_level_area_body_entered"]

@@ -4,6 +4,10 @@ class_name GameManager
 
 var mouse_mode := true #temporaire le temps d'avoir les paramètres
 var player_hp: float
+var magic_cursor: MagicCursor
+
+signal mouse_mode_changed
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,6 +22,9 @@ func register_level(level: Node) -> void:
 	if level.has_signal("level_finished") and not level.level_finished.is_connected(on_level_finished):
 		level.level_finished.connect(on_level_finished)
 
+func set_mouse_mode(new_mode: bool):
+	mouse_mode = new_mode
+	mouse_mode_changed.emit(new_mode)
 
 func on_level_finished(): #reçoit player.current_hp en paramètre
 	pass #quand il termine un niveau on le ramène à la carte du monde

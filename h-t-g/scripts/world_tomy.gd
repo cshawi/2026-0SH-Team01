@@ -31,7 +31,6 @@ func _ready() -> void:
 	
 	player = spawner.spawn(player_path, player_spawn_point.global_position)
 	player_view = player.get_node("PlayerView")
-	player.get_node("MagicCursor").mouse_mode = GameMaster.mouse_mode
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x
 	player_view.limit_right = limit_wall.get_child(1).shape.a.x
 	print("World ready")
