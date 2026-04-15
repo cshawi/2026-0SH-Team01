@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://bxfg3nr85voap"]
 
-[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_6e0mx"]
+[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_6e0mx"]
 [ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Background/Tree-Assets.png" id="2_lx8mm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_byugu"]
@@ -9,6 +9,9 @@ region = Rect2(128, 0, 32, 16)
 
 [resource]
 script = ExtResource("1_6e0mx")
+gravity_scale = 1.0
+weight = 100
+density = 1.0
 name = "Mushroom"
 texture = SubResource("AtlasTexture_byugu")
 collision_polygon = PackedVector2Array(16, -16, 16, 0, 0, 0, 0, -4, -4, -4, -13, -6, -15, -7, -15, -10, 0, -10, 0, -16)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jfr1gx4cj12p"
-path="res://.godot/imported/2_100x100px.png-4335920d594de564857fdf7d2581eec9.ctex"
+uid="uid://ckdvh61yl7wy1"
+path="res://.godot/imported/Background_sanbox.png-d08b5bca14f5d56b0d993390140106f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/effects/NEw pack blood/2_100x100px.png"
-dest_files=["res://.godot/imported/2_100x100px.png-4335920d594de564857fdf7d2581eec9.ctex"]
+source_file="res://assets/sprites/Background/Background_sanbox.png"
+dest_files=["res://.godot/imported/Background_sanbox.png-d08b5bca14f5d56b0d993390140106f9.ctex"]
 
 [params]
 
