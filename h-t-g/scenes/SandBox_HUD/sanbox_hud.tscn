@@ -1,29 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://0v3unde74e35"]
+[gd_scene load_steps=4 format=3 uid="uid://0v3unde74e35"]
 
 [ext_resource type="Texture2D" uid="uid://dknns7d5e8yrd" path="res://assets/sprites/Objects/Box/Interior-01.png" id="1_uje48"]
-[ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="2_i4h5l"]
-[ext_resource type="Texture2D" uid="uid://dv740koajyou8" path="res://assets/sprites/Objects/Mushrooms/Tree-Assets.png" id="3_6ckye"]
-[ext_resource type="Texture2D" uid="uid://crfavkur4iap6" path="res://assets/sprites/WinterTileset/WinterTileSet_16x16-32x32.png" id="4_s11cn"]
+[ext_resource type="Script" path="res://scripts/hud/sanbox_hud.gd" id="1_x4o26"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0f4k"]
 atlas = ExtResource("1_uje48")
 region = Rect2(95.9583, 130.962, 32.0984, 29.0272)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_my1rw"]
-atlas = ExtResource("2_i4h5l")
-region = Rect2(6.05679, 81.9662, 55.029, 78.2166)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkhdm"]
-atlas = ExtResource("3_6ckye")
-region = Rect2(128.977, 0, 62.0086, 32.4633)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aobav"]
-atlas = ExtResource("4_s11cn")
-region = Rect2(208.064, 0, 32.1113, 32.1443)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8i5cs"]
-atlas = ExtResource("4_s11cn")
-region = Rect2(255.918, 0, 16.1278, 16.0711)
 
 [node name="SanboxHUD" type="Control"]
 layout_mode = 3
@@ -32,33 +14,83 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x4o26")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 84.0
+[node name="SelectedItem" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 90.0
+offset_bottom = 90.0
 
-[node name="SmallBoxIcon" type="Button" parent="HBoxContainer"]
+[node name="SelectedItem" type="Button" parent="SelectedItem"]
+custom_minimum_size = Vector2(90, 90)
+layout_direction = 1
 layout_mode = 2
 icon = SubResource("AtlasTexture_s0f4k")
+icon_alignment = 1
+expand_icon = true
 
-[node name="BigRockIIcon" type="Button" parent="HBoxContainer"]
+[node name="Category" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 101.0
+offset_right = 92.0
+offset_bottom = 360.0
+
+[node name="BoxCategory" type="Button" parent="Category"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_my1rw")
+offset_right = 93.0
+offset_bottom = 50.0
+text = "Box
+"
 icon_alignment = 1
 
-[node name="SmallBoxIcon3" type="Button" parent="HBoxContainer"]
+[node name="RockCategory" type="Button" parent="Category"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_fkhdm")
+offset_top = 54.0
+offset_right = 93.0
+offset_bottom = 104.0
+text = "Rock
+"
+icon_alignment = 1
 
-[node name="SmallBoxIcon4" type="Button" parent="HBoxContainer"]
+[node name="MushroomCategory" type="Button" parent="Category"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_aobav")
+offset_top = 108.0
+offset_right = 93.0
+offset_bottom = 158.0
+size_flags_vertical = 4
+text = "Mushroom"
+icon_alignment = 1
 
-[node name="SmallBoxIcon5" type="Button" parent="HBoxContainer"]
+[node name="IceCategory" type="Button" parent="Category"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_8i5cs")
+offset_top = 162.0
+offset_right = 93.0
+offset_bottom = 212.0
+size_flags_vertical = 4
+text = "Ice"
+icon_alignment = 1
 
-[node name="SmallBoxIcon6" type="Button" parent="HBoxContainer"]
+[node name="AllCategory" type="Button" parent="Category"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-icon = SubResource("AtlasTexture_s0f4k")
+offset_top = 216.0
+offset_right = 93.0
+offset_bottom = 266.0
+size_flags_vertical = 4
+text = "All
+"
+icon_alignment = 1
+
+[node name="ItemOfCategory" type="VScrollBar" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 102.0
+offset_right = 190.0
+offset_bottom = 361.0
+
+[connection signal="pressed" from="SelectedItem/SelectedItem" to="." method="_on_selected_item_pressed"]

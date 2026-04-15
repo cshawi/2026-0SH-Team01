@@ -17,7 +17,7 @@ tile_set = ExtResource("1_qqero")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(100, 32)
-scale = Vector2(0.059814446, 0.046875)
+scale = Vector2(0.0598144, 0.046875)
 texture = ExtResource("2_u82pb")
 
 [node name="Camera2D" type="Camera2D" parent="."]

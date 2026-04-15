@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx3h1p2q21gld"]
 
 [ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/moveables/moveable_object.tscn" id="1_ddolp"]
-[ext_resource type="Script" uid="uid://coh8wcdtl334c" path="res://scripts/moveableObjects/full_motion_object.gd" id="2_57fly"]
+[ext_resource type="Script" path="res://scripts/moveableObjects/full_motion_object.gd" id="2_57fly"]
 [ext_resource type="Texture2D" uid="uid://crfavkur4iap6" path="res://assets/sprites/WinterTileset/WinterTileSet_16x16-32x32.png" id="3_isog3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5beol"]
 atlas = ExtResource("3_isog3")
-region = Rect2(206.67519, -1.1324005, 34.31337, 34.313362)
+region = Rect2(206.675, -1.1324, 34.3134, 34.3134)
 
 [node name="FullMotionObject" instance=ExtResource("1_ddolp")]
 top_level = true
