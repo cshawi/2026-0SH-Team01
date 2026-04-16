@@ -27,11 +27,12 @@ func show_pause_menu():
 		GameMaster.magic_cursor.set_cursor_active(false)
 	hide_all_menu()
 	pause_menu.show()
+	pause_menu.resume.grab_focus()
 	
 func show_settings_menu():
-	print("HUD: j'affiche les settings")
 	hide_all_menu()
 	settings_menu.show()
+	settings_menu.hand_tracking.grab_focus()
 	
 func show_player_control():
 	get_tree().paused = false
@@ -47,7 +48,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		
 		if get_tree().paused:
-			show_player_control()
+			if get_tree().current_scene.has_player:
+				show_player_control()
 		else:
 			show_pause_menu()
 			

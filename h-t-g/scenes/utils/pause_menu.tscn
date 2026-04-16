@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2x6ojp77dyod"]
+[gd_scene load_steps=6 format=3 uid="uid://d2x6ojp77dyod"]
 
 [ext_resource type="Script" uid="uid://bfxtmse3b50xq" path="res://scripts/utils/pause_menu.gd" id="1_fg0qv"]
 [ext_resource type="Texture2D" uid="uid://3cak3e17i8na" path="res://assets/sprites/HUD/top_design_pause_menu.png" id="1_oshs0"]
 [ext_resource type="PackedScene" uid="uid://dy3m3hkq1uube" path="res://scenes/utils/pause_button.tscn" id="1_toapa"]
 [ext_resource type="Texture2D" uid="uid://d1lq6bsdjich" path="res://assets/sprites/HUD/button_design_pause_menu.png" id="3_fg0qv"]
+[ext_resource type="Texture2D" uid="uid://bdw3q7kji7gx3" path="res://assets/sprites/HUD/button_pause_menu-hover.png" id="4_tjhrh"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -42,10 +43,14 @@ stretch_mode = 6
 [node name="Resume" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_toapa")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+texture_hover = ExtResource("4_tjhrh")
+texture_focused = ExtResource("4_tjhrh")
 
 [node name="Settings" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_toapa")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+texture_hover = ExtResource("4_tjhrh")
+texture_focused = ExtResource("4_tjhrh")
 
 [node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Settings/CenterContainer" index="0"]
 text = "Settings"
@@ -53,6 +58,8 @@ text = "Settings"
 [node name="Map" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_toapa")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+texture_hover = ExtResource("4_tjhrh")
+texture_focused = ExtResource("4_tjhrh")
 
 [node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Map/CenterContainer" index="0"]
 text = "Map"
@@ -60,6 +67,8 @@ text = "Map"
 [node name="Menu" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_toapa")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+texture_hover = ExtResource("4_tjhrh")
+texture_focused = ExtResource("4_tjhrh")
 
 [node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Menu/CenterContainer" index="0"]
 text = "Menu"
@@ -67,6 +76,8 @@ text = "Menu"
 [node name="Exit" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_toapa")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+texture_hover = ExtResource("4_tjhrh")
+texture_focused = ExtResource("4_tjhrh")
 
 [node name="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Exit/CenterContainer" index="0"]
 text = "Exit"

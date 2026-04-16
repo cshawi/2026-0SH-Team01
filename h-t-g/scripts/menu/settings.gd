@@ -24,7 +24,7 @@ func _on_back_button_pressed() -> void:
 	match go_back_to:
 		"menu":
 			get_tree().current_scene.set_ui_enabled(true)
-			print("Je reviens au menu")
+			get_tree().current_scene.get_node("CenterContainer/VBoxContainer/Start").grab_focus()
 		"pause":
 			get_parent().show_pause_menu()
 

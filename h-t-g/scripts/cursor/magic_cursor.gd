@@ -11,6 +11,7 @@ extends Area2D
 
 var is_active := true
 var is_holding := false
+var is_grabing := false
 var closest_object = null
 var first_time := true
 var default_strength = 10 #si le joueur ne fait pas partie de la scène
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 		
 	if Udp.is_pinching if not mouse_mode else Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if first_time:
+			is_grabing = true
 			grab_object()
 			first_time = false
 		change_color(Color.RED)
@@ -58,8 +60,11 @@ func _process(delta: float) -> void:
 		hand_tracking()
 
 func resetObject():
+	is_grabing = false
+	
 	if not is_holding: return
 	is_holding = false
+	
 	
 	if closest_object:
 		closest_object.desactivate()

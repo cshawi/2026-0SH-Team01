@@ -18,6 +18,7 @@ class_name SnowLevel
 @onready var player_path := preload("res://scenes/Player_scenes/player.tscn")
 var player: Player
 var player_view: Camera2D
+var has_player := true
 
 var limit_top := -500
 var limit_right := 2300
@@ -64,8 +65,7 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 func _on_end_level_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		await get_tree().create_timer(1).timeout
-		await Fade_transition.play_transition(GameMaster.change_to_level, temp_next_level)
-		#level_finished.emit() #ajouter player.current_hp
+		level_finished.emit() #ajouter player.current_hp
 
 
 func _on_checkpoint_body_entered(body: Node2D) -> void:

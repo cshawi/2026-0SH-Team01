@@ -11,6 +11,7 @@ extends Node2D
 @onready var player_path := preload("res://scenes/Player_scenes/player.tscn")
 var player: Player
 var player_view: Camera2D
+var has_player := true
 
 var temp_next_level := "res://scenes/Levels Scenes/snow__scenes/snow_level.tscn"
 
@@ -98,5 +99,4 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 func _on_end_level_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		await get_tree().create_timer(1).timeout
-		await Fade_transition.play_transition(GameMaster.change_to_level, temp_next_level)
-		#level_finished.emit() #ajouter player.current_hp
+		level_finished.emit() #ajouter player.current_hp

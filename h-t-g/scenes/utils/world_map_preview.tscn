@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://5xvtx66ergdk"]
+
+[ext_resource type="Texture2D" uid="uid://b0m5q5aot1ujd" path="res://assets/sprites/HUD/SpriteSheet.png" id="1_1o818"]
+[ext_resource type="Script" uid="uid://dxhcwsp7mtrhm" path="res://scripts/utils/world_map_preview.gd" id="1_h3k81"]
+[ext_resource type="FontFile" uid="uid://r1bm2fkq4gmx" path="res://assets/fonts/Creepster-Regular.ttf" id="2_fwsd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3k81"]
+atlas = ExtResource("1_1o818")
+region = Rect2(30.205627, 29.264793, 162.00409, 69.43032)
+
+[node name="WorldMapPreview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_h3k81")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 69.0
+scale = Vector2(2, 4.072464)
+texture = SubResource("AtlasTexture_h3k81")
+
+[node name="Preview" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 17.679716
+offset_right = 1767.0
+offset_bottom = 1002.6797
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.04)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.666672
+offset_top = 39.999985
+offset_right = 83.66667
+offset_bottom = 62.999985
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fwsd0")
+text = "Aperçu"
