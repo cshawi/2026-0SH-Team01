@@ -33,7 +33,6 @@ limit_right = 988
 limit_bottom = 284
 
 [node name="BiomeZones" type="Node2D" parent="."]
-visible = false
 
 [node name="Forest" parent="BiomeZones" instance=ExtResource("3_u82pb")]
 biome_name = "Forest"
@@ -41,7 +40,7 @@ target_scene = "uid://cn26ctdle27cq"
 preview_path = NodePath("../../PreviewsContainer/ForestPreview")
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Forest" index="0"]
-polygon = PackedVector2Array(198, -47, 206, -63, 224, -63, 231, -74, 222, -90, 231, -105, 223, -120, 230, -132, 246, -131, 253, -118, 270, -118, 278, -131, 296, -131, 302, -119, 318, -119, 327, -133, 319, -148, 328, -161, 342, -162, 349, -147, 364, -147, 375, -157, 388, -157, 397, -146, 413, -147, 421, -134, 437, -133, 439, -140, 447, -147, 462, -148, 470, -134, 486, -133, 486, -138, 494, -148, 509, -146, 518, -133, 533, -133, 541, -119, 557, -118, 567, -105, 582, -105, 583, -113, 591, -120, 597, -122, 605, -118, 607, -127, 615, -133, 622, -137, 627, -131, 631, -141, 638, -146, 653, -147, 660, -135, 654, -120, 660, -104, 670, -109, 677, -104, 685, -92, 701, -90, 709, -76, 702, -63, 686, -63, 678, -48, 663, -49, 654, -35, 638, -35, 630, -49, 614, -48, 606, -35, 591, -35, 583, -49, 564, -49, 557, -35, 565, -21, 558, -9, 541, -8, 533, 5, 520, 6, 511, -8, 494, -8, 485, 5, 470, 6, 461, 19, 446, 20, 439, 34, 423, 35, 415, 21, 398, 20, 390, 35, 373, 36, 367, 22, 350, 22, 342, 8, 328, 8, 319, 20, 303, 21, 293, 36, 279, 35, 271, 22, 256, 23, 246, 5, 255, -9, 247, -21, 231, -21, 222, -35, 206, -34)
+polygon = PackedVector2Array(448, -12, 471, -76, 469, -123, 348, -123, 297, -38, 357, -7, 371, -1, 440, -1, 449, -14)
 
 [node name="Snow" parent="BiomeZones" instance=ExtResource("3_u82pb")]
 biome_name = "Snow"
@@ -49,14 +48,14 @@ target_scene = "uid://co5eqwl20hx3c"
 preview_path = NodePath("../../PreviewsContainer/SnowPreview")
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Snow" index="0"]
-polygon = PackedVector2Array(134, -328, 127, -315, 133, -300, 127, -287, 110, -286, 102, -273, 86, -273, 79, -259, 61, -259, 54, -246, 38, -244, 30, -229, 14, -229, 6, -217, 14, -204, 6, -187, 13, -175, 29, -175, 38, -162, 56, -160, 62, -145, 79, -147, 87, -132, 103, -131, 112, -118, 127, -118, 134, -106, 151, -105, 159, -91, 174, -91, 183, -76, 198, -76, 205, -64, 223, -64, 230, -74, 221, -90, 221, -90, 230, -106, 220, -119, 227, -134, 246, -133, 253, -121, 270, -121, 277, -134, 295, -134, 303, -122, 316, -121, 323, -132, 317, -145, 316, -149, 326, -164, 342, -166, 350, -150, 365, -150, 376, -162, 389, -161, 398, -149, 413, -149, 422, -138, 435, -137, 445, -148, 463, -150, 473, -137, 482, -135, 485, -141, 493, -150, 509, -150, 520, -136, 535, -134, 542, -121, 559, -121, 567, -108, 579, -107, 581, -117, 594, -125, 603, -121, 606, -130, 619, -140, 627, -135, 636, -150, 653, -150, 663, -137, 656, -122, 664, -109, 672, -114, 687, -96, 700, -94, 710, -80, 723, -79, 732, -93, 747, -93, 758, -106, 751, -119, 736, -118, 726, -134, 735, -147, 751, -146, 759, -161, 750, -175, 758, -189, 751, -201, 758, -217, 751, -230, 759, -245, 773, -245, 781, -257, 774, -274, 783, -287, 774, -301, 182, -300, 175, -314, 158, -314, 150, -328)
+polygon = PackedVector2Array(325, -273, 395, -273, 508, -273, 538, -207, 510, -164, 395, -168, 286, -169, 195, -113, 109, -175, 145, -241, 198, -272, 286, -273)
 
 [node name="Desert" parent="BiomeZones" instance=ExtResource("3_u82pb")]
 biome_name = "Desert"
 preview_path = NodePath("../../PreviewsContainer/DesertPreview")
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Desert" index="0"]
-polygon = PackedVector2Array(462, 22, 471, 8, 487, 8, 495, -6, 510, -6, 518, 8, 535, 7, 543, -6, 559, -7, 568, -21, 559, -34, 566, -48, 583, -47, 589, -36, 591, -33, 607, -34, 615, -47, 629, -48, 637, -34, 654, -33, 664, -48, 680, -47, 688, -61, 702, -61, 710, -75, 727, -75, 736, -89, 749, -90, 761, -105, 776, -104, 781, -91, 774, -78, 781, -62, 798, -61, 805, -48, 798, -35, 783, -35, 774, -21, 781, -8, 799, -6, 806, 8, 798, 22, 806, 35, 797, 50, 781, 51, 774, 64, 782, 76, 798, 78, 806, 91, 799, 106, 783, 106, 774, 119, 757, 120, 750, 134, 735, 134, 726, 149, 710, 149, 703, 161, 685, 163, 678, 148, 661, 148, 654, 135, 637, 133, 631, 120, 614, 119, 607, 106, 589, 107, 581, 120, 565, 120, 558, 105, 542, 106, 533, 90, 544, 76, 534, 63, 518, 62, 510, 50, 494, 50, 486, 36, 468, 36)
+polygon = PackedVector2Array(609, 57, 675, 116, 766, 72, 749, -14, 633, -15)
 
 [node name="Plain" parent="BiomeZones" instance=ExtResource("3_u82pb")]
 biome_name = "Plain"
@@ -64,7 +63,7 @@ target_scene = "uid://fi0msd8c345h"
 preview_path = NodePath("../../PreviewsContainer/PlainPreview")
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Plain" index="0"]
-polygon = PackedVector2Array(205, -34, 222, -34, 229, -21, 246, -18, 253, -9, 244, 7, 252, 20, 255, 23, 270, 24, 277, 34, 294, 39, 302, 23, 318, 24, 329, 10, 341, 9, 349, 24, 366, 24, 372, 38, 390, 37, 400, 22, 413, 24, 420, 35, 424, 38, 441, 36, 447, 24, 459, 23, 467, 38, 485, 38, 492, 50, 510, 52, 517, 65, 534, 67, 541, 77, 532, 90, 542, 106, 534, 118, 517, 120, 511, 133, 495, 134, 485, 147, 471, 148, 462, 161, 446, 162, 437, 175, 422, 177, 414, 162, 398, 160, 390, 175, 373, 175, 366, 162, 350, 162, 341, 148, 327, 148, 318, 135, 326, 119, 319, 107, 326, 90, 317, 76, 301, 77, 293, 92, 279, 91, 270, 77, 255, 76, 247, 63, 255, 48, 247, 35, 230, 35, 223, 22, 230, 7, 221, -6, 206, -6, 199, -20)
+polygon = PackedVector2Array(448, 157, 511, 118, 523, 81, 469, 50, 407, 49, 330, 51, 335, 104, 369, 159)
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = 275.0
@@ -83,34 +82,34 @@ stretch_mode = 0
 [node name="PreviewsContainer" type="Node2D" parent="."]
 
 [node name="ForestPreview" parent="PreviewsContainer" instance=ExtResource("8_gqm84")]
-offset_left = 250.0
-offset_top = -150.0
-offset_right = 250.0
-offset_bottom = -150.0
+offset_left = 293.0
+offset_top = -113.0
+offset_right = 293.0
+offset_bottom = -113.0
 
 [node name="Preview" parent="PreviewsContainer/ForestPreview/Background" index="0"]
 texture = ExtResource("3_27p3u")
 
 [node name="SnowPreview" parent="PreviewsContainer" instance=ExtResource("8_gqm84")]
-offset_left = 128.0
-offset_top = -228.0
-offset_right = 128.0
-offset_bottom = -228.0
+offset_left = 205.0
+offset_top = -248.0
+offset_right = 205.0
+offset_bottom = -248.0
 
 [node name="Preview" parent="PreviewsContainer/SnowPreview/Background" index="0"]
 texture = ExtResource("4_gqm84")
 
 [node name="DesertPreview" parent="PreviewsContainer" instance=ExtResource("8_gqm84")]
-offset_left = 550.0
-offset_top = -55.0
-offset_right = 550.0
-offset_bottom = -55.0
+offset_left = 682.0
+offset_top = -35.0
+offset_right = 682.0
+offset_bottom = -35.0
 
 [node name="PlainPreview" parent="PreviewsContainer" instance=ExtResource("8_gqm84")]
-offset_left = 322.0
-offset_top = -7.0
-offset_right = 322.0
-offset_bottom = -7.0
+offset_left = 426.0
+offset_top = 46.0
+offset_right = 426.0
+offset_bottom = 46.0
 
 [node name="Preview" parent="PreviewsContainer/PlainPreview/Background" index="0"]
 texture = ExtResource("5_55716")

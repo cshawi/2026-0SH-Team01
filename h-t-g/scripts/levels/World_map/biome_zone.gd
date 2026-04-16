@@ -21,7 +21,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# clic curseur magique
-	if cursor_inside and (GameMaster.magic_cursor.is_grabing or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and not click_locked:
+	if cursor_inside and (GameMaster.magic_cursor.is_grabing) and not click_locked:
 		click_locked = true
 		await Fade_transition.play_transition(GameMaster.change_to_level, target_scene)
 
