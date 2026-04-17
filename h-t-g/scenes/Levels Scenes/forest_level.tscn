@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=4 uid="uid://e2p06qf5uhyg"]
 
 [ext_resource type="Texture2D" uid="uid://bdjpc5185k1uh" path="res://assets/sprites/Background/BG_Sky.png" id="1_2quya"]
-[ext_resource type="Script" uid="uid://b1ljsugsajtg0" path="res://scripts/levels/forest_level.gd" id="1_35dy3"]
+[ext_resource type="Script" path="res://scripts/levels/forest_level.gd" id="1_35dy3"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="1_kmayv"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="2_ovbee"]
 [ext_resource type="PackedScene" uid="uid://b2b47emjp0rtc" path="res://scenes/moveables/spring_object.tscn" id="3_lremp"]
-[ext_resource type="Resource" uid="uid://dhie1jnlgoudb" path="res://ressources/objects/specials/spring_forest.tres" id="4_1hvjd"]
+[ext_resource type="Resource" uid="uid://dhie1jnlgoudb" path="res://ressources/objects/Specials/spring_forest.tres" id="4_1hvjd"]
 [ext_resource type="PackedScene" uid="uid://tl6einth7v3u" path="res://scenes/moveables/horizontal_motion_object.tscn" id="5_it3ns"]
-[ext_resource type="Resource" uid="uid://bxfg3nr85voap" path="res://ressources/objects/Horizontals/Mushroom.tres" id="6_1onvx"]
+[ext_resource type="Resource" uid="uid://bxfg3nr85voap" path="res://ressources/objects/Mushrooms/Mushroom.tres" id="6_1onvx"]
 [ext_resource type="PackedScene" uid="uid://bjimg4cs48t7o" path="res://scenes/enemies/hive_spawn.tscn" id="9_35dy3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1onvx"]
@@ -18,11 +18,11 @@ height = 58.0
 script = ExtResource("1_35dy3")
 
 [node name="LimitWall" parent="." instance=ExtResource("2_ovbee")]
-position = Vector2(-0.05198574, 8.017604)
+position = Vector2(-0.0519857, 8.0176)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(327.5, 192)
-scale = Vector2(1.3645834, 1.4117647)
+scale = Vector2(1.36458, 1.41176)
 texture = ExtResource("1_2quya")
 
 [node name="FarTrees" type="TileMapLayer" parent="."]

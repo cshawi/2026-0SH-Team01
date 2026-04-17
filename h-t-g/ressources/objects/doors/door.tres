@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="StaticObjectConfig" load_steps=6 format=3 uid="uid://cqqnknhcdr8q"]
 
-[ext_resource type="Script" uid="uid://bfpgfq55phcy7" path="res://scripts/ressources/objects/staticObjects/static_config.gd" id="1_ryfc0"]
-[ext_resource type="Texture2D" uid="uid://dtv48qj8syaji" path="res://assets/sprites/Objects/Doors/Interior-01.png" id="2_qwpgh"]
+[ext_resource type="Script" path="res://scripts/ressources/objects/staticObjects/static_config.gd" id="1_gp25q"]
+[ext_resource type="Texture2D" uid="uid://dtv48qj8syaji" path="res://assets/sprites/Objects/Doors/Interior-01.png" id="2_x5duo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_527ih"]
-atlas = ExtResource("2_qwpgh")
+atlas = ExtResource("2_x5duo")
 region = Rect2(130.903, 67.8923, 42.2124, 60.0668)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbrig"]

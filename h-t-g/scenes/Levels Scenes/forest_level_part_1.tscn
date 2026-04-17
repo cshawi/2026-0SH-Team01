@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://yivjj3ou6wfr"]
 
-[ext_resource type="Script" uid="uid://d3olidtqaj4p6" path="res://scripts/levels/forest_level_part_1.gd" id="1_kkk14"]
+[ext_resource type="Script" path="res://scripts/levels/forest_level_part_1.gd" id="1_kkk14"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="1_kure8"]
 [ext_resource type="Texture2D" uid="uid://bdjpc5185k1uh" path="res://assets/sprites/Background/BG_Sky.png" id="1_tf33i"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/limit_wall.tscn" id="2_byv5x"]
 [ext_resource type="PackedScene" uid="uid://b2b47emjp0rtc" path="res://scenes/moveables/spring_object.tscn" id="5_cycul"]
-[ext_resource type="Resource" uid="uid://dhie1jnlgoudb" path="res://ressources/objects/specials/spring_forest.tres" id="6_cycul"]
+[ext_resource type="Resource" uid="uid://dhie1jnlgoudb" path="res://ressources/objects/Specials/spring_forest.tres" id="6_cycul"]
 [ext_resource type="PackedScene" uid="uid://bjimg4cs48t7o" path="res://scenes/enemies/hive_spawn.tscn" id="7_cycul"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byv5x"]
@@ -22,7 +22,7 @@ scroll_scale = Vector2(0, 0)
 
 [node name="Sky" type="Sprite2D" parent="FarBG"]
 position = Vector2(320, 180)
-scale = Vector2(1.3291667, 1.3308823)
+scale = Vector2(1.32917, 1.33088)
 texture = ExtResource("1_tf33i")
 
 [node name="FarTrees" type="TileMapLayer" parent="FarBG"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvvctyurts0pg"]
+
+[ext_resource type="Texture2D" uid="uid://ckdvh61yl7wy1" path="res://assets/sprites/Background/Background_sanbox.png" id="1_i42fs"]
+
+[node name="SandBox" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 181)
+scale = Vector2(0.414062, 0.350098)
+texture = ExtResource("1_i42fs")
