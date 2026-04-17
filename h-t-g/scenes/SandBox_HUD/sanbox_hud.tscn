@@ -97,4 +97,14 @@ offset_top = 102.0
 offset_right = 190.0
 offset_bottom = 361.0
 
+[node name="TextureButton" type="TextureButton" parent="ItemOfCategory"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="SelectedItem/SelectedItem" to="." method="_on_selected_item_pressed"]
+[connection signal="pressed" from="Category/BoxCategory" to="." method="_on_box_category_pressed"]
+[connection signal="pressed" from="Category/RockCategory" to="." method="_on_rock_category_pressed"]
+[connection signal="pressed" from="Category/MushroomCategory" to="." method="_on_mushroom_category_pressed"]
+[connection signal="pressed" from="Category/IceCategory" to="." method="_on_ice_category_pressed"]
+[connection signal="pressed" from="Category/AllCategory" to="." method="_on_all_category_pressed"]

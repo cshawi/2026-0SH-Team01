@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Hand of Fate"
-run/main_scene="uid://btevwal8ebevf"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.3")
 boot_splash/image="res://assets/icons/thf_background.png"
 config/icon="res://assets/icons/thf_logo.png"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://3ubg3imv3dap"]
 
-[ext_resource type="Script" uid="uid://5op0ykkonwcw" path="res://scripts/levels/World_map/world_map.gd" id="1_55716"]
+[ext_resource type="Script" path="res://scripts/levels/World_map/world_map.gd" id="1_55716"]
 [ext_resource type="TileSet" uid="uid://en8u31ceb5ya" path="res://ressources/TileSet/world_map.tres" id="1_qqero"]
 [ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels Scenes/maze_key.tscn" id="2_0hitc"]
 [ext_resource type="Texture2D" uid="uid://hmukpi6g3cnf" path="res://assets/sprites/WorldMap/top_down_boat.png" id="2_u82pb"]

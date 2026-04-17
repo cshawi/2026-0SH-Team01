@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/moveableObjects/moveable_object.gd" id="1_a00gy"]
 [ext_resource type="Resource" uid="uid://c7mr4ergnkt8h" path="res://ressources/objects/Rocks/green_large_rock.tres" id="2_orjgr"]
-[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Background/Tree-Assets.png" id="3_orjgr"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Tree-Assets.png" id="3_orjgr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytvhd"]
 atlas = ExtResource("3_orjgr")
