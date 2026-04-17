@@ -31,3 +31,4 @@ func _on_touch_player():
 	desactivate()
 	linear_velocity = Vector2.ZERO
 	apply_impulse(Vector2.DOWN * 200)
+	

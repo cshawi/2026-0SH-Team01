@@ -36,4 +36,3 @@ func on_level_finished(): #reçoit player.current_hp en paramètre
 func change_to_level(path: String) -> void: #passe de la carte du monde au niveau choisi
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
-	#temporairement applqué pour la suite logique des niveaux le temps qu'on fasse la carte du monde

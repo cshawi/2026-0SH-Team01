@@ -39,7 +39,8 @@ func show_player_control():
 	if GameMaster.magic_cursor != null:
 		GameMaster.magic_cursor.set_cursor_active(true)
 	hide_all_menu()
-	player_control.show()
+	if get_tree().current_scene.has_player:
+		player_control.show()
 
 
 func _unhandled_input(event: InputEvent) -> void:

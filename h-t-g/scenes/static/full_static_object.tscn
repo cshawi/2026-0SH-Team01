@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dncsx7cx4k2h"]
+[gd_scene load_steps=2 format=3 uid="uid://b6u2enksydlym"]
 
-[ext_resource type="Script" path="res://scripts/staticObjects/full_static_object.gd" id="1_sepm1"]
+[ext_resource type="Script" uid="uid://ckoe1yh5fwoyf" path="res://scripts/staticObjects/full_static_object.gd" id="1_sepm1"]
 
 [node name="FullStaticObject" type="Node2D" groups=["StaticObject"]]
 script = ExtResource("1_sepm1")
+is_click = null
+is_open = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

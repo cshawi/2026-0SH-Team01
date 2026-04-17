@@ -3,6 +3,8 @@ class_name MoveableObject
 
 @export var config: MoveableConfig
 
+@onready var interactable_component: InteractableComponent = $InteractableComponent
+
 var texture: Texture2D
 var collision_shape: Shape2D
 var weight: float
@@ -15,6 +17,7 @@ func _ready():
 	apply_config()
 	contact_monitor = true
 	max_contacts_reported = 4
+	interactable_component.interacted.connect(_on_interacted)
 		
 func _physics_process(delta: float) -> void:
 	if magic_cursor:
@@ -32,6 +35,9 @@ func desactivate():
 func action(delta):
 	pass
 	
+func _on_interacted(cursor):
+	activate(cursor, cursor.get_strength())
+
 func apply_config():
 	if config == null:
 		push_warning("MoveableObject: config manquante")

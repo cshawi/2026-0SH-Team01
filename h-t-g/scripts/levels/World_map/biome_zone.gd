@@ -17,6 +17,7 @@ func _ready() -> void:
 	area_exited.connect(_on_area_exited)
 	preview = get_node_or_null(preview_path)
 	if preview != null: preview.hide()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djkv5jmkahema"]
+[gd_scene load_steps=6 format=3 uid="uid://djkv5jmkahema"]
 
 [ext_resource type="Script" uid="uid://bwsi0xsdxmmrk" path="res://scripts/moveableObjects/moveable_object.gd" id="1_a00gy"]
 [ext_resource type="Resource" uid="uid://c7mr4ergnkt8h" path="res://ressources/objects/rocks/green_large_rock.tres" id="2_orjgr"]
 [ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Tree-Assets.png" id="3_orjgr"]
+[ext_resource type="PackedScene" uid="uid://4dafcrrok4qb" path="res://scenes/components/interactable_component.tscn" id="4_ytvhd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytvhd"]
 atlas = ExtResource("3_orjgr")
@@ -19,5 +20,7 @@ region_rect = Rect2(691, 325.502, 333, 310.498)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-42, -47, 40, -47, 40, -39, 35, -34, 29, -31, -30, -31, -37, -35, -42, -39)
+
+[node name="InteractableComponent" parent="." instance=ExtResource("4_ytvhd")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

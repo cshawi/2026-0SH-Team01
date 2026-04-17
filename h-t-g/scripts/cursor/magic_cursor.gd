@@ -88,20 +88,15 @@ func grab_object():
 	var objects = get_overlapping_bodies()
 	
 	for object in objects:
-		if object.is_in_group("Objects"):
+		if object.has_node("InteractableComponent"):
 			var distance = object.global_position.distance_to(global_position)
 			
 			if distance < closest_distance: 
 				closest_distance = distance
 				closest_object = object
 	
-	print(closest_object)
 	if closest_object:
 		is_holding = true
-		if closest_object is MoveableObject:
-			closest_object.activate(self,get_strength())
-		if closest_object is StaticObject:
-			closest_object.activate()
 		var interactable = closest_object.get_node_or_null("InteractableComponent")
 		if interactable:
 			interactable.interact(self)
