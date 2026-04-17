@@ -1,24 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://qi07vnpirsvw"]
+[gd_scene load_steps=5 format=3 uid="uid://qi07vnpirsvw"]
 
-[ext_resource type="Script" path="res://scripts/menu/settings.gd" id="1_sfpbk"]
+[ext_resource type="Script" uid="uid://ddssdii325grf" path="res://scripts/menu/settings.gd" id="1_sfpbk"]
+[ext_resource type="Texture2D" uid="uid://osi5hs3cl5wj" path="res://assets/sprites/HUD/pngegg.png" id="2_37860"]
+[ext_resource type="Texture2D" uid="uid://cir1nq50wfyrj" path="res://assets/sprites/HUD/back_btn-hover.png" id="3_0t5g5"]
+[ext_resource type="Texture2D" uid="uid://db88dtragjknw" path="res://assets/sprites/HUD/mouse_settings_icon.png" id="4_0t5g5"]
 
 [node name="settings" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_sfpbk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 64.0
-offset_right = 392.0
-offset_bottom = 104.0
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="hand_tracking" type="CheckButton" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="hand_tracking_label" type="Label" parent="HBoxContainer"]
+[node name="BackButton" type="TextureButton" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-text = "Hand tracking"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("2_37860")
+texture_hover = ExtResource("3_0t5g5")
+texture_focused = ExtResource("3_0t5g5")
 
-[connection signal="pressed" from="HBoxContainer/hand_tracking" to="." method="_on_hand_tracking_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="hand_tracking" type="CheckButton" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="hand_tracking_label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mouse Mode"
+
+[node name="ModeSelected" type="Sprite2D" parent="PanelContainer/MarginContainer/HBoxContainer"]
+position = Vector2(187, 14)
+texture = ExtResource("4_0t5g5")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/HBoxContainer/hand_tracking" to="." method="_on_hand_tracking_toggled"]

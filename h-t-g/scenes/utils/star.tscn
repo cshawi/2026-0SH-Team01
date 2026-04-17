@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk4do324ovs65"]
+
+[ext_resource type="Script" uid="uid://baknof5wvj6gw" path="res://scripts/utils/star.gd" id="1_caejc"]
+
+[sub_resource type="Gradient" id="Gradient_eote1"]
+colors = PackedColorArray(1, 1, 1, 1, 0.52906674, 0.5290667, 0.5290667, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fldf"]
+gradient = SubResource("Gradient_eote1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.3)
+
+[node name="Star" type="Sprite2D"]
+position = Vector2(309, 177)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("GradientTexture2D_8fldf")
+script = ExtResource("1_caejc")

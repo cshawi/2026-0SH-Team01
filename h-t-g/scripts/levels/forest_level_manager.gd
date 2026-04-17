@@ -11,6 +11,7 @@ extends Node2D
 @onready var player_path := preload("res://scenes/Player_scenes/player.tscn")
 var player: Player
 var player_view: Camera2D
+var has_player := true
 
 var temp_next_level := "res://scenes/Levels Scenes/snow__scenes/snow_level.tscn"
 
@@ -24,7 +25,6 @@ func _ready() -> void:
 	
 	player = spawner.spawn(player_path, player_spawn_point.global_position)
 	player_view = player.get_node("PlayerView")
-	player.get_node("MagicCursor").mouse_mode = GameMaster.mouse_mode
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x
 	player_view.limit_right = limit_wall.get_child(1).shape.a.x
 	
@@ -99,5 +99,4 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 func _on_end_level_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		await get_tree().create_timer(1).timeout
-		await Fade_transition.play_transition(GameMaster.change_to_level, temp_next_level)
-		#level_finished.emit() #ajouter player.current_hp
+		level_finished.emit() #ajouter player.current_hp

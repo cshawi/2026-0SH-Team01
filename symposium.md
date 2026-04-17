@@ -19,13 +19,13 @@ Un table vous sera installée avec accès à une prise électrique. Vous devez l
 
 ### Ce que nous aurons besoin provenant de l'école :
 
-1. Une table
+1. Deux table
 2. Une chaise haut si possible (juste une)
-3. Une caméra externe
-4. Fil HDMI
+3. Deux caméra externe
+4. Deux Fil HDMI
 5. Branchement au minimum 6 prises
-6. Un écran assez grande (min 40po)
-7. Amplificateur de volume si possible (Haut-parleur, enceinte, etc)
+6. Deux écran assez grande (min 40po)
+7. Amplificateurs de volume si possible (Haut-parleur, enceinte, etc)
 
 ## Heure d'arrivée
 

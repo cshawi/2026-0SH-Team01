@@ -9,16 +9,22 @@ extends Area2D
 @export var mouse_mode := true
 @export var lerp_weight := 0.15
 
+var is_active := true
 var is_holding := false
+var is_grabing := false
 var closest_object = null
-var first_time:=true
+var first_time := true
 var default_strength = 10 #si le joueur ne fait pas partie de la scène
 
 const MAX_INT = (1 << 63) - 1
 
 
 func _ready() -> void:
+	GameMaster.magic_cursor = self
 	initialize_visual()
+	GameMaster.mouse_mode_changed.connect(_on_mouse_mode_changed)
+	_on_mouse_mode_changed(GameMaster.mouse_mode)
+	apply_input_mode()
 	
 func initialize_visual():
 	$CollisionShape2D.scale = Vector2(size, size)
@@ -34,8 +40,12 @@ func change_color(new_color):
 	$CPUParticles2D.color_ramp.set_color(0, new_color.lightened(0.5))
 
 func _process(delta: float) -> void:
+	if not is_active || get_tree().paused:
+		return
+		
 	if Udp.is_pinching if not mouse_mode else Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if first_time:
+			is_grabing = true
 			grab_object()
 			first_time = false
 		change_color(Color.RED)
@@ -50,8 +60,11 @@ func _process(delta: float) -> void:
 		hand_tracking()
 
 func resetObject():
+	is_grabing = false
+	
 	if not is_holding: return
 	is_holding = false
+	
 	
 	if closest_object:
 		closest_object.desactivate()
@@ -59,15 +72,11 @@ func resetObject():
 
 func mouse():
 	global_position = get_global_mouse_position()
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		#mouse_mode = false
+
 
 func hand_tracking():
 	var world_pos := get_viewport().get_canvas_transform().affine_inverse() * Udp.hand_screen_position
 	global_position = global_position.lerp(world_pos, lerp_weight)
-	#if Udp.is_pinching:
-		#mouse_mode = true
 
 
 func grab_object():
@@ -99,3 +108,23 @@ func grab_object():
 
 func get_strength():
 	return get_parent().STRENGHT if get_parent() is Player else default_strength
+
+func apply_input_mode():
+	if is_active and mouse_mode and not get_tree().paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func set_cursor_active(active: bool):
+	is_active = active
+	
+	if not is_active:
+		resetObject()
+		change_color(Color.AQUA)
+		first_time = true
+	
+	apply_input_mode()
+
+func _on_mouse_mode_changed(new_mode: bool):
+	mouse_mode = new_mode
+	apply_input_mode()

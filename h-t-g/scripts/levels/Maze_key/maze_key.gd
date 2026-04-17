@@ -1,13 +1,11 @@
 extends Node2D
 
 
-@onready var magic_cursor: MagicCursor = $MagicCursor
 
 signal level_finished
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameMaster.register_level(self)
-	magic_cursor.mouse_mode = GameMaster.mouse_mode
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
