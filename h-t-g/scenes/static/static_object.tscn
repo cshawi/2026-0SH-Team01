@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxn3atg6enjve"]
+[gd_scene load_steps=3 format=3 uid="uid://cxn3atg6enjve"]
 
 [ext_resource type="Script" path="res://scripts/staticObjects/static_object.gd" id="1_hwbgp"]
+[ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/doors/door.tres" id="2_nhp3c"]
 
 [node name="StaticObject" type="Node2D"]
 script = ExtResource("1_hwbgp")
+config = ExtResource("2_nhp3c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

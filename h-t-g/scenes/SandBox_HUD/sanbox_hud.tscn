@@ -18,8 +18,12 @@ script = ExtResource("1_x4o26")
 
 [node name="SelectedItem" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 90.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
 offset_bottom = 90.0
+grow_horizontal = 0
 
 [node name="SelectedItem" type="Button" parent="SelectedItem"]
 custom_minimum_size = Vector2(90, 90)
