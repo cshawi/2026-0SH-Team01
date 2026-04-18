@@ -18,6 +18,8 @@ func _ready():
 	contact_monitor = true
 	max_contacts_reported = 4
 	interactable_component.interacted.connect(_on_interacted)
+	interactable_component.released.connect(desactivate)
+
 		
 func _physics_process(delta: float) -> void:
 	if magic_cursor:

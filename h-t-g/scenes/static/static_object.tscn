@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxn3atg6enjve"]
 
 [ext_resource type="Script" uid="uid://ulen6e8jmbjx" path="res://scripts/staticObjects/static_object.gd" id="1_hwbgp"]
-[ext_resource type="Texture2D" uid="uid://dtv48qj8syaji" path="res://assets/sprites/Objects/Doors/Interior-01.png" id="2_skmrb"]
+[ext_resource type="Texture2D" uid="uid://cyep4o3e8de33" path="res://assets/sprites/Objects/Chest/Interior-01.png" id="2_skmrb"]
 [ext_resource type="PackedScene" uid="uid://4dafcrrok4qb" path="res://scenes/components/interactable_component.tscn" id="3_fhr1f"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbrig"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nd4f"]
 atlas = ExtResource("2_skmrb")
-region = Rect2(131, 68, 42, 60)
+region = Rect2(49, 85, 30, 27)
 
-[node name="StaticObject" type="Node2D"]
+[node name="StaticObject" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("1_hwbgp")
-is_click = null
-is_open = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_kbrig")
+texture = SubResource("AtlasTexture_6nd4f")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-build_mode = 1
+polygon = PackedVector2Array(14, 13, 14, -14, -14, -14, -14, 13)
 
 [node name="InteractableComponent" parent="." instance=ExtResource("3_fhr1f")]

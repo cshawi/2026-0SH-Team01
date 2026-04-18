@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=4 uid="uid://bfmh21xoewkho"]
 
-[ext_resource type="Script" path="res://scripts/levels/Maze_key/maze_key.gd" id="1_f7sq8"]
+[ext_resource type="Script" uid="uid://ctls84ll66rn2" path="res://scripts/levels/Maze_key/maze_key.gd" id="1_f7sq8"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/buildings.tres" id="1_pj52y"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="2_f5x20"]
-[ext_resource type="Script" path="res://scripts/point_light_2d.gd" id="2_xf706"]
+[ext_resource type="Script" uid="uid://dk3e0lth3a8bd" path="res://scripts/point_light_2d.gd" id="2_xf706"]
 [ext_resource type="Resource" uid="uid://c8xqwenxml6gk" path="res://ressources/objects/Collectables/key.tres" id="3_f7sq8"]
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="3_xf706"]
 
@@ -73,8 +73,8 @@ texture_scale = 1.5
 script = ExtResource("2_xf706")
 
 [node name="MagicCursor" parent="." instance=ExtResource("3_xf706")]
-visible = false
 mouse_mode = true
+default_strength = 1
 
 [node name="EndLevelArea" type="Area2D" parent="."]
 position = Vector2(592, 412)

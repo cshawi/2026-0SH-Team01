@@ -14,7 +14,7 @@ var is_holding := false
 var is_grabing := false
 var closest_object = null
 var first_time := true
-var default_strength = 10 #si le joueur ne fait pas partie de la scène
+@export var default_strength = 10 #si le joueur ne fait pas partie de la scène
 
 const MAX_INT = (1 << 63) - 1
 
@@ -25,6 +25,7 @@ func _ready() -> void:
 	GameMaster.mouse_mode_changed.connect(_on_mouse_mode_changed)
 	_on_mouse_mode_changed(GameMaster.mouse_mode)
 	apply_input_mode()
+	print(get_parent())
 	
 func initialize_visual():
 	$CollisionShape2D.scale = Vector2(size, size)
@@ -67,7 +68,7 @@ func resetObject():
 	
 	
 	if closest_object:
-		closest_object.desactivate()
+		closest_object.interactable_component.release()
 		closest_object = null
 
 func mouse():

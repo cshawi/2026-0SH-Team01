@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dttpw3ittlk2g"]
+
+[ext_resource type="Script" uid="uid://dk4fy660jcsax" path="res://scripts/levels/Maze_key/ship_manager.gd" id="1_bqp6s"]
+[ext_resource type="PackedScene" uid="uid://b3r721pwfgx8d" path="res://scenes/Levels Scenes/maze_doors.tscn" id="2_1qbas"]
+[ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels Scenes/maze_key.tscn" id="3_yfou0"]
+
+[node name="ShipManager" type="Node2D"]
+script = ExtResource("1_bqp6s")
+
+[node name="Maze_Doors" parent="." instance=ExtResource("2_1qbas")]
+
+[node name="Maze_Key" parent="." instance=ExtResource("3_yfou0")]
+
+[node name="MagicCursor" parent="Maze_Key" index="7"]
+default_strength = 10
+
+[editable path="Maze_Doors"]
+[editable path="Maze_Doors/Doors/TeleportationDoors"]
+[editable path="Maze_Doors/Doors/TeleportationDoors/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors/Door2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors2/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors2/Door2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors3"]
+[editable path="Maze_Doors/Doors/TeleportationDoors3/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors3/Door2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors4"]
+[editable path="Maze_Doors/Doors/TeleportationDoors4/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors4/Door2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors5"]
+[editable path="Maze_Doors/Doors/TeleportationDoors5/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors5/Door2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors6"]
+[editable path="Maze_Doors/Doors/TeleportationDoors6/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors6/Door2"]
+[editable path="Maze_Doors/Doors/TeleportationDoors7"]
+[editable path="Maze_Doors/Doors/TeleportationDoors7/Door"]
+[editable path="Maze_Doors/Doors/TeleportationDoors7/Door2"]
+[editable path="Maze_Doors/Doors/ExitDoor"]
+[editable path="Maze_Key"]

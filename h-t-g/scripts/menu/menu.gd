@@ -1,6 +1,6 @@
 extends Control
 
-const tutorial_path = "res://scenes/world_tomy.tscn"
+const world_path = "res://scenes/world_map.tscn"
 const settings_path = "res://scenes/menu/settings.tscn"
 @onready var start: TextureButton = $CenterContainer/VBoxContainer/Start
 
@@ -18,7 +18,7 @@ func set_ui_enabled(is_enabled: bool):
 	mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled else Control.MOUSE_FILTER_IGNORE
 
 func _on_button_pressed() -> void:
-	change_scene(tutorial_path)
+	change_scene(world_path)
 
 
 func _on_settings_pressed() -> void:

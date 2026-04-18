@@ -71,7 +71,6 @@ func _physics_process(delta):
 
 	# cast : jouer seulement au moment où on commence
 	if is_casting and not was_casting and not is_attacking:
-		print("Lévitation !!!")
 		player_animation.play("casting_start")
 
 	# animations normales

@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://3ubg3imv3dap"]
+[gd_scene load_steps=12 format=4 uid="uid://3ubg3imv3dap"]
 
-[ext_resource type="Script" path="res://scripts/levels/World_map/world_map.gd" id="1_55716"]
+[ext_resource type="Script" uid="uid://5op0ykkonwcw" path="res://scripts/levels/World_map/world_map.gd" id="1_55716"]
 [ext_resource type="TileSet" uid="uid://en8u31ceb5ya" path="res://ressources/TileSet/world_map.tres" id="1_qqero"]
 [ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels Scenes/maze_key.tscn" id="2_0hitc"]
-[ext_resource type="Texture2D" uid="uid://hmukpi6g3cnf" path="res://assets/sprites/WorldMap/top_down_boat.png" id="2_u82pb"]
 [ext_resource type="Texture2D" uid="uid://djjt0eq7bvqb3" path="res://assets/sprites/HUD/Level_previews/ForestPreview.png" id="3_27p3u"]
 [ext_resource type="PackedScene" uid="uid://dsuo702hxiefk" path="res://scenes/Levels Scenes/World_map_scenes/biome_zone.tscn" id="3_u82pb"]
+[ext_resource type="Texture2D" uid="uid://hmukpi6g3cnf" path="res://assets/sprites/WorldMap/top_down_boat.png" id="4_0hitc"]
 [ext_resource type="Texture2D" uid="uid://cfbwe5rtqwbr" path="res://assets/sprites/HUD/Level_previews/SnowPreview.png" id="4_gqm84"]
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="4_pls23"]
 [ext_resource type="Texture2D" uid="uid://ccmmwtgpqy2j" path="res://assets/sprites/HUD/Level_previews/TutorialPreview.png" id="5_55716"]
 [ext_resource type="PackedScene" uid="uid://5xvtx66ergdk" path="res://scenes/utils/world_map_preview.tscn" id="8_gqm84"]
+[ext_resource type="Texture2D" uid="uid://8ns3blx7cn0d" path="res://assets/sprites/HUD/Level_previews/ShipPreview.png" id="11_6a477"]
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource("1_55716")
@@ -31,6 +32,11 @@ limit_left = 0
 limit_top = -308
 limit_right = 988
 limit_bottom = 284
+
+[node name="Ship" type="Sprite2D" parent="."]
+position = Vector2(294, 114)
+scale = Vector2(0.07246094, 0.07083333)
+texture = ExtResource("4_0hitc")
 
 [node name="BiomeZones" type="Node2D" parent="."]
 
@@ -65,17 +71,14 @@ preview_path = NodePath("../../PreviewsContainer/PlainPreview")
 [node name="CollisionPolygon2D" parent="BiomeZones/Plain" index="0"]
 polygon = PackedVector2Array(448, 157, 511, 118, 523, 81, 469, 50, 407, 49, 330, 51, 335, 104, 369, 159)
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 275.0
-offset_top = 94.0
-offset_right = 685.0
-offset_bottom = 594.0
-scale = Vector2(0.1, 0.1)
-texture_normal = ExtResource("2_u82pb")
-texture_hover = ExtResource("5_55716")
-texture_focused = ExtResource("5_55716")
-ignore_texture_size = true
-stretch_mode = 0
+[node name="Ship" parent="BiomeZones" instance=ExtResource("3_u82pb")]
+position = Vector2(289, 111)
+biome_name = "Ship"
+target_scene = "uid://dttpw3ittlk2g"
+preview_path = NodePath("../../PreviewsContainer/ShipPreview")
+
+[node name="CollisionPolygon2D" parent="BiomeZones/Ship" index="0"]
+polygon = PackedVector2Array(27, 32, 27, -18, -23, -17, -23, 32)
 
 [node name="MagicCursor" parent="." instance=ExtResource("4_pls23")]
 
@@ -115,18 +118,24 @@ offset_bottom = 46.0
 texture = ExtResource("5_55716")
 
 [node name="ShipPreview" parent="PreviewsContainer" instance=ExtResource("8_gqm84")]
-visible = false
 offset_left = 189.0
 offset_top = 91.0
 offset_right = 189.0
 offset_bottom = 91.0
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="Preview" parent="PreviewsContainer/ShipPreview/Background" index="0"]
+offset_left = 12.0
+offset_top = 16.697508
+offset_right = 1765.0
+offset_bottom = 1018.6975
+texture = ExtResource("11_6a477")
 
 [editable path="BiomeZones/Forest"]
 [editable path="BiomeZones/Snow"]
 [editable path="BiomeZones/Desert"]
 [editable path="BiomeZones/Plain"]
+[editable path="BiomeZones/Ship"]
 [editable path="PreviewsContainer/ForestPreview"]
 [editable path="PreviewsContainer/SnowPreview"]
 [editable path="PreviewsContainer/PlainPreview"]
+[editable path="PreviewsContainer/ShipPreview"]
