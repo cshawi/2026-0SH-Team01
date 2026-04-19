@@ -30,7 +30,6 @@ signal level_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameMaster.register_level(self)
 	limit_wall.add_wall(limit_left)
 	limit_wall.add_wall(limit_right)
 	
@@ -46,9 +45,8 @@ func _ready() -> void:
 		death_zone_2.body_entered.connect(_on_death_zone_body_entered)
 	if not death_zone_3.is_connected("body_entered", _on_death_zone_body_entered):
 		death_zone_3.body_entered.connect(_on_death_zone_body_entered)
-	
-	
-
+		
+	GameMaster.register_level(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

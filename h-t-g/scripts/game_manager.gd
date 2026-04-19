@@ -24,6 +24,7 @@ func register_level(level: Node) -> void:
 	if level.has_signal("level_finished") and not level.level_finished.is_connected(on_level_finished):
 		level.level_finished.connect(on_level_finished)
 	if level.has_player:
+		Hud.set_player_connection(level.player.get_node("HealthComponent"))
 		Hud.show_player_control()
 
 func set_mouse_mode(new_mode: bool):

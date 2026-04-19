@@ -17,6 +17,7 @@ offset_bottom = 40.0
 
 [node name="ProgressBar" parent="PlayerControl" instance=ExtResource("1_t6c21")]
 layout_mode = 0
+value = 45.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_6xure")]
 

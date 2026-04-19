@@ -19,7 +19,6 @@ signal level_finished() #mettre ne paramètre player.current_hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameMaster.register_level(self)
 	limit_wall.add_wall(0)
 	limit_wall.add_wall(640)
 	
@@ -32,9 +31,8 @@ func _ready() -> void:
 	forest_level_part_2.teleport.connect(on_teleport) #est-ce qu'on veut recommencer les guêpes si on quitte???
 	set_active_part(forest_level_part_1)
 	
-	
-	
-	print("Forest ready")
+	Hud.hide_all_menu()
+	GameMaster.register_level(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -7,7 +7,6 @@ class_name RollPlayerHelp
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.wait_time = message_display.text.length()
-	print(timer.wait_time)
 	hide_message()
 
 

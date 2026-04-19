@@ -18,7 +18,6 @@ func update_mode_icon(is_hand: bool):
 	mode_selected.texture = preload("res://assets/sprites/HUD/hand_settings_icon.png") if is_hand else preload("res://assets/sprites/HUD/mouse_settings_icon.png")
 
 func _on_back_button_pressed() -> void:
-	print("Bye bye settings")
 	get_parent().hide_all_menu()
 
 	match go_back_to:

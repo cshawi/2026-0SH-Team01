@@ -42,11 +42,9 @@ func _on_area_2d_body_entered(body: Node2D, parent: OpenableObject) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	teleport_timer.stop()
 	can_tp = true
-	print("Je sors")
 
 func _on_teleport_timer_timeout() -> void:
 	if can_tp:
-		print("can_tp")
 		can_tp = false
 		await Fade_transition.play_transition(teleport_player)
 		

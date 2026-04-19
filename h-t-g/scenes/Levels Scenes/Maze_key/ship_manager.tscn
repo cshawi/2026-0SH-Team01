@@ -36,5 +36,5 @@ default_strength = 10
 [editable path="Maze_Doors/Doors/TeleportationDoors7"]
 [editable path="Maze_Doors/Doors/TeleportationDoors7/Door"]
 [editable path="Maze_Doors/Doors/TeleportationDoors7/Door2"]
-[editable path="Maze_Doors/Doors/ExitDoor"]
+[editable path="Maze_Doors/Doors/Door"]
 [editable path="Maze_Key"]

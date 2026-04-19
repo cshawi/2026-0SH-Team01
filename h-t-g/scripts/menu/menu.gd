@@ -22,7 +22,6 @@ func _on_button_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	print("Menu: J'affiche les settings")
 	set_ui_enabled(false)
 	Hud.get_node("settings").go_back_to = "menu"
 	Hud.show_settings_menu()

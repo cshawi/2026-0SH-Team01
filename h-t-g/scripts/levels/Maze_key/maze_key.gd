@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 
 
 func _on_end_level_area_body_entered(body: Node2D) -> void:
-	print(body)
 	if body is FullMotionObject:
 		await get_tree().create_timer(1).timeout
 		key_obtained.emit()

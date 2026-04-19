@@ -34,8 +34,7 @@ func _on_spawn_timer_timeout() -> void:
 		wasp.velocity = Vector2.ZERO
 		wasp.died.connect(_on_wasp_dead)
 		spawn_timer.start()
-		print(global_position)
-		print("Wasp ", wasp.global_position)
+
 	
 
 func _on_wasp_dead():

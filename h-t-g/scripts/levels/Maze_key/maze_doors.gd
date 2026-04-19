@@ -54,16 +54,13 @@ func _on_hint_area_body_entered(body: Node2D) -> void:
 
 func _on_chest_entered(body: Node2D):
 	if chest.is_open:
-		print("Je start le timer")
 		teleport_timer.start()
 	
 func _on_chest_exited(body: Node2D):
 	if chest.is_open:
-		print("Je stop le timer")
 		teleport_timer.stop()
 	
 
 
 func _on_teleport_timer_timeout() -> void:
-	print("tp")
 	teleport.emit("Part_2")

@@ -12,7 +12,6 @@ var click_locked := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("READY ", biome_name)
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
 	preview = get_node_or_null(preview_path)
@@ -32,7 +31,6 @@ func _process(_delta: float) -> void:
 
 func _on_area_entered(area: Area2D):
 	if area is MagicCursor:
-		print("Preview:", preview)
 		cursor_inside = true
 		if preview != null: preview.show()
 	

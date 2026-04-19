@@ -69,12 +69,12 @@ func change_state(new_state: State):
 				change_state(State.IDLE)
 		State.CHASE:
 			animated_sprite.play("fly")
-			hitbox_component.monitoring = false
+			hitbox_component.set_deferred("monitoring", false)
 		State.ATTACK:
 			if player:
 				animated_sprite.play("attack")
 				attack_target = player.global_position
-				hitbox_component.monitoring = true
+				hitbox_component.set_deferred("monitoring", false)
 		State.DEAD:
 			animated_sprite.play("die")
 			velocity = Vector2.ZERO

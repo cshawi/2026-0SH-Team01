@@ -60,12 +60,10 @@ func _physics_process(delta):
 	# attaques
 	if not is_casting and not is_attacking:
 		if Input.is_action_just_pressed("Attack_1"):
-			print("attaque 1")
 			is_attacking = true
 			player_animation.play("attack_1")
 
 		elif Input.is_action_just_pressed("Attack_2"):
-			print("attaque 2")
 			is_attacking = true
 			player_animation.play("attack_2")
 
@@ -93,10 +91,9 @@ func _physics_process(delta):
 
 
 func _on_health_changed(health: float):
-	print("Vie restante: ", health)
+	pass
 
 func _on_player_animation_animation_finished() -> void:
-	print(player_animation.animation)
 
 	if player_animation.animation != "attack_1" and player_animation.animation != "attack_2" and player_animation.animation != "casting_start":
 		return

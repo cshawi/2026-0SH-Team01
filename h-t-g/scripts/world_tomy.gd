@@ -25,7 +25,6 @@ signal level_finished() #mettre ne paramètre player.current_hp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameMaster.register_level(self)
 	limit_wall.add_wall(0)
 	limit_wall.add_wall(1280)
 	
@@ -33,7 +32,10 @@ func _ready() -> void:
 	player_view = player.get_node("PlayerView")
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x
 	player_view.limit_right = limit_wall.get_child(1).shape.a.x
-	print("World ready")
+	
+	Hud.hide_all_menu()
+	GameMaster.register_level(self)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

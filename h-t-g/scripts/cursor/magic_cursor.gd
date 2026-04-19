@@ -25,7 +25,6 @@ func _ready() -> void:
 	GameMaster.mouse_mode_changed.connect(_on_mouse_mode_changed)
 	_on_mouse_mode_changed(GameMaster.mouse_mode)
 	apply_input_mode()
-	print(get_parent())
 	
 func initialize_visual():
 	$CollisionShape2D.scale = Vector2(size, size)
@@ -82,7 +81,7 @@ func hand_tracking():
 
 func grab_object():
 	
-	if is_holding: return
+	if is_holding || not monitoring: return
 	
 	var closest_distance = MAX_INT
 	

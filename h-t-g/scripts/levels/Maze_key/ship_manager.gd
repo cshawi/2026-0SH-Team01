@@ -11,18 +11,17 @@ var has_player := false
 signal level_finished
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameMaster.register_level(self)
-
-	
 	player = maze_doors.player
 	player_view = maze_doors.player_view
-
 	
 	maze_doors.teleport.connect(on_teleport)
 	maze_key.teleport.connect(on_teleport)
 	maze_key.key_obtained.connect(on_key_obtained)
 	set_active_part(maze_doors)
-
+	
+	Hud.hide_all_menu()
+	GameMaster.register_level(self)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -31,8 +31,6 @@ func load_all_ressources():
 	all_items_with_category += get_file_of_ressources_directory(Rocks_path);
 	all_items_with_category += get_file_of_ressources_directory(Specials_path);
 	all_items_with_category.sort_custom(sort_by_category)
-	for item in all_items_with_category : 
-		print(item);
 	
 func get_file_of_ressources_directory(path_to_ressource):
 	var category = path_to_ressource.replace(base_path_to_ressource, "");
@@ -60,9 +58,6 @@ func load_item_information_in_list_items(category):
 
 func add_item(object):
 	var item  = TextureButton.new();
-	#print(object.name);	
-	#print(object.Texture);
-	#item.set_texture_normal()
 	$ItemOfCategory.add_child(item);
 
 	

@@ -16,6 +16,10 @@ func _on_resume_pressed() -> void:
 	get_tree().paused = false
 	get_parent().show_player_control()
 
+func _on_restart_pressed() -> void:
+	get_tree().paused = false
+	await Fade_transition.play_transition(get_tree().reload_current_scene)
+
 func _on_settings_pressed() -> void:
 	get_parent().get_node("settings").go_back_to = "pause"
 	get_parent().show_settings_menu()
