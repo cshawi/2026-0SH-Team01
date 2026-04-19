@@ -1663,10 +1663,10 @@ config = ExtResource("11_5kt1d")
 position = Vector2(258, 111)
 
 [node name="RollPlayerHelp" parent="." instance=ExtResource("12_5kt1d")]
-offset_left = 412.0
-offset_top = 30.0
-offset_right = 412.0
-offset_bottom = 30.0
+offset_left = 420.0
+offset_top = 64.0
+offset_right = 420.0
+offset_bottom = 64.0
 scale = Vector2(0.3, 0.3)
 
 [node name="HintArea" type="Area2D" parent="."]
