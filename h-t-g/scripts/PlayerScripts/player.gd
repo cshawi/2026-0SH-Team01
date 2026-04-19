@@ -31,7 +31,6 @@ func _ready() -> void:
 	SPEED *= scale.x
 	JUMP_FORCE *= scale.x
 	GRAVITY *= scale.x
-	health_component.changed.connect(_on_health_changed)
 	
 	
 
@@ -90,8 +89,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_health_changed(health: float):
-	pass
+
 
 func _on_player_animation_animation_finished() -> void:
 

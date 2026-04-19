@@ -6,6 +6,7 @@ extends Node2D
 @onready var spawner: Spawner = $Spawner
 @onready var forest_level_part_1: ForestLevelPart1 = $ForestLevelPart1
 @onready var forest_level_part_2: ForestLevelPart2 = $ForestLevelPart2
+@onready var roll_player_help: RollPlayerHelp = $RollPlayerHelp
 
 
 @onready var player_path := preload("res://scenes/Player_scenes/player.tscn")
@@ -13,7 +14,7 @@ var player: Player
 var player_view: Camera2D
 var has_player := true
 
-var temp_next_level := "res://scenes/Levels Scenes/snow__scenes/snow_level.tscn"
+var first_time_dead := true
 
 signal level_finished() #mettre ne paramètre player.current_hp
 
@@ -27,12 +28,18 @@ func _ready() -> void:
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x
 	player_view.limit_right = limit_wall.get_child(1).shape.a.x
 	
+	player.get_node("HealthComponent").died.connect(_on_player_dead)
 	forest_level_part_1.teleport.connect(on_teleport) #PAS de changement de scène, process_mode disabled voir Doc
 	forest_level_part_2.teleport.connect(on_teleport) #est-ce qu'on veut recommencer les guêpes si on quitte???
 	set_active_part(forest_level_part_1)
 	
+	print("J'affiche")
+	roll_player_help.set_message("Attention, si jamais vos points de vie tombent sous la barre des 0, vous devrez recommencer le niveau.")
+	roll_player_help.show_message()
+	
 	Hud.hide_all_menu()
 	GameMaster.register_level(self)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -88,6 +95,10 @@ func on_teleport(target: String):
 		"Part_2":
 			await Fade_transition.play_transition(go_to_part_2)
 			
+
+func _on_player_dead():
+	await Fade_transition.play_transition(get_tree().reload_current_scene)
+	
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body is Player:

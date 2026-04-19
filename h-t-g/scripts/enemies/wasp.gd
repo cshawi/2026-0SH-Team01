@@ -74,7 +74,7 @@ func change_state(new_state: State):
 			if player:
 				animated_sprite.play("attack")
 				attack_target = player.global_position
-				hitbox_component.set_deferred("monitoring", false)
+				hitbox_component.set_deferred("monitoring", true)
 		State.DEAD:
 			animated_sprite.play("die")
 			velocity = Vector2.ZERO

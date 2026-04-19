@@ -50,6 +50,8 @@ func set_player_connection(hc: HealthComponent):
 	_update_player(health_component.max_health)
 
 func _update_player(health: float):
+	print("Vie actuelle", health_component.health)
+	print("Vie reçu", health)
 	progress_bar.max_value = health_component.max_health
 	progress_bar.value = health
 

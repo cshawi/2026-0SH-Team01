@@ -18,5 +18,7 @@ region = Rect2(131, 4, 42, 60)
 [resource]
 script = ExtResource("1_ryfc0")
 textures = Array[Texture2D]([SubResource("AtlasTexture_kbrig"), SubResource("AtlasTexture_6ogi0")])
+name = "Door"
 texture = SubResource("AtlasTexture_527ih")
 collision_polygon = PackedVector2Array(-20, -29, -21, -29, -21, -23, -19, -23, -19, 30, 19, 30, 19, -23, 21, -23, 21, -29, 20, -29, 20, -30, -20, -30)
+metadata/_custom_type_script = "uid://bfpgfq55phcy7"

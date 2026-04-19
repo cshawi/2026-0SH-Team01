@@ -16,8 +16,8 @@ var can_tp := true
 func _ready() -> void:
 	area.body_entered.connect(_on_area_2d_body_entered.bind(door))
 	area2.body_entered.connect(_on_area_2d_body_entered.bind(door_2))
-	area.body_exited.connect(_on_area_2d_body_exited)
-	area2.body_exited.connect(_on_area_2d_body_exited)
+	area.body_exited.connect(_on_area_2d_body_exited.bind(door))
+	area2.body_exited.connect(_on_area_2d_body_exited.bind(door_2))
 	
 
 
@@ -31,7 +31,7 @@ func get_other_door():
 func teleport_player():
 	player.global_position = get_other_door().global_position
 	current_door.action()
-	get_other_door().action()
+	get_other_door().action() #is_open = !is_open
 
 func _on_area_2d_body_entered(body: Node2D, parent: OpenableObject) -> void:
 	if parent.is_open:
@@ -39,7 +39,10 @@ func _on_area_2d_body_entered(body: Node2D, parent: OpenableObject) -> void:
 		current_door = parent
 		teleport_timer.start()
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(body: Node2D, parent: OpenableObject) -> void:
+	if parent.is_open: 
+		current_door.action()
+	
 	teleport_timer.stop()
 	can_tp = true
 
@@ -47,4 +50,5 @@ func _on_teleport_timer_timeout() -> void:
 	if can_tp:
 		can_tp = false
 		await Fade_transition.play_transition(teleport_player)
+		
 		

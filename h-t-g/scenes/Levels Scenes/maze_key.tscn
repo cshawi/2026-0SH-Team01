@@ -55,7 +55,7 @@ tile_set = ExtResource("1_pj52y")
 occluder = SubResource("OccluderPolygon2D_h2so5")
 
 [node name="FullMotionObject" parent="." instance=ExtResource("2_f5x20")]
-position = Vector2(374, 80)
+position = Vector2(162, 111)
 config = ExtResource("3_f7sq8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
