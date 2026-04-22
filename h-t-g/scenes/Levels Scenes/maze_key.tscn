@@ -56,6 +56,10 @@ occluder = SubResource("OccluderPolygon2D_h2so5")
 
 [node name="FullMotionObject" parent="." instance=ExtResource("2_f5x20")]
 position = Vector2(162, 111)
+angular_damp_mode = 1
+angular_damp = 50.0
+max_speed = 1000.0
+cast_length = 5.0
 config = ExtResource("3_f7sq8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

@@ -43,8 +43,9 @@ func _process(delta: float) -> void:
 	if not is_active || get_tree().paused:
 		return
 		
-	if Udp.is_pinching if not mouse_mode else Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if _is_pressing():
 		if first_time:
+			
 			is_grabing = true
 			grab_object()
 			first_time = false
@@ -78,6 +79,10 @@ func hand_tracking():
 	var world_pos := get_viewport().get_canvas_transform().affine_inverse() * Udp.hand_screen_position
 	global_position = global_position.lerp(world_pos, lerp_weight)
 
+func _is_pressing() -> bool:
+	if mouse_mode:
+		return Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	return Udp.is_pinching
 
 func grab_object():
 	

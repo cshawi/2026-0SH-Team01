@@ -53,7 +53,7 @@ func _on_hint_area_body_entered(body: Node2D) -> void:
 		roll_player_help.show_message()
 
 func _on_chest_entered(body: Node2D):
-	if chest.is_open:
+	if chest.is_open and not chest.is_locked:
 		teleport_timer.start()
 	
 func _on_chest_exited(body: Node2D):

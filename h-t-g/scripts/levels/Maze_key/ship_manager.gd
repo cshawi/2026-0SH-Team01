@@ -109,5 +109,5 @@ func on_teleport(target: String):
 			await Fade_transition.play_transition(go_to_part_2)
 
 func on_key_obtained():
-
 	maze_doors.get_node("Doors/Door").is_locked = false
+	maze_doors.get_node("Chest").is_locked = true

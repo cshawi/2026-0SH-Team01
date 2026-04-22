@@ -22,8 +22,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(_delta: float) -> void:
+	_check_overlap_and_start_tp(area, door)
+	_check_overlap_and_start_tp(area2, door_2)
 
 func get_other_door():
 	return door if current_door != door else door_2
@@ -33,11 +34,26 @@ func teleport_player():
 	current_door.action()
 	get_other_door().action() #is_open = !is_open
 
+func _check_overlap_and_start_tp(check_area: Area2D, parent: OpenableObject) -> void:
+	if not parent.is_open:
+		return
+
+	var bodies := check_area.get_overlapping_bodies()
+	for body in bodies:
+		if body is Player:
+			player = body
+			current_door = parent
+
+			if teleport_timer.is_stopped() and can_tp:
+				teleport_timer.start()
+			return
+
 func _on_area_2d_body_entered(body: Node2D, parent: OpenableObject) -> void:
 	if parent.is_open:
-		player = body
-		current_door = parent
 		teleport_timer.start()
+		
+	player = body
+	current_door = parent
 
 func _on_area_2d_body_exited(body: Node2D, parent: OpenableObject) -> void:
 	if parent.is_open: 

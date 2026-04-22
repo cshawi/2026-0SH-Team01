@@ -10,6 +10,7 @@ script = ExtResource("1_bqp6s")
 [node name="Maze_Doors" parent="." instance=ExtResource("2_1qbas")]
 
 [node name="Maze_Key" parent="." instance=ExtResource("3_yfou0")]
+visible = false
 
 [node name="MagicCursor" parent="Maze_Key" index="7"]
 default_strength = 10
@@ -37,4 +38,5 @@ default_strength = 10
 [editable path="Maze_Doors/Doors/TeleportationDoors7/Door"]
 [editable path="Maze_Doors/Doors/TeleportationDoors7/Door2"]
 [editable path="Maze_Doors/Doors/Door"]
+[editable path="Maze_Doors/Chest"]
 [editable path="Maze_Key"]
