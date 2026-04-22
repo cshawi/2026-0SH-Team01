@@ -30,10 +30,9 @@ func activate(cursor, strength):
 	player_strength = strength
 
 func desactivate():
-	if magic_cursor:
-		magic_cursor.resetObject()
 	magic_cursor = null
-	
+	sleeping = false
+
 func action(delta):
 	pass
 	

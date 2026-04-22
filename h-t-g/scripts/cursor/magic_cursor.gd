@@ -66,7 +66,6 @@ func resetObject():
 	if not is_holding: return
 	is_holding = false
 	
-	
 	if closest_object:
 		closest_object.interactable_component.release()
 		closest_object = null
