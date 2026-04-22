@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dttpw3ittlk2g"]
+[gd_scene load_steps=5 format=3 uid="uid://dttpw3ittlk2g"]
 
 [ext_resource type="Script" uid="uid://dk4fy660jcsax" path="res://scripts/levels/Maze_key/ship_manager.gd" id="1_bqp6s"]
 [ext_resource type="PackedScene" uid="uid://b3r721pwfgx8d" path="res://scenes/Levels Scenes/maze_doors.tscn" id="2_1qbas"]
 [ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels Scenes/maze_key.tscn" id="3_yfou0"]
+[ext_resource type="PackedScene" uid="uid://dwsd7xvfpp8b4" path="res://scenes/Levels Scenes/Maze_key/easy_maze_key.tscn" id="6_dhc2b"]
 
 [node name="ShipManager" type="Node2D"]
 script = ExtResource("1_bqp6s")
@@ -14,6 +15,9 @@ visible = false
 
 [node name="MagicCursor" parent="Maze_Key" index="7"]
 default_strength = 10
+
+[node name="EasyMazeKey" parent="." instance=ExtResource("6_dhc2b")]
+visible = false
 
 [editable path="Maze_Doors"]
 [editable path="Maze_Doors/Doors/TeleportationDoors"]
@@ -38,5 +42,5 @@ default_strength = 10
 [editable path="Maze_Doors/Doors/TeleportationDoors7/Door"]
 [editable path="Maze_Doors/Doors/TeleportationDoors7/Door2"]
 [editable path="Maze_Doors/Doors/Door"]
-[editable path="Maze_Doors/Chest"]
 [editable path="Maze_Key"]
+[editable path="EasyMazeKey"]

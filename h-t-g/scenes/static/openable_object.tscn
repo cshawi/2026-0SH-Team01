@@ -7,8 +7,9 @@
 collision_mask = 2
 script = ExtResource("2_hcin2")
 is_open = false
+is_locked = false
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]

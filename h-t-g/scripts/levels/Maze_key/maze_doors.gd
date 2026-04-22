@@ -5,7 +5,9 @@ class_name MazeDoors
 @onready var roll_player_help: RollPlayerHelp = $RollPlayerHelp
 @onready var exit_door: OpenableObject = $Doors/Door
 @onready var chest: OpenableObject = $Chest
+@onready var chest_2: OpenableObject = $Chest2
 @onready var chest_area : Area2D = chest.get_node("Area2D")
+@onready var chest_area_2 : Area2D = chest_2.get_node("Area2D")
 @onready var teleport_timer: Timer = $"TeleportTimer"
 
 @onready var player_path := preload("res://scenes/Player_scenes/player.tscn")
@@ -18,13 +20,16 @@ var player: Player
 var player_view: Camera2D
 var player_scale = 0.7
 var top_limit := 0
+var diff: String
 
-signal teleport(target: String)
+signal teleport(target: String, diff: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	chest_area.body_entered.connect(_on_chest_entered)
+	chest_area.body_entered.connect(_on_chest_entered.bind(chest))
 	chest_area.body_exited.connect(_on_chest_exited)
+	chest_area_2.body_entered.connect(_on_chest_entered.bind(chest_2))
+	chest_area_2.body_exited.connect(_on_chest_exited)
 	limit_wall.add_wall(0)
 	limit_wall.add_wall(640)
 	
@@ -52,15 +57,19 @@ func _on_hint_area_body_entered(body: Node2D) -> void:
 		roll_player_help.set_message("Cette porte est verrouillé, trouvez un moyen de l'ouvrir.")
 		roll_player_help.show_message()
 
-func _on_chest_entered(body: Node2D):
-	if chest.is_open and not chest.is_locked:
+func _on_chest_entered(body: Node2D, current_chest: OpenableObject):
+	if current_chest.is_open and not current_chest.is_locked:
+		diff = "Hard" if current_chest == chest else "Easy"
+		print(diff)
 		teleport_timer.start()
 	
-func _on_chest_exited(body: Node2D):
-	if chest.is_open:
+func _on_chest_exited(body: Node2D, current_chest: OpenableObject):
+	if current_chest.is_open:
 		teleport_timer.stop()
 	
 
 
 func _on_teleport_timer_timeout() -> void:
-	teleport.emit("Part_2")
+	print(diff)
+	teleport.emit("Part_2", diff)
+	

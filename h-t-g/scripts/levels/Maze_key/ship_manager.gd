@@ -3,6 +3,7 @@ class_name ShipManager
 
 @onready var maze_doors: Node2D = $Maze_Doors
 @onready var maze_key: Node2D = $Maze_Key
+@onready var easy_maze_key: Node2D = $EasyMazeKey
 
 var player: Player
 var player_view: Camera2D
@@ -16,7 +17,9 @@ func _ready() -> void:
 	
 	maze_doors.teleport.connect(on_teleport)
 	maze_key.teleport.connect(on_teleport)
+	easy_maze_key.teleport.connect(on_teleport)
 	maze_key.key_obtained.connect(on_key_obtained)
+	easy_maze_key.key_obtained.connect(on_key_obtained)
 	set_active_part(maze_doors)
 	
 	Hud.hide_all_menu()
@@ -28,7 +31,7 @@ func _process(delta: float) -> void:
 	pass
 
 func set_active_part(active_part: Node):
-	for part in [maze_doors, maze_key]:
+	for part in [maze_doors, maze_key, easy_maze_key]:
 		var is_active = part == active_part
 		part.visible = is_active
 		
@@ -84,13 +87,13 @@ func enable_node_completely(node: Node) -> void:
 func spawn_player_at(marker: Marker2D) -> void:
 	player.global_position = marker.global_position
 
-func go_to_part_2() -> void:
+func go_to_part_2(diff: String) -> void:
 	disable_node_completely(player)
 	
 	if player_view:
 		player_view.enabled = false
 	
-	set_active_part(maze_key)
+	set_active_part(maze_key) if diff == "Hard" else set_active_part(easy_maze_key)
 
 func go_to_part_1() -> void:
 	set_active_part(maze_doors)
@@ -101,13 +104,14 @@ func go_to_part_1() -> void:
 		player_view.enabled = true
 		player_view.make_current()
 
-func on_teleport(target: String):
+func on_teleport(target: String, diff: String):
 	match target:
 		"Part_1":
 			await Fade_transition.play_transition(go_to_part_1)
 		"Part_2":
-			await Fade_transition.play_transition(go_to_part_2)
+			await Fade_transition.play_transition(go_to_part_2, diff)
 
 func on_key_obtained():
 	maze_doors.get_node("Doors/Door").is_locked = false
 	maze_doors.get_node("Chest").is_locked = true
+	maze_doors.get_node("Chest2").is_locked = true

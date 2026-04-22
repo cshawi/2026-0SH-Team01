@@ -18,16 +18,16 @@ vertices = PackedVector2Array(621, 99, 621, 406, 611, 406, 611, 353, 113, 99, 11
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(601, 416, 601, 363, 103, 363, 103, 89, 631, 89, 631, 416)])
 
-[sub_resource type="Gradient" id="Gradient_h2so5"]
+[sub_resource type="Gradient" id="Gradient_f7sq8"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ufran"]
-gradient = SubResource("Gradient_h2so5")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4h1kt"]
+gradient = SubResource("Gradient_f7sq8")
 width = 100
 height = 100
 fill = 1
 fill_from = Vector2(0.514019, 0.514019)
-fill_to = Vector2(0.719626, 0.336449)
+fill_to = Vector2(0.6581197, 0.34615386)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7sq8"]
 size = Vector2(38, 20)
@@ -56,10 +56,8 @@ occluder = SubResource("OccluderPolygon2D_h2so5")
 
 [node name="FullMotionObject" parent="." instance=ExtResource("2_f5x20")]
 position = Vector2(162, 111)
-angular_damp_mode = 1
-angular_damp = 50.0
 max_speed = 1000.0
-cast_length = 5.0
+cast_length = 3.0
 config = ExtResource("3_f7sq8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -72,7 +70,7 @@ navigation_polygon = SubResource("NavigationPolygon_iwvkc")
 position = Vector2(617, 385)
 energy = 2.0
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_ufran")
+texture = SubResource("GradientTexture2D_4h1kt")
 texture_scale = 1.5
 script = ExtResource("2_xf706")
 
