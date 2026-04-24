@@ -1,7 +1,7 @@
 extends Control
 
-const world_path = "res://scenes/world_map.tscn"
-const settings_path = "res://scenes/menu/settings.tscn"
+const world_path = "res://scenes/Levels/World_map/world_map.tscn"
+const settings_path = "res://scenes/Menu/settings.tscn"
 @onready var start: TextureButton = $CenterContainer/VBoxContainer/Start
 
 

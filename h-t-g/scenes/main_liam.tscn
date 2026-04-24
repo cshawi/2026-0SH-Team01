@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="1_co7rp"]
 [ext_resource type="Texture2D" uid="uid://daoo30v2e2n6p" path="res://assets/icons/icon.svg" id="2_44tsi"]
-[ext_resource type="PackedScene" uid="uid://bhaqunt2ug2nv" path="res://scenes/utils/flotation_zone.tscn" id="3_kd76o"]
-[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="4_ateq6"]
+[ext_resource type="PackedScene" uid="uid://bhaqunt2ug2nv" path="res://scenes/Objects/flotation_zone.tscn" id="3_kd76o"]
+[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/Objects/Moveables/full_motion_object.tscn" id="4_ateq6"]
 [ext_resource type="Resource" uid="uid://bhjelwx334jj4" path="res://ressources/objects/Box/small_box.tres" id="5_24tp4"]
-[ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player_scenes/player.tscn" id="6_ateq6"]
+[ext_resource type="PackedScene" uid="uid://cxfmddpxdyk6e" path="res://scenes/Player/player.tscn" id="6_ateq6"]
 
 [node name="MainLiam" type="Node2D"]
 

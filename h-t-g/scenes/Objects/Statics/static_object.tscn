@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxn3atg6enjve"]
+
+[ext_resource type="Script" uid="uid://ulen6e8jmbjx" path="res://scripts/Objects/Statics/static_object.gd" id="1_ayc5n"]
+[ext_resource type="Texture2D" uid="uid://cyep4o3e8de33" path="res://assets/sprites/Objects/Chest/Interior-01.png" id="2_eeumi"]
+[ext_resource type="PackedScene" uid="uid://4dafcrrok4qb" path="res://scenes/components/interactable_component.tscn" id="3_w0djn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nd4f"]
+atlas = ExtResource("2_eeumi")
+region = Rect2(49, 85, 30, 27)
+
+[node name="StaticObject" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_ayc5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6nd4f")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(14, 13, 14, -14, -14, -14, -14, 13)
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_w0djn")]

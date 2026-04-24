@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://fi0msd8c345h"]
+
+[ext_resource type="Script" uid="uid://blgr6at4pygqw" path="res://scripts/Levels/Didacticiel/world_tomy.gd" id="1_ajrs5"]
+[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/Utils/Wall/limit_wall.tscn" id="2_t6uba"]
+[ext_resource type="PackedScene" uid="uid://vc4darec1r7c" path="res://scenes/Levels/Didactitiel/didactitiel_part1.tscn" id="3_6pe75"]
+[ext_resource type="PackedScene" uid="uid://i6dmyw578gio" path="res://scenes/Levels/Didactitiel/didactitiel_part2.tscn" id="4_1bf5q"]
+[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/Objects/Moveables/full_motion_object.tscn" id="5_l5cr2"]
+[ext_resource type="Resource" uid="uid://d3na574taum6t" path="res://ressources/objects/Rocks/large_rock.tres" id="6_icc68"]
+[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/Utils/Checkpoint/Spawner/spawner.tscn" id="7_71w7j"]
+[ext_resource type="PackedScene" uid="uid://el4uy8p87deo" path="res://scenes/Utils/Display/roll_player_help.tscn" id="8_2uj04"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1462o"]
+a = Vector2(-242, -95)
+b = Vector2(-242, 177)
+
+[node name="World_Tomy" type="Node2D"]
+script = ExtResource("1_ajrs5")
+
+[node name="LimitWall" parent="." instance=ExtResource("2_t6uba")]
+
+[node name="Didactitiel_part1" parent="." instance=ExtResource("3_6pe75")]
+
+[node name="Didactitiel_part2" parent="." instance=ExtResource("4_1bf5q")]
+position = Vector2(640, 0)
+
+[node name="FullMotionObject" parent="." instance=ExtResource("5_l5cr2")]
+top_level = false
+position = Vector2(1213, 269)
+contact_monitor = false
+config = ExtResource("6_icc68")
+
+[node name="FullMotionObject3" parent="." instance=ExtResource("5_l5cr2")]
+position = Vector2(578, 232)
+
+[node name="HintArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea"]
+position = Vector2(539, 184)
+shape = SubResource("SegmentShape2D_1462o")
+
+[node name="HintArea2" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea2"]
+position = Vector2(1247, 181)
+shape = SubResource("SegmentShape2D_1462o")
+
+[node name="HintArea3" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea3"]
+position = Vector2(1521, 191)
+shape = SubResource("SegmentShape2D_1462o")
+
+[node name="Spawner" parent="." instance=ExtResource("7_71w7j")]
+
+[node name="RollPlayerHelp" parent="." instance=ExtResource("8_2uj04")]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 117.0
+offset_top = 114.0
+offset_right = 445.0
+offset_bottom = 256.0
+grow_vertical = 1
+
+[node name="RollPlayerHelp2" parent="." instance=ExtResource("8_2uj04")]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 847.0
+offset_top = 114.0
+offset_right = 1175.0
+offset_bottom = 256.0
+grow_vertical = 1
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(49, 294)
+
+[connection signal="body_entered" from="HintArea" to="." method="_on_hint_area_body_entered"]
+[connection signal="body_entered" from="HintArea2" to="." method="_on_hint_area_2_body_entered"]
+[connection signal="body_entered" from="HintArea3" to="." method="_on_hint_area_3_body_entered"]

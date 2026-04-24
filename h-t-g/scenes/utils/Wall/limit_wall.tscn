@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://igkyosdbgyea"]
+
+[ext_resource type="Script" uid="uid://gxnqnj68w630" path="res://scripts/Player/limit_wall.gd" id="1_fje7o"]
+
+[node name="LimitWall" type="StaticBody2D"]
+script = ExtResource("1_fje7o")

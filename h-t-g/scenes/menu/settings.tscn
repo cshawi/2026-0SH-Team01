@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://qi07vnpirsvw"]
 
-[ext_resource type="Script" path="res://scripts/menu/settings.gd" id="1_sfpbk"]
+[ext_resource type="Script" uid="uid://ddssdii325grf" path="res://scripts/Menu/settings.gd" id="1_sfpbk"]
 [ext_resource type="Texture2D" uid="uid://osi5hs3cl5wj" path="res://assets/sprites/HUD/pngegg.png" id="2_37860"]
 [ext_resource type="Texture2D" uid="uid://cir1nq50wfyrj" path="res://assets/sprites/HUD/back_btn-hover.png" id="3_0t5g5"]
 [ext_resource type="Texture2D" uid="uid://db88dtragjknw" path="res://assets/sprites/HUD/mouse_settings_icon.png" id="4_0t5g5"]

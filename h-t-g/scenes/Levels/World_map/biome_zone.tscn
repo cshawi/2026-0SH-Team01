@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsuo702hxiefk"]
+
+[ext_resource type="Script" uid="uid://st8pawi20rov" path="res://scripts/Levels/Map/biome_zone.gd" id="1_oiee2"]
+
+[node name="BiomeZone" type="Area2D"]
+script = ExtResource("1_oiee2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

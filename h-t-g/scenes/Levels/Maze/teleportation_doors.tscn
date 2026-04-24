@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://k6rrajll83la"]
+
+[ext_resource type="Script" uid="uid://bqt30c3hvg623" path="res://scripts/Levels/Maze/teleportation_doors.gd" id="1_g6r1y"]
+[ext_resource type="PackedScene" uid="uid://ca5cd7o3xvcfy" path="res://scenes/Objects/Statics/openable_object.tscn" id="2_agkau"]
+[ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/Doors/door.tres" id="3_agkau"]
+
+[node name="TeleportationDoors" type="Node2D"]
+script = ExtResource("1_g6r1y")
+
+[node name="Door" parent="." instance=ExtResource("2_agkau")]
+position = Vector2(233, 70)
+config = ExtResource("3_agkau")
+
+[node name="Door2" parent="." instance=ExtResource("2_agkau")]
+position = Vector2(41, 71)
+config = ExtResource("3_agkau")
+
+[node name="TeleportTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]
+
+[editable path="Door"]
+[editable path="Door2"]
