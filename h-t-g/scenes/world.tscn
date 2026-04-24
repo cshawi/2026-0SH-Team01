@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://prcuwbbocwdq"]
 
 [ext_resource type="Texture2D" uid="uid://daoo30v2e2n6p" path="res://assets/icons/icon.svg" id="1_s4sqf"]
-[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/moveables/full_motion_object.tscn" id="2_kt8pq"]
-[ext_resource type="PackedScene" uid="uid://dncsx7cx4k2h" path="res://scenes/static/full_static_object.tscn" id="3_mdtvx"]
+[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/object/Moveables/FullMotion/full_motion_object.tscn" id="2_kt8pq"]
+[ext_resource type="PackedScene" uid="uid://dncsx7cx4k2h" path="res://scenes/object/Static/full_static_object.tscn" id="3_mdtvx"]
 [ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/Doors/door.tres" id="4_hstml"]
 [ext_resource type="Texture2D" uid="uid://dknns7d5e8yrd" path="res://assets/sprites/Objects/Box/Interior-01.png" id="5_d2hxq"]
 

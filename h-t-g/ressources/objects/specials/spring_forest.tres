@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://dhie1jnlgoudb"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_yeieh"]
-[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Tree-Assets.png" id="2_jpvwe"]
+[ext_resource type="Script" path="res://scripts/Objects/Moveable/Config/moveable_config.gd" id="1_yeieh"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Objects/Trees/Tree-Assets.png" id="2_jpvwe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytvhd"]
 atlas = ExtResource("2_jpvwe")

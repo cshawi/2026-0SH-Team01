@@ -95,7 +95,6 @@ func grab_object():
 				closest_distance = distance
 				closest_object = object
 	
-	print(closest_object)
 	if closest_object:
 		is_holding = true
 		if closest_object is MoveableObject:

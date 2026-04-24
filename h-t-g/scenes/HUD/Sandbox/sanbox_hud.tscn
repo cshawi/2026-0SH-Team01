@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://0v3unde74e35"]
+
+[ext_resource type="Script" path="res://scripts/hud/sanbox.gd" id="1_x4o26"]
+
+[node name="SanboxHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x4o26")
+
+[node name="HBSelectedItem" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 54.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="SelectedItem" type="Button" parent="HBSelectedItem"]
+custom_minimum_size = Vector2(50, 50)
+layout_direction = 1
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="CreativeMode" type="Button" parent="HBSelectedItem"]
+layout_mode = 2
+text = "Creative mode"
+
+[node name="Category" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 101.0
+offset_right = 102.0
+offset_bottom = 317.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Category"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="AllCategory" type="Button" parent="Category/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "All
+"
+icon_alignment = 1
+
+[node name="BoxCategory" type="Button" parent="Category/VBoxContainer"]
+layout_mode = 2
+text = "Box
+"
+icon_alignment = 1
+
+[node name="RockCategory" type="Button" parent="Category/VBoxContainer"]
+layout_mode = 2
+text = "Rock
+"
+icon_alignment = 1
+
+[node name="MushroomCategory" type="Button" parent="Category/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Mushroom"
+icon_alignment = 1
+
+[node name="IceCategory" type="Button" parent="Category/VBoxContainer"]
+layout_mode = 2
+text = "Ice"
+icon_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 125.0
+offset_right = 190.0
+offset_bottom = 296.0
+
+[node name="ItemOfCategory" type="VBoxContainer" parent="ScrollContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[connection signal="pressed" from="HBSelectedItem/SelectedItem" to="." method="_on_selected_item_pressed"]
+[connection signal="pressed" from="HBSelectedItem/CreativeMode" to="." method="_on_creative_mode_pressed"]
+[connection signal="pressed" from="Category/VBoxContainer/AllCategory" to="." method="_on_all_category_pressed"]
+[connection signal="pressed" from="Category/VBoxContainer/BoxCategory" to="." method="_on_box_category_pressed"]
+[connection signal="pressed" from="Category/VBoxContainer/RockCategory" to="." method="_on_rock_category_pressed"]
+[connection signal="pressed" from="Category/VBoxContainer/MushroomCategory" to="." method="_on_mushroom_category_pressed"]
+[connection signal="pressed" from="Category/VBoxContainer/IceCategory" to="." method="_on_ice_category_pressed"]

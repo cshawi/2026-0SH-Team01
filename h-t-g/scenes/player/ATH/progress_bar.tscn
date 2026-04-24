@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1umelk7f3l1f"]
+
+[ext_resource type="Texture2D" uid="uid://bx4spkt8ph6k4" path="res://assets/sprites/HUD/Sheets/Menu/FreeFairyTaleUI.png" id="1_duk2k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3skn"]
+atlas = ExtResource("1_duk2k")
+region = Rect2(26.9825, 35.9562, 51.9988, 7.07023)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7vc4"]
+atlas = ExtResource("1_duk2k")
+region = Rect2(26.9717, 6.00364, 52.027, 7.03713)
+
+[node name="ProgressBar" type="TextureProgressBar"]
+offset_right = 56.0
+offset_bottom = 8.0
+value = 51.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_s3skn")
+texture_progress = SubResource("AtlasTexture_i7vc4")

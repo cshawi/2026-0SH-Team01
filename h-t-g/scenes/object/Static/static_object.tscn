@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxn3atg6enjve"]
+
+[ext_resource type="Script" path="res://scripts/Objects/Static/static_object.gd" id="1_oqj26"]
+[ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/Doors/door.tres" id="2_6hoat"]
+
+[node name="StaticObject" type="Node2D"]
+script = ExtResource("1_oqj26")
+config = ExtResource("2_6hoat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1

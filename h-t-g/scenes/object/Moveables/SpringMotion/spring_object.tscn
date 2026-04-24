@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2b47emjp0rtc"]
+
+[ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/object/Moveables/FullMotion/full_motion_object.tscn" id="1_0siig"]
+[ext_resource type="Script" path="res://scripts/Objects/Moveable/Motion/Spring/spring_object.gd" id="2_j3qie"]
+[ext_resource type="Texture2D" uid="uid://cecafsug3pit4" path="res://assets/sprites/Objects/Trees/Tree-Assets.png" id="3_j3qie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytvhd"]
+atlas = ExtResource("3_j3qie")
+region = Rect2(1.2421227, 304.41418, 77.537094, 96.244965)
+
+[node name="SpringObject" instance=ExtResource("1_0siig")]
+collision_mask = 0
+script = ExtResource("2_j3qie")
+resistance = 1.0
+power = 5.0
+max_compression = 64.0
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 30)
+texture = SubResource("AtlasTexture_ytvhd")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(0, 30)
+polygon = PackedVector2Array(-37, -47, 36, -47, 36, -39, 33, -35, 29, -31, -30, -31, -34, -35, -37, -39)

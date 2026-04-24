@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://d3na574taum6t"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_12n81"]
+[ext_resource type="Script" path="res://scripts/Objects/Moveable/Config/moveable_config.gd" id="1_12n81"]
 [ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="2_1fxu4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4q05"]

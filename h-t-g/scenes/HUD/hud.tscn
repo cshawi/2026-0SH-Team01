@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciwef0nwxfngc"]
+
+[ext_resource type="Script" path="res://scripts/Levels/Utils/HUD/hud.gd" id="1_volfx"]
+[ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/player/ATH/progress_bar.tscn" id="2_4awb2"]
+[ext_resource type="PackedScene" uid="uid://d2x6ojp77dyod" path="res://scenes/menu/Pause/pause_menu.tscn" id="3_7yoqi"]
+[ext_resource type="PackedScene" uid="uid://qi07vnpirsvw" path="res://scenes/menu/Setting/settings.tscn" id="4_wkrks"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_volfx")
+
+[node name="PlayerControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 57.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" parent="PlayerControl" instance=ExtResource("2_4awb2")]
+layout_mode = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_7yoqi")]
+
+[node name="settings" parent="." instance=ExtResource("4_wkrks")]

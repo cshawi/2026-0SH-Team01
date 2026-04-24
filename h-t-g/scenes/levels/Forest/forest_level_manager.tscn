@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn26ctdle27cq"]
+
+[ext_resource type="Script" path="res://scripts/levels/Forest/Manager/forest_level_manager.gd" id="1_07nop"]
+[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/Wall/limit_wall.tscn" id="2_lpkul"]
+[ext_resource type="PackedScene" uid="uid://yivjj3ou6wfr" path="res://scenes/levels/Forest/forest_level_part_1.tscn" id="3_hk5rd"]
+[ext_resource type="PackedScene" uid="uid://e2p06qf5uhyg" path="res://scenes/levels/Forest/forest_level.tscn" id="4_yp13o"]
+[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/CheckPoint/Spawner/spawner.tscn" id="5_lapq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wai4"]
+size = Vector2(647, 63)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fsu8y"]
+a = Vector2(678, 75)
+b = Vector2(678, 150)
+
+[node name="ForestLevelManager" type="Node2D"]
+script = ExtResource("1_07nop")
+
+[node name="LimitWall" parent="." instance=ExtResource("2_lpkul")]
+
+[node name="ForestLevelPart1" parent="." instance=ExtResource("3_hk5rd")]
+
+[node name="ForestLevelPart2" parent="." instance=ExtResource("4_yp13o")]
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(204, 419)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(118, 32)
+shape = SubResource("RectangleShape2D_4wai4")
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(49, 250)
+
+[node name="Spawner" parent="." instance=ExtResource("5_lapq1")]
+
+[node name="EndLevelArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelArea"]
+position = Vector2(-43, -9)
+shape = SubResource("SegmentShape2D_fsu8y")
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="EndLevelArea" to="." method="_on_end_level_area_body_entered"]

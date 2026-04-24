@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StaticObjectConfig" load_steps=5 format=3 uid="uid://cqqnknhcdr8q"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/staticObjects/static_config.gd" id="1_gp25q"]
+[ext_resource type="Script" path="res://scripts/Objects/Moveable/Config/static_config.gd" id="1_gp25q"]
 [ext_resource type="Texture2D" uid="uid://dtv48qj8syaji" path="res://assets/sprites/Objects/Doors/Interior-01.png" id="2_x5duo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_527ih"]

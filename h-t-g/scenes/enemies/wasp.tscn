@@ -1,10 +1,10 @@
 [gd_scene load_steps=48 format=3 uid="uid://dtyvdxws3blkd"]
 
 [ext_resource type="PackedScene" uid="uid://xe03dm577edq" path="res://scenes/enemies/base_enemy.tscn" id="1_m24vh"]
-[ext_resource type="Script" uid="uid://ckvlsmodyuisc" path="res://scripts/enemies/wasp.gd" id="2_toqa8"]
+[ext_resource type="Script" path="res://scripts/Mob/wasp.gd" id="2_toqa8"]
 [ext_resource type="PackedScene" uid="uid://4dafcrrok4qb" path="res://scenes/components/interactable_component.tscn" id="3_toqa8"]
 [ext_resource type="Texture2D" uid="uid://dbtxd53dnk2a5" path="res://assets/sprites/Mob/Small Bee/Attack/Attack-Sheet.png" id="4_ui8wc"]
-[ext_resource type="Texture2D" uid="uid://bnqwgbytku8ob" path="res://assets/sprites/effects/NEw pack blood/5_100x100px.png" id="5_ui8wc"]
+[ext_resource type="Texture2D" uid="uid://bnqwgbytku8ob" path="res://assets/sprites/Effects/Blood/5_100x100px.png" id="5_ui8wc"]
 [ext_resource type="Texture2D" uid="uid://cm0jkpuvx653x" path="res://assets/sprites/Mob/Small Bee/Fly/Fly-Sheet.png" id="6_q7vya"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wr31c"]

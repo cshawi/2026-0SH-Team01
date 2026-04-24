@@ -13,15 +13,15 @@ config_version=5
 config/name="The Hand of Fate"
 run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.3")
-boot_splash/image="res://assets/icons/thf_background.png"
-config/icon="res://assets/icons/thf_logo.png"
+boot_splash/image="res://assets/icons/Logo/thf_background.png"
+config/icon="res://assets/icons/Logo/thf_logo.png"
 
 [autoload]
 
-Udp="*res://scripts/protocol/udp.gd"
-GameMaster="*res://scripts/game_manager.gd"
-Fade_transition="*res://scenes/utils/fade_transition.tscn"
-Hud="*res://scenes/utils/hud.tscn"
+Udp="*res://scripts/Protocol/udp.gd"
+GameMaster="*res://scripts/Manager/Game/game_manager.gd"
+Fade_transition="*res://scenes/utils/Transition/fade_transition.tscn"
+Hud="*res://scenes/HUD/hud.tscn"
 
 [display]
 
