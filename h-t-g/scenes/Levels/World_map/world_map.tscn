@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://3ubg3imv3dap"]
+[gd_scene load_steps=13 format=4 uid="uid://3ubg3imv3dap"]
 
 [ext_resource type="Script" uid="uid://5op0ykkonwcw" path="res://scripts/Levels/Map/world_map.gd" id="1_davxw"]
 [ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels/Maze/maze_key.tscn" id="2_ye3v7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://5xvtx66ergdk" path="res://scenes/Levels/World_map/world_map_preview.tscn" id="7_ipaex"]
 [ext_resource type="Texture2D" uid="uid://djjt0eq7bvqb3" path="res://assets/sprites/Levels/Previews/ForestPreview.png" id="8_nibbe"]
 [ext_resource type="Texture2D" uid="uid://cfbwe5rtqwbr" path="res://assets/sprites/Levels/Previews/SnowPreview.png" id="9_egmcs"]
+[ext_resource type="Texture2D" uid="uid://bclgoy2vhb6xn" path="res://assets/sprites/Levels/Previews/SandBoxPreview.png" id="10_ye3v7"]
 [ext_resource type="Texture2D" uid="uid://ccmmwtgpqy2j" path="res://assets/sprites/Levels/Previews/TutorialPreview.png" id="10_yivo1"]
 [ext_resource type="Texture2D" uid="uid://8ns3blx7cn0d" path="res://assets/sprites/Levels/Previews/ShipPreview.png" id="11_pwmg6"]
 
@@ -58,6 +59,7 @@ polygon = PackedVector2Array(325, -273, 395, -273, 508, -273, 538, -207, 510, -1
 
 [node name="Desert" parent="BiomeZones" instance=ExtResource("5_2p7s8")]
 biome_name = "Desert"
+target_scene = "uid://dvvctyurts0pg"
 preview_path = NodePath("../../PreviewsContainer/DesertPreview")
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Desert" index="0"]
@@ -108,6 +110,12 @@ offset_top = -35.0
 offset_right = 682.0
 offset_bottom = -35.0
 
+[node name="Preview" parent="PreviewsContainer/DesertPreview/Background" index="0"]
+offset_top = 16.697508
+offset_right = 1771.0
+offset_bottom = 1018.6975
+texture = ExtResource("10_ye3v7")
+
 [node name="PlainPreview" parent="PreviewsContainer" instance=ExtResource("7_ipaex")]
 offset_left = 426.0
 offset_top = 46.0
@@ -137,5 +145,6 @@ texture = ExtResource("11_pwmg6")
 [editable path="BiomeZones/Ship"]
 [editable path="PreviewsContainer/ForestPreview"]
 [editable path="PreviewsContainer/SnowPreview"]
+[editable path="PreviewsContainer/DesertPreview"]
 [editable path="PreviewsContainer/PlainPreview"]
 [editable path="PreviewsContainer/ShipPreview"]
