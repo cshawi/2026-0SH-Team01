@@ -51,7 +51,6 @@ tile_set = ExtResource("2_ip8vq")
 occluder = SubResource("OccluderPolygon2D_q8kw8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
