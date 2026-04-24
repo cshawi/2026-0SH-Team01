@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh5khdhptxxwx"]
+
+[ext_resource type="Script" uid="uid://b1y0epkq7miof" path="res://scripts/utils/fade_transition.gd" id="1_24urp"]
+[ext_resource type="Shader" uid="uid://dyep35874kbs2" path="res://scenes/utils/fade_transition.gdshader" id="2_55y30"]
+[ext_resource type="Texture2D" uid="uid://ckt5tba3ey327" path="res://assets/sprites/Transitions/die.jpg" id="3_n7e88"]
+
+[sub_resource type="Gradient" id="Gradient_s2fq6"]
+colors = PackedColorArray(0, 0, 0, 1, 0.5924475, 2.201982e-06, 4.3317675e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yplbf"]
+gradient = SubResource("Gradient_s2fq6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40muh"]
+shader = ExtResource("2_55y30")
+shader_parameter/luminance_cutoff = 0.0
+shader_parameter/invert = false
+shader_parameter/mask_texture = ExtResource("3_n7e88")
+shader_parameter/display_texture = SubResource("GradientTexture1D_yplbf")
+
+[node name="FadeTransition" type="CanvasLayer"]
+script = ExtResource("1_24urp")
+
+[node name="DieTransition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_40muh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

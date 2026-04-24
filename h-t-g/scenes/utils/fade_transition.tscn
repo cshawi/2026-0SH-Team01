@@ -1,11 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh5khdhptxxwx"]
+[gd_scene load_steps=9 format=3 uid="uid://bh5khdhptxxwx"]
 
 [ext_resource type="Script" uid="uid://b1y0epkq7miof" path="res://scripts/utils/fade_transition.gd" id="1_24urp"]
+[ext_resource type="Shader" uid="uid://dyep35874kbs2" path="res://scenes/utils/fade_transition.gdshader" id="2_55y30"]
+[ext_resource type="Texture2D" uid="uid://bms5lcx5ns4hr" path="res://assets/sprites/Transitions/4d93d71b0ae8d6bb6ccbbfdf098275fb.jpg" id="3_n7e88"]
+
+[sub_resource type="Gradient" id="Gradient_55y30"]
+colors = PackedColorArray(0, 0, 0, 1, 0.5921569, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n7e88"]
+gradient = SubResource("Gradient_55y30")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8tslw"]
+load_path = "res://.godot/imported/die.jpg-e0fed7a55cf2c53a36d2a4c898450316.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2fq6"]
+shader = ExtResource("2_55y30")
+shader_parameter/luminance_cutoff = 0.0
+shader_parameter/invert = false
+shader_parameter/mask_texture = SubResource("CompressedTexture2D_8tslw")
+shader_parameter/display_texture = SubResource("GradientTexture1D_n7e88")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m16ux"]
+shader = ExtResource("2_55y30")
+shader_parameter/luminance_cutoff = 0.0
+shader_parameter/invert = false
+shader_parameter/mask_texture = ExtResource("3_n7e88")
+shader_parameter/display_texture = ExtResource("3_n7e88")
 
 [node name="FadeTransition" type="CanvasLayer"]
 script = ExtResource("1_24urp")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="DieTransition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_s2fq6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="LevelTransition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_m16ux")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
