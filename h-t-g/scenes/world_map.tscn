@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://5op0ykkonwcw" path="res://scripts/levels/World_map/world_map.gd" id="1_55716"]
 [ext_resource type="TileSet" uid="uid://en8u31ceb5ya" path="res://ressources/TileSet/world_map.tres" id="1_qqero"]
 [ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels Scenes/maze_key.tscn" id="2_0hitc"]
-[ext_resource type="Texture2D" uid="uid://djjt0eq7bvqb3" path="res://assets/sprites/HUD/Level_previews/ForestPreview.png" id="3_27p3u"]
+[ext_resource type="Texture2D" uid="uid://djjt0eq7bvqb3" path="res://assets/sprites/Levels/Previews/ForestPreview.png" id="3_27p3u"]
 [ext_resource type="PackedScene" uid="uid://dsuo702hxiefk" path="res://scenes/Levels Scenes/World_map_scenes/biome_zone.tscn" id="3_u82pb"]
 [ext_resource type="Texture2D" uid="uid://hmukpi6g3cnf" path="res://assets/sprites/WorldMap/top_down_boat.png" id="4_0hitc"]
-[ext_resource type="Texture2D" uid="uid://cfbwe5rtqwbr" path="res://assets/sprites/HUD/Level_previews/SnowPreview.png" id="4_gqm84"]
+[ext_resource type="Texture2D" uid="uid://cfbwe5rtqwbr" path="res://assets/sprites/Levels/Previews/SnowPreview.png" id="4_gqm84"]
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="4_pls23"]
-[ext_resource type="Texture2D" uid="uid://ccmmwtgpqy2j" path="res://assets/sprites/HUD/Level_previews/TutorialPreview.png" id="5_55716"]
+[ext_resource type="Texture2D" uid="uid://ccmmwtgpqy2j" path="res://assets/sprites/Levels/Previews/TutorialPreview.png" id="5_55716"]
 [ext_resource type="PackedScene" uid="uid://5xvtx66ergdk" path="res://scenes/utils/world_map_preview.tscn" id="8_gqm84"]
-[ext_resource type="Texture2D" uid="uid://8ns3blx7cn0d" path="res://assets/sprites/HUD/Level_previews/ShipPreview.png" id="11_6a477"]
+[ext_resource type="Texture2D" uid="uid://8ns3blx7cn0d" path="res://assets/sprites/Levels/Previews/ShipPreview.png" id="11_6a477"]
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource("1_55716")

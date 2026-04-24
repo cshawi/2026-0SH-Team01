@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bms5lcx5ns4hr"
-path="res://.godot/imported/4d93d71b0ae8d6bb6ccbbfdf098275fb.jpg-359093c9e64c3b7821eece61d958338a.ctex"
+uid="uid://ccmmwtgpqy2j"
+path="res://.godot/imported/TutorialPreview.png-af4ae9afe1ad220527aec7c4a186c7a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Transitions/4d93d71b0ae8d6bb6ccbbfdf098275fb.jpg"
-dest_files=["res://.godot/imported/4d93d71b0ae8d6bb6ccbbfdf098275fb.jpg-359093c9e64c3b7821eece61d958338a.ctex"]
+source_file="res://assets/sprites/Levels/Previews/TutorialPreview.png"
+dest_files=["res://.godot/imported/TutorialPreview.png-af4ae9afe1ad220527aec7c4a186c7a6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc3u4ebugihj0"
-path="res://.godot/imported/Bakery.png-248f19964f056f68059ea8f127662890.ctex"
+uid="uid://8ns3blx7cn0d"
+path="res://.godot/imported/ShipPreview.png-93cfa93a0f7897863566a04b172f814b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/User Interface Packs - Free/Bakery.png"
-dest_files=["res://.godot/imported/Bakery.png-248f19964f056f68059ea8f127662890.ctex"]
+source_file="res://assets/sprites/Levels/Previews/ShipPreview.png"
+dest_files=["res://.godot/imported/ShipPreview.png-93cfa93a0f7897863566a04b172f814b.ctex"]
 
 [params]
 

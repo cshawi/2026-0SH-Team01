@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjsh6v1o0554n"
-path="res://.godot/imported/CottageCore.png-7a2b20d6305adf0cf0da834ad19ef5eb.ctex"
+path="res://.godot/imported/CottageCore.png-7a24e94aec5c8b905d932b33c348c728.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/User Interface Packs - Free/CottageCore.png"
-dest_files=["res://.godot/imported/CottageCore.png-7a2b20d6305adf0cf0da834ad19ef5eb.ctex"]
+source_file="res://assets/sprites/HUD/UI/CottageCore.png"
+dest_files=["res://.godot/imported/CottageCore.png-7a24e94aec5c8b905d932b33c348c728.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd7qvqi4rs503"
-path="res://.godot/imported/CozyCoffee.png-422006bc57a7940d2b9683b9a8854707.ctex"
+uid="uid://byhwpvhdiiojl"
+path="res://.godot/imported/BubbleMochi.png-4e71978782af8660f1aefe701196fcae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/User Interface Packs - Free/CozyCoffee.png"
-dest_files=["res://.godot/imported/CozyCoffee.png-422006bc57a7940d2b9683b9a8854707.ctex"]
+source_file="res://assets/sprites/HUD/UI/BubbleMochi.png"
+dest_files=["res://.godot/imported/BubbleMochi.png-4e71978782af8660f1aefe701196fcae.ctex"]
 
 [params]
 

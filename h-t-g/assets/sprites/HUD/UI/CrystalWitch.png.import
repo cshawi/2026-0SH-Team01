@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccmmwtgpqy2j"
-path="res://.godot/imported/TutorialPreview.png-471beab0df846638128c68e61ebd9e17.ctex"
+uid="uid://dk0iw0l16o1w5"
+path="res://.godot/imported/CrystalWitch.png-3e966d7da34897f4950867185717837d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HUD/Level_previews/TutorialPreview.png"
-dest_files=["res://.godot/imported/TutorialPreview.png-471beab0df846638128c68e61ebd9e17.ctex"]
+source_file="res://assets/sprites/HUD/UI/CrystalWitch.png"
+dest_files=["res://.godot/imported/CrystalWitch.png-3e966d7da34897f4950867185717837d.ctex"]
 
 [params]
 

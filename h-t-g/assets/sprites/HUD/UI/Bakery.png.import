@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ns3blx7cn0d"
-path="res://.godot/imported/ShipPreview.png-dc9c9e648ac955a3fca19656ba1e6a10.ctex"
+uid="uid://bc3u4ebugihj0"
+path="res://.godot/imported/Bakery.png-cb89e0876b6354ae55ddbe5d465d2757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/HUD/Level_previews/ShipPreview.png"
-dest_files=["res://.godot/imported/ShipPreview.png-dc9c9e648ac955a3fca19656ba1e6a10.ctex"]
+source_file="res://assets/sprites/HUD/UI/Bakery.png"
+dest_files=["res://.godot/imported/Bakery.png-cb89e0876b6354ae55ddbe5d465d2757.ctex"]
 
 [params]
 
