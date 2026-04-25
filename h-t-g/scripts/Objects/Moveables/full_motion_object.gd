@@ -3,6 +3,7 @@ class_name FullMotionObject
 
 const LARGE_ROCK = "large_rock"
 
+
 @export var max_speed := INF
 @export var cast_length := 10.0
 
@@ -58,4 +59,6 @@ func _on_body_entered(body):
 func _on_touch_player():
 	desactivate()
 	linear_velocity = Vector2.ZERO
-	apply_impulse(Vector2.DOWN * 200)
+	angular_velocity = 0.0
+	sleeping = false
+	ignore_player_temporarily()

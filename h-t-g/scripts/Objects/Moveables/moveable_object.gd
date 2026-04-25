@@ -5,6 +5,8 @@ class_name MoveableObject
 
 @onready var interactable_component: InteractableComponent = $InteractableComponent
 
+const PLAYER_LAYER := 2
+
 var texture: Texture2D
 var collision_shape: Shape2D
 var weight: float
@@ -36,8 +38,17 @@ func desactivate():
 func action(delta):
 	pass
 	
+func ignore_player_temporarily(duration := 0.25) -> void:
+	collision_mask &= ~(1 << (PLAYER_LAYER - 1))
+
+	await get_tree().create_timer(duration).timeout
+
+	collision_mask |= 1 << (PLAYER_LAYER - 1)
+
 func _on_interacted(cursor):
 	activate(cursor, cursor.get_strength())
+
+
 
 func apply_config():
 	if config == null:
