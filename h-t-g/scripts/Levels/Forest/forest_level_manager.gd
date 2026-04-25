@@ -79,7 +79,7 @@ func spawn_player_at(marker: Marker2D) -> void:
 func go_to_part_2() -> void:
 	if first_time:
 		first_time = false
-		roll_player_help.set_message("Une ronçe vous bloque le passage, faites des sacrifice de sang pour la faire disparaître.")
+		roll_player_help.set_message("Une ronçe vous bloque le passage, faites des sacrifices de sang pour la faire disparaître.")
 		roll_player_help.show_message()
 	set_active_part(forest_level_part_2)
 	spawn_player_at(forest_level_part_2.get_node("PlayerSpawnPoint2"))
