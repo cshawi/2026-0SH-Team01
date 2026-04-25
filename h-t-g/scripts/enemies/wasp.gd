@@ -79,6 +79,7 @@ func change_state(new_state: State):
 			animated_sprite.play("die")
 			velocity = Vector2.ZERO
 			velocity_component.direction = Vector2.ZERO
+			spawner.spawn(loot, global_position)
 			await animated_sprite.animation_finished
 			queue_free()
 

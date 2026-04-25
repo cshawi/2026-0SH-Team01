@@ -463,6 +463,7 @@ radius = 169.012
 collision_layer = 2
 script = ExtResource("1_c6c2d")
 spell_scene = ExtResource("8_c6c2d")
+heal_label = "uid://c5gml1gdyqtrq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)

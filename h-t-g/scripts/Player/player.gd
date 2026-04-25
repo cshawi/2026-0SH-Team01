@@ -9,6 +9,7 @@ class_name Player
 @onready var attack_range = attack_range_shape.shape.radius
 @onready var attack_range_area: Area2D = $AttackRange
 @onready var health_component: HealthComponent = $HealthComponent
+@export_file("*.tscn") var heal_label: String
 
 var SPEED = 100
 var JUMP_FORCE = -350
@@ -31,6 +32,7 @@ func _ready() -> void:
 	SPEED *= scale.x
 	JUMP_FORCE *= scale.x
 	GRAVITY *= scale.x
+	health_component.healed.connect(_on_healed)
 	
 	
 
@@ -152,6 +154,15 @@ func update_muzzle() -> void:
 	else:
 		muzzle.position.x = abs(muzzle_offset.x)
 		muzzle.rotation = 0.0
+
+func _on_healed(amount):
+	if amount == 0: return
+	
+	var label_path = load(heal_label)
+	var label = label_path.instantiate()
+	label.setup(amount)
+	get_tree().current_scene.call_deferred("add_child", label)
+	label.global_position = global_position + Vector2(0, -50)
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):

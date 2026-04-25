@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5gml1gdyqtrq"]
+
+[ext_resource type="Script" uid="uid://cert1f6fwh8gs" path="res://scripts/Player/heal_label.gd" id="1_y7g4u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvcpd"]
+font_size = 14
+font_color = Color(0, 18.892157, 0, 1)
+
+[node name="HealLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_uvcpd")
+script = ExtResource("1_y7g4u")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

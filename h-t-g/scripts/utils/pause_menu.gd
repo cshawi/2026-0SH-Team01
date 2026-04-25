@@ -27,12 +27,12 @@ func _on_settings_pressed() -> void:
 func _on_map_pressed() -> void:
 	get_tree().paused = false
 	get_parent().hide_all_menu()
-	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/world_map.tscn")
+	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/Levels/World_map/world_map.tscn")
 
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	get_parent().hide_all_menu()
-	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/menu/menu.tscn")
+	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/Menu/menu.tscn")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

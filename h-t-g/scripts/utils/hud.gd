@@ -22,12 +22,16 @@ func hide_all_menu():
 	pause_menu.hide()
 	settings_menu.hide()
 	player_control.hide()
+	if get_tree().current_scene.has_method("set_ui_enabled"):
+		get_tree().current_scene.set_ui_enabled(true)
 	
 func show_pause_menu():
+	hide_all_menu()
 	get_tree().paused = true
 	if GameMaster.magic_cursor != null:
 		GameMaster.magic_cursor.set_cursor_active(false)
-	hide_all_menu()
+	if get_tree().current_scene.has_method("set_ui_enabled"):
+		get_tree().current_scene.set_ui_enabled(false)
 	pause_menu.show()
 	pause_menu.resume.grab_focus()
 	
@@ -50,8 +54,6 @@ func set_player_connection(hc: HealthComponent):
 	_update_player(health_component.max_health)
 
 func _update_player(health: float):
-	print("Vie actuelle", health_component.health)
-	print("Vie reçu", health)
 	progress_bar.max_value = health_component.max_health
 	progress_bar.value = health
 

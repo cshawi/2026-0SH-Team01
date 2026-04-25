@@ -7,11 +7,13 @@ signal died
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var detection_zone: Area2D = $DetectionZone
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
+@onready var spawner: Spawner = $Spawner
 
 @export var max_health: int = 3
 @export var damage: int = 1
 @export var speed: float = 100.0
 @export var detection_radius := 120.0
+@export var loot: PackedScene
 
 var current_health: int
 var is_dead: bool = false

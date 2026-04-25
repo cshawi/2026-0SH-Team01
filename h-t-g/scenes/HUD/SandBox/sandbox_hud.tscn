@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv5pscd1ybham"]
+[gd_scene load_steps=6 format=3 uid="uid://bv5pscd1ybham"]
 
 [ext_resource type="Script" uid="uid://be8l5ig4jlr0r" path="res://scripts/hud/sandbox_hud.gd" id="1_ibkld"]
 [ext_resource type="Texture2D" uid="uid://b2imxifma4iuo" path="res://assets/sprites/Objects/Chest/Hive.png" id="2_p6ew2"]
+[ext_resource type="Texture2D" uid="uid://bs1gg4p7dwsma" path="res://assets/sprites/HUD/UI/pencil_edit.png" id="3_lp861"]
+[ext_resource type="Texture2D" uid="uid://c5j0pnuxw5c6j" path="res://assets/sprites/HUD/UI/eraser_icon.png" id="4_ch6hi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpmux"]
 atlas = ExtResource("2_p6ew2")
@@ -36,9 +38,14 @@ icon = SubResource("AtlasTexture_xpmux")
 icon_alignment = 1
 expand_icon = true
 
-[node name="CreativeMode" type="Button" parent="HBSelectedItem"]
+[node name="Edit" type="Button" parent="HBSelectedItem"]
 layout_mode = 2
-text = "Creative mode"
+icon = ExtResource("3_lp861")
+icon_alignment = 1
+
+[node name="Eraser" type="Button" parent="HBSelectedItem"]
+layout_mode = 2
+icon = ExtResource("4_ch6hi")
 
 [node name="Category" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -97,7 +104,8 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 
 [connection signal="pressed" from="HBSelectedItem/SelectedItem" to="." method="_on_selected_item_pressed"]
-[connection signal="pressed" from="HBSelectedItem/CreativeMode" to="." method="_on_creative_mode_pressed"]
+[connection signal="pressed" from="HBSelectedItem/Edit" to="." method="_on_edit_pressed"]
+[connection signal="pressed" from="HBSelectedItem/Eraser" to="." method="_on_eraser_pressed"]
 [connection signal="pressed" from="Category/VBoxContainer/AllCategory" to="." method="_on_all_category_pressed"]
 [connection signal="pressed" from="Category/VBoxContainer/BoxCategory" to="." method="_on_box_category_pressed"]
 [connection signal="pressed" from="Category/VBoxContainer/RockCategory" to="." method="_on_rock_category_pressed"]

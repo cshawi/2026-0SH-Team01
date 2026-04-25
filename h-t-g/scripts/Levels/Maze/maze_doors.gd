@@ -60,7 +60,6 @@ func _on_hint_area_body_entered(body: Node2D) -> void:
 func _on_chest_entered(body: Node2D, current_chest: OpenableObject):
 	if current_chest.is_open and not current_chest.is_locked:
 		diff = "Hard" if current_chest == chest else "Easy"
-		print(diff)
 		teleport_timer.start()
 	
 func _on_chest_exited(body: Node2D, current_chest: OpenableObject):
@@ -70,6 +69,5 @@ func _on_chest_exited(body: Node2D, current_chest: OpenableObject):
 
 
 func _on_teleport_timer_timeout() -> void:
-	print(diff)
 	teleport.emit("Part_2", diff)
 	

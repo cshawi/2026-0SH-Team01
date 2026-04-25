@@ -13,7 +13,7 @@ extends Node2D
 var player: Player
 var player_view: Camera2D
 var has_player := true
-
+var first_time := true
 var first_time_dead := true
 
 signal level_finished() #mettre ne paramètre player.current_hp
@@ -33,7 +33,6 @@ func _ready() -> void:
 	forest_level_part_2.teleport.connect(on_teleport) #est-ce qu'on veut recommencer les guêpes si on quitte???
 	set_active_part(forest_level_part_1)
 	
-	print("J'affiche")
 	roll_player_help.set_message("Attention, si jamais vos points de vie tombent sous la barre des 0, vous devrez recommencer le niveau.")
 	roll_player_help.show_message()
 	
@@ -78,8 +77,13 @@ func spawn_player_at(marker: Marker2D) -> void:
 	player.global_position = marker.global_position
 
 func go_to_part_2() -> void:
+	if first_time:
+		first_time = false
+		roll_player_help.set_message("Une ronçe vous bloque le passage, faites des sacrifice de sang pour la faire disparaître.")
+		roll_player_help.show_message()
 	set_active_part(forest_level_part_2)
 	spawn_player_at(forest_level_part_2.get_node("PlayerSpawnPoint2"))
+	
 
 func go_to_part_1() -> void:
 	set_active_part(forest_level_part_1)

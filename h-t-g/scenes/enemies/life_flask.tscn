@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cabyahdc61qu7"]
+
+[ext_resource type="Script" uid="uid://ilgeif2ubw72" path="res://scripts/enemies/life_flask.gd" id="1_r01u1"]
+[ext_resource type="Texture2D" uid="uid://c6f21f7oemb8o" path="res://assets/sprites/Background/Tiles.png" id="2_dgj6s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11fvv"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr25b"]
+atlas = ExtResource("2_dgj6s")
+region = Rect2(242, 353, 12, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mn3yf"]
+
+[node name="LifeFlask" type="CharacterBody2D"]
+script = ExtResource("1_r01u1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_11fvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wr25b")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_mn3yf")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
