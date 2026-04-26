@@ -28,7 +28,7 @@ var attack_animation: AnimatedSprite2D
 
 
 func _ready() -> void:
-	safe_margin = 0.8
+	safe_margin = 0.08
 	muzzle_offset = muzzle.position
 	SPEED *= scale.x
 	JUMP_FORCE *= scale.x
@@ -92,20 +92,6 @@ func _physics_process(delta):
 	update_muzzle()
 	
 	move_and_slide()
-	_push_out_of_floor()
-
-
-func _push_out_of_floor() -> void:
-	for i in get_slide_collision_count():
-		var collision := get_slide_collision(i)
-		var normal := collision.get_normal()
-
-		if normal.y < -0.7:
-			continue
-
-		if normal.y > 0.7:
-			global_position.y -= 2
-			velocity.y = min(velocity.y, 0)
 
 func _on_player_animation_animation_finished() -> void:
 

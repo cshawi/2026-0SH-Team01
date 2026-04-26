@@ -111,9 +111,9 @@ offset_right = 682.0
 offset_bottom = -35.0
 
 [node name="Preview" parent="PreviewsContainer/DesertPreview/Background" index="0"]
-offset_top = 16.697508
+offset_top = 16.69751
 offset_right = 1771.0
-offset_bottom = 1018.6975
+offset_bottom = 1021.6975
 texture = ExtResource("10_ye3v7")
 
 [node name="PlainPreview" parent="PreviewsContainer" instance=ExtResource("7_ipaex")]

@@ -15,6 +15,7 @@ var player_strength
 var max_distance = 100.0
 var density := 1.0
 
+
 func _ready():
 	apply_config()
 	contact_monitor = true

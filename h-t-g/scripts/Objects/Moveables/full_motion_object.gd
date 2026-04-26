@@ -15,6 +15,10 @@ func _ready():
 		body_entered.connect(_on_body_entered)
 
 func action(_delta: float):
+	if should_block_control():
+		desactivate()
+		return
+		
 	var distance := magic_cursor.global_position - global_position
 
 	if distance.length() > max_distance:
@@ -36,15 +40,10 @@ func action(_delta: float):
 
 		if wall_cast.is_colliding():
 			var safe_fraction := wall_cast.get_closest_collision_safe_fraction()
-
-			# légère marge de sécurité pour éviter de lécher le mur
 			safe_fraction = max(0.0, safe_fraction - 0.05)
-
-			# réduit la vitesse selon la distance sûre
 			target_velocity *= safe_fraction
 
-			# optionnel : enlève encore la composante qui pousse dans le mur
-			var normal := wall_cast.get_collision_normal(0)
+			var normal = wall_cast.get_collision_normal(0)
 			var dot = target_velocity.dot(normal)
 
 			if dot < 0.0:
@@ -53,12 +52,22 @@ func action(_delta: float):
 	linear_velocity = target_velocity
 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body is Player:
 		_on_touch_player()
 
 func _on_touch_player():
 	desactivate()
-	linear_velocity = Vector2.ZERO
-	angular_velocity = 0.0
 	sleeping = false
-	ignore_player_temporarily()
+	ignore_player_temporarily(0.1)
+	
+func should_block_control() -> bool:
+	for body in get_colliding_bodies():
+		if body is Player:
+			return true
+
+		if body is MoveableObject:
+			for other_body in body.get_colliding_bodies():
+				if other_body is Player:
+					return true
+
+	return false
