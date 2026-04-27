@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://3ubg3imv3dap"]
+[gd_scene load_steps=12 format=4 uid="uid://3ubg3imv3dap"]
 
 [ext_resource type="Script" uid="uid://5op0ykkonwcw" path="res://scripts/Levels/Map/world_map.gd" id="1_davxw"]
-[ext_resource type="PackedScene" uid="uid://bfmh21xoewkho" path="res://scenes/Levels/Maze/maze_key.tscn" id="2_ye3v7"]
 [ext_resource type="TileSet" uid="uid://en8u31ceb5ya" path="res://ressources/TileSet/Map/world_map.tres" id="3_pbley"]
 [ext_resource type="Texture2D" uid="uid://hmukpi6g3cnf" path="res://assets/sprites/WorldMap/top_down_boat.png" id="4_vnut8"]
 [ext_resource type="PackedScene" uid="uid://dsuo702hxiefk" path="res://scenes/Levels/World_map/biome_zone.tscn" id="5_2p7s8"]
@@ -15,7 +14,6 @@
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource("1_davxw")
-ship_scene = ExtResource("2_ye3v7")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(6, -14)

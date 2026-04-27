@@ -71,7 +71,9 @@ shape = SubResource("RectangleShape2D_ydaul")
 
 [node name="FullMotionObject" parent="." instance=ExtResource("5_xdc2y")]
 position = Vector2(210, 64)
-cast_length = 4.0
+continuous_cd = 2
+max_speed = 500.0
+cast_length = 8.0
 config = ExtResource("6_7e23o")
 
 [connection signal="body_entered" from="EndLevelArea" to="." method="_on_end_level_area_body_entered"]

@@ -85,9 +85,9 @@ size_flags_vertical = 4
 text = "Mushroom"
 icon_alignment = 1
 
-[node name="IceCategory" type="Button" parent="Category/VBoxContainer"]
+[node name="SpecialCategory" type="Button" parent="Category/VBoxContainer"]
 layout_mode = 2
-text = "Ice"
+text = "Special"
 icon_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -110,4 +110,4 @@ size_flags_vertical = 3
 [connection signal="pressed" from="Category/VBoxContainer/BoxCategory" to="." method="_on_box_category_pressed"]
 [connection signal="pressed" from="Category/VBoxContainer/RockCategory" to="." method="_on_rock_category_pressed"]
 [connection signal="pressed" from="Category/VBoxContainer/MushroomCategory" to="." method="_on_mushroom_category_pressed"]
-[connection signal="pressed" from="Category/VBoxContainer/IceCategory" to="." method="_on_ice_category_pressed"]
+[connection signal="pressed" from="Category/VBoxContainer/SpecialCategory" to="." method="_on_special_category_pressed"]

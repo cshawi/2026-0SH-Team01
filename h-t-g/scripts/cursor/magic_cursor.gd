@@ -7,7 +7,7 @@ extends Area2D
 
 @export_group("Utils")
 @export var mouse_mode := true
-@export var lerp_weight := 0.15
+@export var lerp_weight := 0.35
 
 var is_active := true
 var is_holding := false
@@ -42,23 +42,23 @@ func change_color(new_color):
 func _process(delta: float) -> void:
 	if not is_active || get_tree().paused:
 		return
-		
+
+	if mouse_mode:
+		mouse()
+	else:
+		hand_tracking()
+
 	if _is_pressing():
 		if first_time:
-			
 			is_grabing = true
 			grab_object()
 			first_time = false
 		change_color(Color.RED)
 	else:
-		resetObject();
+		resetObject()
 		change_color(Color.AQUA)
 		first_time = true
-		
-	if mouse_mode:
-		mouse()
-	else:
-		hand_tracking()
+
 
 func resetObject():
 	is_grabing = false

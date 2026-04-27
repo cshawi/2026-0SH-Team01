@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://c8n7nhfsaxu6s"]
+
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_eegma"]
+[ext_resource type="Texture2D" uid="uid://h0hn6dy2ais5" path="res://assets/sprites/Objects/Rocks/Props-Rocks.png" id="2_k5be7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5be7"]
+atlas = ExtResource("2_k5be7")
+region = Rect2(224, 85, 48, 43)
+
+[resource]
+script = ExtResource("1_eegma")
+weight = 150
+name = "green_medium_1"
+texture = SubResource("AtlasTexture_k5be7")
+collision_polygon = PackedVector2Array(24, 13, 24, -2, 23, -7, 22, -9, 21, -10, 20, -12, 17, -15, 15, -17, 12, -17, 11, -19, 6, -19, 4, -20, -10, -20, -12, -19, -14, -18, -20, -12, -21, -10, -22, -9, -23, -5, -24, -2, -24, 11, -23, 15, -19, 19, -16, 21, 18, 21, 21, 18, 22, 16, 23, 15)
+metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

@@ -11,6 +11,7 @@ class_name TeleportationDoors
 var current_door: OpenableObject
 var player: Player
 var can_tp := true
+var is_teleporting := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,12 +31,17 @@ func get_other_door():
 	return door if current_door != door else door_2
 
 func teleport_player():
+	is_teleporting = true
+
 	player.global_position = get_other_door().global_position
 	current_door.action()
-	get_other_door().action() #is_open = !is_open
+	get_other_door().action()
 
 func _check_overlap_and_start_tp(check_area: Area2D, parent: OpenableObject) -> void:
 	if not parent.is_open:
+		return
+	
+	if is_teleporting:
 		return
 
 	var bodies := check_area.get_overlapping_bodies()
@@ -56,15 +62,29 @@ func _on_area_2d_body_entered(body: Node2D, parent: OpenableObject) -> void:
 	current_door = parent
 
 func _on_area_2d_body_exited(body: Node2D, parent: OpenableObject) -> void:
-	if parent.is_open: 
+	if body is not Player:
+		return
+
+	if is_teleporting:
+		return
+
+	if parent.is_open:
 		current_door.action()
-	
+
 	teleport_timer.stop()
 	can_tp = true
 
 func _on_teleport_timer_timeout() -> void:
-	if can_tp:
-		can_tp = false
-		await Fade_transition.play_transition(teleport_player)
+	if not can_tp:
+		return
+	
+	can_tp = false
+	is_teleporting = true
+	
+	await Fade_transition.play_transition(teleport_player)
+	
+	await get_tree().physics_frame
+	
+	is_teleporting = false
 		
 		

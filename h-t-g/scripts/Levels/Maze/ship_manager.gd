@@ -22,6 +22,7 @@ func _ready() -> void:
 	easy_maze_key.key_obtained.connect(on_key_obtained)
 	set_active_part(maze_doors)
 	
+	
 	Hud.hide_all_menu()
 	GameMaster.register_level(self)
 	
@@ -32,17 +33,27 @@ func _process(delta: float) -> void:
 
 func set_active_part(active_part: Node):
 	for part in [maze_doors, maze_key, easy_maze_key]:
-		var is_active = part == active_part
-		part.visible = is_active
-		
-		if is_active:
-			part.process_mode = Node.PROCESS_MODE_INHERIT
-			
-			if player_view:
-				player_view.limit_top = part.top_limit
-		else:
-			part.process_mode = Node.PROCESS_MODE_DISABLED
-		set_collisions_enabled(part, is_active)
+		part.visible = false
+		part.process_mode = Node.PROCESS_MODE_DISABLED
+		set_collisions_enabled(part, false)
+		set_navigation_enabled(part, false)
+
+	active_part.visible = true
+	active_part.process_mode = Node.PROCESS_MODE_INHERIT
+	set_collisions_enabled(active_part, true)
+	set_navigation_enabled(active_part, true)
+
+	if player_view:
+		player_view.limit_top = active_part.top_limit
+
+
+func set_navigation_enabled(node: Node, enabled: bool) -> void:
+	if node is NavigationRegion2D:
+		node.enabled = enabled
+		node.use_edge_connections = false
+
+	for child in node.get_children():
+		set_navigation_enabled(child, enabled)
 
 func set_collisions_enabled(node: Node, enabled: bool) -> void:
 	# CollisionShape2D / CollisionPolygon2D
@@ -53,7 +64,7 @@ func set_collisions_enabled(node: Node, enabled: bool) -> void:
 	if node is Area2D:
 		node.set_deferred("monitoring", enabled)
 		node.set_deferred("monitorable", enabled)
-		
+	
 	# TileMapLayer
 	if node.has_method("set_collision_enabled"):
 		node.call_deferred("set_collision_enabled", enabled)

@@ -14,11 +14,12 @@ func _ready():
 	if not body_entered.is_connected(_on_body_entered):
 		body_entered.connect(_on_body_entered)
 
-func action(_delta: float):
+func action(delta: float):
 	if should_block_control():
 		desactivate()
+		linear_velocity = linear_velocity.limit_length(80)
 		return
-		
+
 	var distance := magic_cursor.global_position - global_position
 
 	if distance.length() > max_distance:
@@ -26,28 +27,25 @@ func action(_delta: float):
 		return
 
 	var target_velocity = distance * player_strength / mass
-
-	if target_velocity.length() > max_speed:
-		target_velocity = target_velocity.normalized() * max_speed
+	target_velocity = target_velocity.limit_length(max_speed)
 
 	if wall_cast and target_velocity.length() > 0.0:
-		var dir = target_velocity.normalized()
-		var global_target = global_position + dir * cast_length
-		var local_target := wall_cast.to_local(global_target)
+		var desired_motion = target_velocity * delta
 
-		wall_cast.target_position = local_target
+		wall_cast.target_position = wall_cast.to_local(global_position + desired_motion)
 		wall_cast.force_shapecast_update()
 
 		if wall_cast.is_colliding():
 			var safe_fraction := wall_cast.get_closest_collision_safe_fraction()
-			safe_fraction = max(0.0, safe_fraction - 0.05)
+			safe_fraction = max(0.0, safe_fraction - 0.03)
+
 			target_velocity *= safe_fraction
 
-			var normal = wall_cast.get_collision_normal(0)
-			var dot = target_velocity.dot(normal)
+			var normal := wall_cast.get_collision_normal(0)
+			var into_wall = target_velocity.dot(normal)
 
-			if dot < 0.0:
-				target_velocity -= normal * dot
+			if into_wall < 0.0:
+				target_velocity -= normal * into_wall
 
 	linear_velocity = target_velocity
 

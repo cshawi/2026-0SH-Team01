@@ -6,6 +6,8 @@ extends Control
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var item_of_category: VBoxContainer = $ScrollContainer/ItemOfCategory
 @onready var category: ScrollContainer = $Category
+@onready var all_category: Button = $Category/VBoxContainer/AllCategory
+
 
 const BASE_RESOURCE_PATH := "res://ressources/objects/"
 
@@ -21,6 +23,8 @@ const FULL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/full_motion_
 const HORIZONTAL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/horizontal_motion_object.tscn")
 const MOVEABLE_OBJECT := preload("res://scenes/Objects/Moveables/moveable_object.tscn")
 const VERTICAL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/vertical_motion_object.tscn")
+const SPRING_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/spring_object.tscn")
+
 
 enum ToolMode {
 	NONE,
@@ -29,6 +33,9 @@ enum ToolMode {
 }
 
 var current_tool := ToolMode.NONE
+
+var was_hand_pinching_ui := false
+var hovered_hand_button: Button = null
 
 var has_player := false
 var category_is_hidden := true
@@ -48,6 +55,7 @@ var all_items_with_category: Array = []
 func _ready() -> void:
 	load_all_resources()
 	hide_sandbox_menu()
+	selected_item.grab_focus()
 
 
 func _input(event: InputEvent) -> void:
@@ -60,26 +68,31 @@ func _input(event: InputEvent) -> void:
 	else:
 		btn_is_click = false
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Focus"):
+		keep_focus_alive()
+
 
 func _process(_delta: float) -> void:
+	handle_hand_ui_buttons()
+	
 	if current_tool == ToolMode.NONE:
 		return
-
 	if current_tool == ToolMode.ERASE:
 		handle_erase_mode()
 		return
-
 	if current_tool == ToolMode.SPAWN:
 		handle_spawn_mode()
+		
 
 
 func handle_spawn_mode() -> void:
+	if hovered_hand_button != null:
+		return
 	if not creative_mode:
 		return
-
 	if btn_is_click:
 		return
-
 	if not last_scene_used:
 		return
 
@@ -198,8 +211,11 @@ func get_scene_for_category(category_name: String) -> PackedScene:
 			return FULL_MOTION_OBJECT
 		"mushrooms":
 			return HORIZONTAL_MOTION_OBJECT
+		"specials":
+			return SPRING_MOTION_OBJECT
 		_:
 			return null
+
 
 
 func set_selected_object(scene_to_spawn: PackedScene, object) -> void:
@@ -237,6 +253,7 @@ func _on_selected_item_pressed() -> void:
 		hide_sandbox_menu()
 	else:
 		category.show()
+		all_category.grab_focus()
 
 
 func _on_box_category_pressed() -> void:
@@ -251,12 +268,19 @@ func _on_mushroom_category_pressed() -> void:
 	on_category_pressed("mushrooms")
 
 
-func _on_ice_category_pressed() -> void:
-	on_category_pressed("ice")
+func _on_special_category_pressed() -> void:
+	on_category_pressed("specials")
 
 
 func _on_all_category_pressed() -> void:
 	reset_item_in_item_of_category()
+
+	if not scroll_container.is_visible():
+		scroll_container.show()
+
+	for item_data in all_items_with_category:
+		add_item(item_data["object"])
+
 
 
 func _on_edit_pressed() -> void:
@@ -273,6 +297,7 @@ func _on_edit_pressed() -> void:
 
 	edit.grab_focus()
 	eraser.release_focus()
+
 	
 func _on_eraser_pressed() -> void:
 	btn_is_click = true
@@ -288,7 +313,10 @@ func _on_eraser_pressed() -> void:
 	eraser.grab_focus()
 	edit.release_focus()
 
+
 func handle_erase_mode() -> void:
+	if hovered_hand_button != null:
+		return
 	if btn_is_click:
 		return
 
@@ -311,3 +339,65 @@ func erase_selected_object() -> void:
 	GameMaster.magic_cursor.closest_object = null
 
 	object.queue_free()
+
+func handle_hand_ui_buttons() -> void:
+	if GameMaster.mouse_mode:
+		return
+
+	var cursor := GameMaster.magic_cursor
+	if cursor == null:
+		return
+
+	var button := get_button_under_hand(cursor.global_position)
+
+	if hovered_hand_button != button:
+		hovered_hand_button = button
+
+		if hovered_hand_button:
+			hovered_hand_button.grab_focus()
+
+	var is_pinching := Udp.is_pinching
+
+	if is_pinching and not was_hand_pinching_ui and button:
+		btn_is_click = true
+		button.emit_signal("pressed")
+
+	was_hand_pinching_ui = is_pinching
+
+
+func get_button_under_hand(_world_position: Vector2) -> Button:
+	var cursor := GameMaster.magic_cursor
+	if cursor == null:
+		return null
+
+	var screen_position := get_viewport().get_canvas_transform() * cursor.global_position
+	return find_button_at_position(self, screen_position)
+
+
+
+
+func find_button_at_position(node: Node, screen_position: Vector2) -> Button:
+	if node is Control and not node.is_visible_in_tree():
+		return null
+
+	for child in node.get_children():
+		var found := find_button_at_position(child, screen_position)
+		if found:
+			return found
+
+	if node is Button and not node.disabled:
+		if node.get_global_rect().has_point(screen_position):
+			return node
+
+	return null
+	
+func keep_focus_alive() -> void:
+	if get_viewport().gui_get_focus_owner() != null:
+		return
+
+	if current_tool == ToolMode.SPAWN:
+		edit.grab_focus()
+	elif current_tool == ToolMode.ERASE:
+		eraser.grab_focus()
+	else:
+		selected_item.grab_focus()

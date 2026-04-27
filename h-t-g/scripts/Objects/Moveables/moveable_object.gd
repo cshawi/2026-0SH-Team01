@@ -49,8 +49,6 @@ func ignore_player_temporarily(duration := 0.25) -> void:
 func _on_interacted(cursor):
 	activate(cursor, cursor.get_strength())
 
-
-
 func apply_config():
 	if config == null:
 		push_warning("MoveableObject: config manquante")

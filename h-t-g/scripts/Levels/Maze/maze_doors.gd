@@ -27,9 +27,9 @@ signal teleport(target: String, diff: String)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	chest_area.body_entered.connect(_on_chest_entered.bind(chest))
-	chest_area.body_exited.connect(_on_chest_exited)
+	chest_area.body_exited.connect(_on_chest_exited.bind(chest))
 	chest_area_2.body_entered.connect(_on_chest_entered.bind(chest_2))
-	chest_area_2.body_exited.connect(_on_chest_exited)
+	chest_area_2.body_exited.connect(_on_chest_exited.bind(chest_2))
 	limit_wall.add_wall(0)
 	limit_wall.add_wall(640)
 	
