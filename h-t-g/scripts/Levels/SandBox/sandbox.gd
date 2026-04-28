@@ -9,8 +9,8 @@ var top_limit := 0
 var player_view: Camera2D
 
 func _ready() -> void:
-	limit_wall.add_wall(0)
-	limit_wall.add_wall(640)
+	limit_wall.add_wall(-1584)
+	limit_wall.add_wall(3104)
 	
 	player_view = player.get_node("PlayerView")
 	player_view.limit_left = limit_wall.get_child(0).shape.a.x

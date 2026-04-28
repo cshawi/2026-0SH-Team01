@@ -262,6 +262,7 @@ texture = ExtResource("1_sqabg")
 22:10/0 = 0
 23:10/0 = 0
 6:11/0 = 0
+6:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:11/0 = 0
 8:11/0 = 0
 9:11/0 = 0

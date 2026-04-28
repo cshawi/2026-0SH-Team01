@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=4 uid="uid://co5eqwl20hx3c"]
 
 [ext_resource type="Script" uid="uid://dt4gg5hi1ppxp" path="res://scripts/Levels/Winter/snow_level.gd" id="1_pshma"]
-[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/Utils/Wall/limit_wall.tscn" id="2_huwh4"]
+[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/Wall/limit_wall.tscn" id="2_huwh4"]
 [ext_resource type="Texture2D" uid="uid://bje0prgbwk8jb" path="res://assets/sprites/Background/Paysage hivernal étoilé et montagneux.png" id="3_fxnn1"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/Objects/Moveables/full_motion_object.tscn" id="4_xue5b"]
 [ext_resource type="Resource" uid="uid://bwt3vseydx0ge" path="res://ressources/objects/Box/ice_cube.tres" id="5_wgjv6"]
 [ext_resource type="Resource" uid="uid://d4lmv8cwjvalx" path="res://ressources/objects/Box/ice_bloc.tres" id="6_2os5l"]
 [ext_resource type="TileSet" uid="uid://b0xxufb7sy8q2" path="res://ressources/TileSet/Winter/winter_tile_set.tres" id="7_4oqff"]
-[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/Utils/Checkpoint/Spawner/spawner.tscn" id="8_c72e1"]
-[ext_resource type="PackedScene" uid="uid://etofmhucejyl" path="res://scenes/Utils/Checkpoint/check_point.tscn" id="9_aume4"]
+[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/Checkpoint/Spawner/spawner.tscn" id="8_c72e1"]
+[ext_resource type="PackedScene" uid="uid://etofmhucejyl" path="res://scenes/utils/Checkpoint/check_point.tscn" id="9_aume4"]
 [ext_resource type="PackedScene" uid="uid://bhaqunt2ug2nv" path="res://scenes/Objects/flotation_zone.tscn" id="10_v15wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku6m0"]
@@ -42,7 +42,8 @@ script = ExtResource("1_pshma")
 scroll_scale = Vector2(0, 0)
 
 [node name="BG_static" type="Sprite2D" parent="BG"]
-position = Vector2(327.18503, 183.70325)
+position = Vector2(327.09253, 183.35162)
+scale = Vector2(1.000283, 1.0019214)
 texture = ExtResource("3_fxnn1")
 
 [node name="IceCube" parent="." instance=ExtResource("4_xue5b")]
