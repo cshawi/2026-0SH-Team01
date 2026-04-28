@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=4 uid="uid://bfmh21xoewkho"]
 
-[ext_resource type="Script" uid="uid://ctls84ll66rn2" path="res://scripts/Levels/Maze/maze_key.gd" id="1_f7sq8"]
+[ext_resource type="Script" path="res://scripts/Levels/Maze/maze_key.gd" id="1_f7sq8"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/Building/buildings.tres" id="1_pj52y"]
 [ext_resource type="PackedScene" uid="uid://cx3h1p2q21gld" path="res://scenes/Objects/Moveables/full_motion_object.tscn" id="2_f5x20"]
-[ext_resource type="Script" uid="uid://dk3e0lth3a8bd" path="res://scripts/Levels/Maze/point_light_2d.gd" id="2_xf706"]
+[ext_resource type="Script" path="res://scripts/Levels/Maze/point_light_2d.gd" id="2_xf706"]
 [ext_resource type="Resource" uid="uid://c8xqwenxml6gk" path="res://ressources/objects/Collectables/key.tres" id="3_f7sq8"]
 [ext_resource type="PackedScene" uid="uid://brwc0jotdfqc1" path="res://scenes/cursor/magic_cursor.tscn" id="3_xf706"]
 
@@ -27,7 +27,7 @@ width = 100
 height = 100
 fill = 1
 fill_from = Vector2(0.514019, 0.514019)
-fill_to = Vector2(0.6581197, 0.34615386)
+fill_to = Vector2(0.65812, 0.346154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7sq8"]
 size = Vector2(38, 20)

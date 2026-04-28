@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqi24rq2swrid"]
 
-[ext_resource type="Script" uid="uid://b1vtmb1np6ify" path="res://scripts/Manager/game_manager.gd" id="1_7wong"]
-[ext_resource type="PackedScene" uid="uid://bh5khdhptxxwx" path="res://scenes/Utils/Transition/fade_transition.tscn" id="2_28ih4"]
+[ext_resource type="Script" path="res://scripts/Manager/game_manager.gd" id="1_7wong"]
+[ext_resource type="PackedScene" uid="uid://bh5khdhptxxwx" path="res://scenes/utils/Transition/fade_transition.tscn" id="2_28ih4"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_7wong")

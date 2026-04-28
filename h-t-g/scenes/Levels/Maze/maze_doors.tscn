@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://b3r721pwfgx8d"]
 
-[ext_resource type="Script" uid="uid://crigfgprbvgnf" path="res://scripts/Levels/Maze/maze_doors.gd" id="1_5kt1d"]
+[ext_resource type="Script" path="res://scripts/Levels/Maze/maze_doors.gd" id="1_5kt1d"]
 [ext_resource type="Texture2D" uid="uid://de7sidwnkhlra" path="res://assets/sprites/Background/Buildings.png" id="1_bswci"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/Building/buildings.tres" id="1_ykd8y"]
 [ext_resource type="Texture2D" uid="uid://clchnmpen0e5e" path="res://assets/sprites/Background/Interior-01.png" id="2_rus8k"]
@@ -12,9 +12,9 @@
 [ext_resource type="Resource" uid="uid://cqqnknhcdr8q" path="res://ressources/objects/Doors/door.tres" id="7_xrxju"]
 [ext_resource type="PackedScene" uid="uid://ca5cd7o3xvcfy" path="res://scenes/Objects/Statics/openable_object.tscn" id="7_ywqim"]
 [ext_resource type="Resource" uid="uid://ccr5ddfygqfco" path="res://ressources/objects/Chest/chest.tres" id="11_5kt1d"]
-[ext_resource type="PackedScene" uid="uid://el4uy8p87deo" path="res://scenes/Utils/Display/roll_player_help.tscn" id="12_5kt1d"]
-[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/Utils/Wall/limit_wall.tscn" id="13_pcdgy"]
-[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/Utils/Checkpoint/Spawner/spawner.tscn" id="14_vfxm0"]
+[ext_resource type="PackedScene" uid="uid://el4uy8p87deo" path="res://scenes/utils/Display/roll_player_help.tscn" id="12_5kt1d"]
+[ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/Wall/limit_wall.tscn" id="13_pcdgy"]
+[ext_resource type="PackedScene" uid="uid://gqd72udmhbrk" path="res://scenes/utils/Checkpoint/Spawner/spawner.tscn" id="14_vfxm0"]
 [ext_resource type="Texture2D" uid="uid://bevxliittnsc0" path="res://assets/sprites/Objects/difficulty_star.png" id="16_s3s56"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcfvj"]
@@ -2063,7 +2063,7 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("16_s3s56")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(310.99997, 95)
+position = Vector2(311, 95)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("16_s3s56")
 

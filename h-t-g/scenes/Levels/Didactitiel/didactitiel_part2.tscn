@@ -9,8 +9,8 @@
 scroll_scale = Vector2(0.1, 1)
 
 [node name="Sky" type="Sprite2D" parent="ParallaxSky"]
-position = Vector2(319.5, 178.99998)
-scale = Vector2(1.33125, 1.3161764)
+position = Vector2(319.5, 179)
+scale = Vector2(1.33125, 1.31618)
 texture = ExtResource("1_hnfhl")
 
 [node name="ParallaxMontains" type="Parallax2D" parent="."]

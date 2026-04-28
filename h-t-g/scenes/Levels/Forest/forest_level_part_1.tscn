@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://yivjj3ou6wfr"]
 
-[ext_resource type="Script" uid="uid://d3olidtqaj4p6" path="res://scripts/Levels/Forest/forest_level_part_1.gd" id="1_kkk14"]
+[ext_resource type="Script" path="res://scripts/Levels/Forest/forest_level_part_1.gd" id="1_kkk14"]
 [ext_resource type="TileSet" uid="uid://ua02pdlp8574" path="res://ressources/TileSet/Building/buildings.tres" id="1_kure8"]
 [ext_resource type="Texture2D" uid="uid://bdjpc5185k1uh" path="res://assets/sprites/Background/Element/BG_Sky.png" id="1_tf33i"]
 [ext_resource type="PackedScene" uid="uid://igkyosdbgyea" path="res://scenes/utils/Wall/limit_wall.tscn" id="2_byv5x"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciwef0nwxfngc"]
 
-[ext_resource type="Script" uid="uid://dpa42yfau7tmo" path="res://scripts/utils/hud.gd" id="1_epp0c"]
+[ext_resource type="Script" path="res://scripts/utils/hud.gd" id="1_epp0c"]
 [ext_resource type="PackedScene" uid="uid://d1umelk7f3l1f" path="res://scenes/Player/ATH/progress_bar.tscn" id="2_r7rnh"]
-[ext_resource type="PackedScene" uid="uid://d2x6ojp77dyod" path="res://scenes/Menu/pause_menu.tscn" id="3_j3gwx"]
-[ext_resource type="PackedScene" uid="uid://qi07vnpirsvw" path="res://scenes/Menu/settings.tscn" id="4_nvqmk"]
+[ext_resource type="PackedScene" uid="uid://d2x6ojp77dyod" path="res://scenes/menu/pause_menu.tscn" id="3_j3gwx"]
+[ext_resource type="PackedScene" uid="uid://qi07vnpirsvw" path="res://scenes/menu/settings.tscn" id="4_nvqmk"]
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
