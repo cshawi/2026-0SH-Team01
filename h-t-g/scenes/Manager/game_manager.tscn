@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqi24rq2swrid"]
+[gd_scene load_steps=2 format=3 uid="uid://cqi24rq2swrid"]
 
-[ext_resource type="Script" path="res://scripts/Manager/game_manager.gd" id="1_7wong"]
-[ext_resource type="PackedScene" uid="uid://bh5khdhptxxwx" path="res://scenes/utils/Transition/fade_transition.tscn" id="2_28ih4"]
+[ext_resource type="Script" uid="uid://b1vtmb1np6ify" path="res://scripts/Manager/game_manager.gd" id="1_7wong"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_7wong")
+world_music = "uid://b8jjgwvlyfpfj"
+menu_music = "uid://b8jjgwvlyfpfj"
 
-[node name="FadeTransition" parent="." instance=ExtResource("2_28ih4")]
+[node name="PreviousMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+
+[node name="NextMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3

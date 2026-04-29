@@ -24,6 +24,8 @@ const HORIZONTAL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/horizo
 const MOVEABLE_OBJECT := preload("res://scenes/Objects/Moveables/moveable_object.tscn")
 const VERTICAL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/vertical_motion_object.tscn")
 const SPRING_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/spring_object.tscn")
+const CORPSE_OBJECT := preload("res://scenes/Objects/Moveables/corpse.tscn")
+
 
 
 enum ToolMode {
@@ -196,7 +198,7 @@ func find_config_of_object(object):
 
 func _on_item_pressed(object) -> void:
 	var category_name = find_category_of_object(object)
-	var scene_to_spawn := get_scene_for_category(category_name)
+	var scene_to_spawn := get_scene_for_category(category_name, object)
 
 	if scene_to_spawn == null:
 		return
@@ -205,16 +207,24 @@ func _on_item_pressed(object) -> void:
 	can_spawn = false
 
 
-func get_scene_for_category(category_name: String) -> PackedScene:
+
+func get_scene_for_category(category_name: String, object) -> PackedScene:
 	match category_name:
 		"box", "collectables", "rocks":
 			return FULL_MOTION_OBJECT
 		"mushrooms":
 			return HORIZONTAL_MOTION_OBJECT
 		"specials":
-			return SPRING_MOTION_OBJECT
+			if object.name.to_lower().contains("corpse"):
+				return CORPSE_OBJECT
+
+			if object.name.to_lower().contains("spring"):
+				return SPRING_MOTION_OBJECT
+
+			return null
 		_:
 			return null
+
 
 
 
@@ -332,13 +342,27 @@ func erase_selected_object() -> void:
 	if object == null:
 		return
 
-	if not object.is_in_group("SandBoxObjects"):
+	var object_to_delete = find_sandbox_root(object)
+
+	if object_to_delete == null:
 		return
 
 	GameMaster.magic_cursor.is_holding = false
 	GameMaster.magic_cursor.closest_object = null
 
-	object.queue_free()
+	object_to_delete.queue_free()
+
+func find_sandbox_root(node: Node) -> Node:
+	var current := node
+
+	while current != null:
+		if current.is_in_group("SandBoxObjects"):
+			return current
+
+		current = current.get_parent()
+
+	return null
+
 
 func handle_hand_ui_buttons() -> void:
 	if GameMaster.mouse_mode:

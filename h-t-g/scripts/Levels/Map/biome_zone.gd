@@ -4,6 +4,7 @@ class_name BiomeZone
 @export var biome_name: String
 @export_file("*.tscn") var target_scene: String
 @export var preview_path: NodePath
+@export_file("*.ogg") var sound_track: String
 
 @onready var preview: WorldMapPreview
 
@@ -23,6 +24,7 @@ func _process(_delta: float) -> void:
 	# clic curseur magique
 	if cursor_inside and (GameMaster.magic_cursor.is_grabing) and not click_locked:
 		click_locked = true
+		GameMaster.transition_to_music(sound_track)
 		await Fade_transition.play_transition(GameMaster.change_to_level, target_scene)
 
 	# reset lock

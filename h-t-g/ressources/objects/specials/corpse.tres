@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=3 format=3 uid="uid://dfbmw8ifoyk5w"]
+
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_bonib"]
+[ext_resource type="Texture2D" uid="uid://bxn36me3krspq" path="res://assets/sprites/Objects/Corpse/corpse.png" id="2_bjsp6"]
+
+[resource]
+script = ExtResource("1_bonib")
+weight = 10
+name = "Corpse"
+texture = ExtResource("2_bjsp6")
+metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

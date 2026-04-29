@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bap87y2mjji8s"]
+
+[ext_resource type="Texture2D" uid="uid://b8180ryrsovfq" path="res://assets/sprites/Objects/Corpse/character.png" id="1_7i3yb"]
+
+[resource]
+atlas = ExtResource("1_7i3yb")
+region = Rect2(581, 1897, 248, 49)

@@ -3,7 +3,17 @@ class_name GameManager
 
 
 @export var world_map := "res://scenes/Levels/World_map/world_map.tscn"
+@export_file("*.ogg") var world_music: String
+@export_file("*.ogg") var menu_music: String
+@export var music_fade_duration := 1.0
 
+@onready var previous_music: AudioStreamPlayer = $PreviousMusic
+@onready var next_music: AudioStreamPlayer = $NextMusic
+
+
+var current_music_path := ""
+var active_music_player: AudioStreamPlayer
+var inactive_music_player: AudioStreamPlayer
 var mouse_mode := true #temporaire le temps d'avoir les paramètres
 var player_hp: float
 var magic_cursor: MagicCursor
@@ -12,7 +22,13 @@ signal mouse_mode_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	active_music_player = previous_music
+	inactive_music_player = next_music
+
+	previous_music.finished.connect(_on_music_finished.bind(previous_music))
+	next_music.finished.connect(_on_music_finished.bind(next_music))
+	transition_to_music(menu_music)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,3 +53,49 @@ func on_level_finished(): #reçoit player.current_hp en paramètre
 func change_to_level(path: String) -> void: #passe de la carte du monde au niveau choisi
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
+	
+func transition_to_music(music_path: String) -> void:
+	if music_path == "" or music_path == current_music_path:
+		return
+
+	current_music_path = music_path
+
+	var stream := load(music_path)
+	if stream == null:
+		return
+
+	var old_player := active_music_player
+	var new_player := inactive_music_player
+
+	new_player.stream = stream
+	new_player.volume_db = 0.0
+	new_player.play()
+
+	active_music_player = new_player
+	inactive_music_player = old_player
+
+	var tween := create_tween()
+	tween.tween_property(old_player, "volume_db", -40.0, music_fade_duration)
+	tween.parallel().tween_property(new_player, "volume_db", 0.0, music_fade_duration)
+
+	tween.finished.connect(func():
+		old_player.stop()
+		old_player.stream = null
+	)
+
+func _on_music_finished(player: AudioStreamPlayer) -> void:
+	if player != active_music_player:
+		return
+
+	if player.stream == null:
+		return
+
+	await get_tree().create_timer(5.0).timeout
+
+	if player != active_music_player:
+		return
+
+	if player.stream == null:
+		return
+
+	player.play()

@@ -4,7 +4,7 @@ class_name BackgroundColor
 @export_group("Orbit Settings")
 @export var orbit_width := 320
 @export var orbit_height := 155
-@export var cycle_duration := 30.0
+@export var cycle_duration := 60.0
 
 @export_group("Time Settings")
 #@export_range(0.0, 1.0, 0.01)

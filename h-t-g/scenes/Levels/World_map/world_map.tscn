@@ -43,6 +43,7 @@ texture = ExtResource("4_vnut8")
 biome_name = "Forest"
 target_scene = "uid://cn26ctdle27cq"
 preview_path = NodePath("../../PreviewsContainer/ForestPreview")
+sound_track = "uid://dbyxvuktcfnfh"
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Forest" index="0"]
 polygon = PackedVector2Array(448, -12, 471, -76, 469, -123, 348, -123, 297, -38, 357, -7, 371, -1, 440, -1, 449, -14)
@@ -51,6 +52,7 @@ polygon = PackedVector2Array(448, -12, 471, -76, 469, -123, 348, -123, 297, -38,
 biome_name = "Snow"
 target_scene = "uid://co5eqwl20hx3c"
 preview_path = NodePath("../../PreviewsContainer/SnowPreview")
+sound_track = "uid://dm3w1es2e62a7"
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Snow" index="0"]
 polygon = PackedVector2Array(325, -273, 395, -273, 508, -273, 538, -207, 510, -164, 395, -168, 286, -169, 195, -113, 109, -175, 145, -241, 198, -272, 286, -273)
@@ -59,6 +61,7 @@ polygon = PackedVector2Array(325, -273, 395, -273, 508, -273, 538, -207, 510, -1
 biome_name = "Desert"
 target_scene = "uid://dvvctyurts0pg"
 preview_path = NodePath("../../PreviewsContainer/DesertPreview")
+sound_track = "uid://cqofoyssq2rvo"
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Desert" index="0"]
 polygon = PackedVector2Array(609, 57, 675, 116, 766, 72, 749, -14, 633, -15)
@@ -67,6 +70,7 @@ polygon = PackedVector2Array(609, 57, 675, 116, 766, 72, 749, -14, 633, -15)
 biome_name = "Plain"
 target_scene = "uid://fi0msd8c345h"
 preview_path = NodePath("../../PreviewsContainer/PlainPreview")
+sound_track = "uid://ds7tf5d7m4m8u"
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Plain" index="0"]
 polygon = PackedVector2Array(448, 157, 511, 118, 523, 81, 469, 50, 407, 49, 330, 51, 335, 104, 369, 159)
@@ -76,6 +80,7 @@ position = Vector2(289, 111)
 biome_name = "Ship"
 target_scene = "uid://dttpw3ittlk2g"
 preview_path = NodePath("../../PreviewsContainer/ShipPreview")
+sound_track = "uid://dooebxgkolqly"
 
 [node name="CollisionPolygon2D" parent="BiomeZones/Ship" index="0"]
 polygon = PackedVector2Array(27, 32, 27, -18, -23, -17, -23, 32)

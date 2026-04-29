@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://bhjelwx334jj4"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_rghob"]
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_rghob"]
 [ext_resource type="Texture2D" uid="uid://dknns7d5e8yrd" path="res://assets/sprites/Objects/Box/Interior-01.png" id="2_yybo1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ildie"]
@@ -9,9 +9,7 @@ region = Rect2(95.852, 130.841, 32.0272, 29.0492)
 
 [resource]
 script = ExtResource("1_rghob")
-gravity_scale = 1.0
 weight = 11
-density = 1.0
 name = "small_box"
 texture = SubResource("AtlasTexture_ildie")
 collision_polygon = PackedVector2Array(-16, 14, 16, 14, 16, -15, -16, -15)

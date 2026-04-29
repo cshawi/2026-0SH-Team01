@@ -62,13 +62,20 @@ func _process(delta: float) -> void:
 
 func resetObject():
 	is_grabing = false
-	
-	if not is_holding: return
+
+	if not is_holding:
+		return
+
 	is_holding = false
-	
+
 	if closest_object:
-		closest_object.interactable_component.release()
+		var interactable = closest_object.get_node_or_null("InteractableComponent")
+
+		if interactable:
+			interactable.release()
+
 		closest_object = null
+
 
 func mouse():
 	global_position = get_global_mouse_position()
