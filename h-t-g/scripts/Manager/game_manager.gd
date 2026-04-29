@@ -10,6 +10,12 @@ class_name GameManager
 @onready var previous_music: AudioStreamPlayer = $PreviousMusic
 @onready var next_music: AudioStreamPlayer = $NextMusic
 
+#python
+var hand_tracking_pid := -1
+const HAND_TRACKING_EXE := "hand_tracking.exe"
+const HAND_TRACKING_DEBUG_EXE := "hand_tracking_debug.exe"
+
+
 
 var current_music_path := ""
 var active_music_player: AudioStreamPlayer
@@ -22,6 +28,8 @@ signal mouse_mode_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	start_hand_tracking()
+
 	active_music_player = previous_music
 	inactive_music_player = next_music
 
@@ -35,6 +43,45 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
+
+func start_hand_tracking() -> void:
+
+	if hand_tracking_pid != -1:
+		return
+
+	var exe_path := get_hand_tracking_path()
+
+	if not FileAccess.file_exists(exe_path):
+		push_warning("hand_tracking.exe introuvable: " + exe_path)
+		return
+
+	hand_tracking_pid = OS.create_process(exe_path, [])
+
+	if hand_tracking_pid == -1:
+		push_warning("Impossible de lancer hand_tracking.exe")
+
+func stop_hand_tracking() -> void:
+	if hand_tracking_pid != -1:
+		OS.kill(hand_tracking_pid)
+		hand_tracking_pid = -1
+
+	if OS.has_feature("windows"):
+		OS.execute("taskkill", ["/IM", "hand_tracking.exe", "/F"], [], false, true)
+		OS.execute("taskkill", ["/IM", "hand_tracking_debug.exe", "/F"], [], false, true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		stop_hand_tracking()
+		get_tree().quit()
+
+func get_hand_tracking_path() -> String:
+	if OS.has_feature("editor"):
+		print("Je lance python_debug")
+		return ProjectSettings.globalize_path("res://../ht-udp/dist/" + HAND_TRACKING_DEBUG_EXE)
+
+	return OS.get_executable_path().get_base_dir().path_join(HAND_TRACKING_EXE)
+
 
 func register_level(level: Node) -> void:
 	if level.has_signal("level_finished") and not level.level_finished.is_connected(on_level_finished):

@@ -29,5 +29,5 @@ func _on_settings_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	#save player stats 
+	GameMaster.stop_hand_tracking()
 	get_tree().quit()

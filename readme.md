@@ -1,21 +1,8 @@
-<p align="Center"><img src="./_bin/logo.svg" alt="drawing" width="100"/></p>
-<h4 align="Center">0SH - Gestion de projet (2026)</h4>
+## Build du module Python (Tracking MediaPipe)
 
-<h1 align="center">The Hand of Fate</h1>
+Le jeu utilise un module Python pour détecter la main avec MediaPipe et envoyer les coordonnées à Godot via UDP.
 
-### Description du produit final
-
-Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez expérimenter la télékinésie dans un univers fantastique.
-
-# Comment partir le projet
-
-Prendre note qu'à la fin du projet, un seul fichier .exe sera clicable pour exécuter le tout.
-
-Pour le moment, ouvrir Godot et appuyer sur la touche f5.
-
-## Configuration Python (Tracking MediaPipe)
-
-Ce module permet de détecter la main et d'envoyer les coordonnées à Godot via UDP
+Dans une version exportée, Godot lance automatiquement le module de tracking. Il faut toutefois générer l'exécutable `hand_tracking` adapté à votre système d'exploitation.
 
 ### Prérequis
 
@@ -23,64 +10,134 @@ Vous **devez** utiliser **Python 3.12**. Les versions plus récentes ne sont pas
 
 - **Lien de téléchargement :** [Python 3.12.10](https://www.python.org/downloads/release/python-31210/)
 
-### Installation rapide
+## Windows
 
-1. **Créer l'environnement virtuel** (en forçant la version 3.12) :
+Sur Windows, le fichier `hand_tracking.exe` est déjà fourni dans le dossier de release.
 
-   ```powershell
-   python3 3.12 -m venv venv
-   ```
+Aucune étape de build Python n'est nécessaire.
 
-2. **Activer l'environnement virtuel** :
+Le dossier final doit contenir :
 
-   ```powershell
-   .\venv\Scripts\activate
-   ```
+    The_Hand_of_Fate/
+    ├─ The_Hand_of_Fate.exe
+    └─ hand_tracking.exe
 
-   #### MacOS
+## macOS / Linux
 
-   ```bash
-   source venv/bin/activate
-   ```
+Le fichier `hand_tracking.exe` généré sur Windows ne fonctionne pas sur macOS ou Linux. Il faut générer l'exécutable sur la machine cible.
 
-3. **Installer les dépendances** :
-   ```powershell
-   pip install -r requirements.txt
-   ```
+### 1. Aller dans le dossier Python
 
-### Utilisation
+    cd ht-udp
 
-1. **Activer l'environnement virtuel** (si pas déjà fait) :
+### 2. Créer l'environnement virtuel
 
-   ```powershell
-   .\venv\Scripts\activate
-   ```
+    python3.12 -m venv venv
 
-   #### MacOS
+### 3. Activer l'environnement virtuel
 
-   ```bash
-   source venv/bin/activate
-   ```
+    source venv/bin/activate
 
-2. **Lancer le script** :
-   ```powershell
-   python main.py
-   ```
+### 4. Installer les dépendances
 
-# Calendrier du projet
+    pip install -r requirements.txt
+    pip install pyinstaller pyinstaller-hooks-contrib opencv-python
 
-|  Date |                   Matière en classe                    |    Projet     |
-| ----: | :----------------------------------------------------: | :-----------: |
-| 02-20 |              Création d'un projet GitHub               | Planification |
-| 02-27 |                                                        |               |
-| 03-06 |                        Relâche                         |               |
-| 03-13 |        Structuration des attribution de tâches         |  Livrable #1  |
-| 03-20 |              Présentation du didactitiel               |  Livrable #2  |
-| 03-27 |                                                        |               |
-| 04-03 |                    Congé de Pâques                     |               |
-| 04-10 |          Menu, Fonctionnalité générale, Mobs           |  Livrable #3  |
-| 04-17 |                                                        |               |
-| 04-24 |                                                        |               |
-| 05-01 | Présentation des projets en classe (Épreuve terminale) |  Livrable #4  |
+### 5. Générer l'exécutable
 
-<hr><p align="Center"><img src="./_bin/end.png" alt="drawing" width="100"/></p>
+    pyinstaller --clean --onefile --name hand_tracking --collect-all mediapipe --collect-all cv2 main.py
+
+### 6. Récupérer l'exécutable généré
+
+Le fichier sera créé ici :
+
+    ht-udp/dist/hand_tracking
+
+
+Exemple macOS :
+
+    The_Hand_of_Fate/
+    ├─ The_Hand_of_Fate.app
+    └─ hand_tracking
+
+Exemple Linux :
+
+    The_Hand_of_Fate/
+    ├─ The_Hand_of_Fate
+    └─ hand_tracking
+
+## Tester le module Python sans Godot
+
+### Windows
+
+    cd ht-udp
+    .\venv\Scripts\activate
+    python main.py
+
+### macOS / Linux
+
+    cd ht-udp
+    source venv/bin/activate
+    python main.py
+
+## Fichiers générés à ne pas commit
+
+Les fichiers générés par PyInstaller ne doivent pas être commit dans Git :
+
+    ht-udp/venv/
+    ht-udp/build/
+    ht-udp/dist/
+    ht-udp/*.spec
+    ht-udp/__pycache__/
+    ht-udp/*.pyc
+
+Le fichier `hand_tracking` ou `hand_tracking.exe` doit être inclus dans le dossier/zip de release final, mais pas dans Git.
+
+### Note pour macOS
+
+Avant de poursuivre veuillez tester une première fois si la caméra s'active bien ou pas.
+
+Sur macOS, l'export Godot génère généralement une application :
+
+    The_Hand_of_Fate.app
+
+Le programme Python généré par PyInstaller s'appelle :
+
+    hand_tracking
+
+Pour que Godot puisse le lancer automatiquement, il doit être placé dans le dossier interne de l'application Godot.
+
+Après l'export macOS :
+
+1. Faire clic droit sur :
+
+       The_Hand_of_Fate.app
+
+2. Cliquer sur :
+
+       Show Package Contents
+
+3. Aller dans :
+
+       Contents/MacOS/
+
+4. Copier le fichier `hand_tracking` dans ce dossier.
+
+Le résultat doit ressembler à ceci :
+
+    The_Hand_of_Fate.app/
+    └─ Contents/
+       └─ MacOS/
+          ├─ The_Hand_of_Fate
+          └─ hand_tracking
+
+Ensuite, lancer normalement :
+
+    The_Hand_of_Fate.app
+
+Godot devrait lancer automatiquement `hand_tracking`.
+
+Si le tracking ne fonctionne pas, vérifier les permissions caméra dans :
+
+    System Settings > Privacy & Security > Camera
+
