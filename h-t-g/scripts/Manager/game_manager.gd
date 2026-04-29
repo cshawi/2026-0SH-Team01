@@ -12,9 +12,8 @@ class_name GameManager
 
 #python
 var hand_tracking_pid := -1
-const HAND_TRACKING_EXE := "hand_tracking.exe"
-const HAND_TRACKING_DEBUG_EXE := "hand_tracking_debug.exe"
-
+const HAND_TRACKING_NAME := "hand_tracking"
+const HAND_TRACKING_DEBUG_NAME := "hand_tracking_debug"
 
 
 var current_music_path := ""
@@ -66,8 +65,12 @@ func stop_hand_tracking() -> void:
 		hand_tracking_pid = -1
 
 	if OS.has_feature("windows"):
-		OS.execute("taskkill", ["/IM", "hand_tracking.exe", "/F"], [], false, true)
-		OS.execute("taskkill", ["/IM", "hand_tracking_debug.exe", "/F"], [], false, true)
+		OS.execute("taskkill", ["/IM", get_hand_tracking_filename(false), "/F"], [], false, true)
+		OS.execute("taskkill", ["/IM", get_hand_tracking_filename(true), "/F"], [], false, true)
+
+	elif OS.has_feature("macos") or OS.has_feature("linux"):
+		OS.execute("pkill", ["-f", HAND_TRACKING_NAME], [], false, true)
+
 
 
 func _notification(what: int) -> void:
@@ -75,12 +78,22 @@ func _notification(what: int) -> void:
 		stop_hand_tracking()
 		get_tree().quit()
 
+func get_hand_tracking_filename(debug := false) -> String:
+	var file_name := HAND_TRACKING_DEBUG_NAME if debug else HAND_TRACKING_NAME
+
+	if OS.has_feature("windows"):
+		file_name += ".exe"
+
+	return file_name
+
 func get_hand_tracking_path() -> String:
 	if OS.has_feature("editor"):
-		print("Je lance python_debug")
-		return ProjectSettings.globalize_path("res://../ht-udp/dist/" + HAND_TRACKING_DEBUG_EXE)
+		var debug_file := get_hand_tracking_filename(true)
+		return ProjectSettings.globalize_path("res://../ht-udp/dist/" + debug_file)
 
-	return OS.get_executable_path().get_base_dir().path_join(HAND_TRACKING_EXE)
+	var release_file := get_hand_tracking_filename(false)
+	return OS.get_executable_path().get_base_dir().path_join(release_file)
+
 
 
 func register_level(level: Node) -> void:
