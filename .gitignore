@@ -7,6 +7,14 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+ht-udp/venv/
+ht-udp/build/
+ht-udp/dist/
+ht-udp/*.spec
+ht-udp/__pycache__/
+ht-udp/*.pyc
+
+
 
 #Godot
 h-t-g/.godot
