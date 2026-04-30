@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://qi07vnpirsvw"]
+[gd_scene load_steps=8 format=3 uid="uid://qi07vnpirsvw"]
 
 [ext_resource type="Script" uid="uid://ddssdii325grf" path="res://scripts/Menu/settings.gd" id="1_sfpbk"]
 [ext_resource type="Texture2D" uid="uid://osi5hs3cl5wj" path="res://assets/sprites/HUD/pngegg.png" id="2_37860"]
 [ext_resource type="Texture2D" uid="uid://cir1nq50wfyrj" path="res://assets/sprites/HUD/back_btn-hover.png" id="3_0t5g5"]
 [ext_resource type="Texture2D" uid="uid://db88dtragjknw" path="res://assets/sprites/HUD/mouse_settings_icon.png" id="4_0t5g5"]
+[ext_resource type="Shader" uid="uid://wo1uye0hqft6" path="res://scripts/shaders/settings.gdshader" id="4_h1isi"]
+[ext_resource type="Texture2D" uid="uid://cqm0x3lfekndv" path="res://assets/icons/musical-note.png" id="5_3lrrc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4cy7"]
+shader = ExtResource("4_h1isi")
 
 [node name="settings" type="Control"]
 layout_mode = 3
@@ -45,6 +50,27 @@ texture_focused = ExtResource("3_0t5g5")
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Spacer"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 26.0
+offset_right = 524.0
+offset_bottom = 66.0
+alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/Spacer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -40.0
+max_value = 0.0
+
+[node name="MusicIcon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Spacer/HBoxContainer"]
+material = SubResource("ShaderMaterial_j4cy7")
+layout_mode = 2
+texture = ExtResource("5_3lrrc")
+expand_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -70,4 +96,5 @@ size_flags_horizontal = 4
 alignment = 1
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/Spacer/HBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/hand_tracking" to="." method="_on_hand_tracking_toggled"]

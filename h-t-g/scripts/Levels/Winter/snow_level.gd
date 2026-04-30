@@ -46,6 +46,7 @@ func _ready() -> void:
 	if not death_zone_3.is_connected("body_entered", _on_death_zone_body_entered):
 		death_zone_3.body_entered.connect(_on_death_zone_body_entered)
 		
+	Hud.hide_all_menu()
 	GameMaster.register_level(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
