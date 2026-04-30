@@ -1,7 +1,7 @@
 extends Node2D
 
 const HAND_TRACKING_NAME := "hand_tracking"
-const HAND_TRACKING_DEBUG_NAME := "hand_tracking_debug"
+const HAND_TRACKING_DEBUG_NAME := "hand_tracking"
 
 var server := UDPServer.new()
 var port := 4280
@@ -142,4 +142,5 @@ func _finish_camera_scan(cameras: Array) -> void:
 		camera_scan_thread.wait_to_finish()
 		camera_scan_thread = null
 
+	print("avaible cameras : ", available_cameras)
 	cameras_cached.emit()
