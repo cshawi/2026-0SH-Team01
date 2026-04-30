@@ -4,7 +4,7 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var sandbox_hud: Control = $CanvasLayer/SandboxHUD
 
-var has_player = false;
+var has_enemy = false;
 var top_limit := 0
 var player_view: Camera2D
 

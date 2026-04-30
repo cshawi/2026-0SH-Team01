@@ -1,5 +1,7 @@
 import cv2
-import mediapipe as mp
+import argparse
+import json
+import sys
 
 import socket
 import time
@@ -10,7 +12,35 @@ GODOT_PORT = 4280
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
-cap = cv2.VideoCapture(0)
+def list_cameras(max_index=10):
+    cameras = []
+
+    for index in range(max_index + 1):
+        cap = cv2.VideoCapture(index)
+
+        if cap.isOpened():
+            cameras.append({
+                "index": index,
+                "name": f"Camera {index + 1}"
+            })
+
+        cap.release()
+
+    return cameras
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--camera", type=int, default=0)
+parser.add_argument("--list-cameras", action="store_true")
+args = parser.parse_args()
+
+if args.list_cameras:
+    print(json.dumps(list_cameras()))
+    sys.exit(0)
+
+cap = cv2.VideoCapture(args.camera)
+
+import mediapipe as mp
+
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(
@@ -33,10 +63,12 @@ def remap_and_clamp(value, min_limit, max_limit):
 
 while cap.isOpened():
     success, frame = cap.read()
+    if not success: break
+
     img = cv2.resize(frame, (new_width, new_height))
     img = cv2.flip(img, 1)
 
-    if not success: break
+    
 
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(img_rgb)

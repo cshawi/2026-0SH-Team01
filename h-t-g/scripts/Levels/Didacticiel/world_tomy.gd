@@ -18,7 +18,7 @@ const BOX_AMOUNT := 6
 @onready var player_path := preload("res://scenes/Player/player.tscn")
 var player: Player
 var player_view: Camera2D
-var has_player := true
+var has_enemy := false
 
 signal level_finished() #mettre ne paramètre player.current_hp
 

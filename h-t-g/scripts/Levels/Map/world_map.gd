@@ -2,7 +2,7 @@ extends Node2D
 class_name WorldMap
 
 
-var has_player := false
+var has_enemy := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Hud.hide_all_menu()

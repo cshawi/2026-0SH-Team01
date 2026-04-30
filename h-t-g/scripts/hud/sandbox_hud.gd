@@ -13,7 +13,6 @@ const BASE_RESOURCE_PATH := "res://ressources/objects/"
 
 const CATEGORY_PATHS := [
 	BASE_RESOURCE_PATH + "Box",
-	BASE_RESOURCE_PATH + "Collectables",
 	BASE_RESOURCE_PATH + "Mushrooms",
 	BASE_RESOURCE_PATH + "Rocks",
 	BASE_RESOURCE_PATH + "Specials",
@@ -26,6 +25,9 @@ const VERTICAL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/vertical
 const SPRING_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/spring_object.tscn")
 const CORPSE_OBJECT := preload("res://scenes/Objects/Moveables/corpse.tscn")
 
+const TOOL_ON_COLOR := Color(0.15, 0.75, 0.25, 1.0)
+const TOOL_OFF_COLOR := Color(0.75, 0.15, 0.15, 1.0)
+const TOOL_HOVER_COLOR := Color(0.95, 0.95, 0.95, 1.0)
 
 
 enum ToolMode {
@@ -39,7 +41,7 @@ var current_tool := ToolMode.NONE
 var was_hand_pinching_ui := false
 var hovered_hand_button: Button = null
 
-var has_player := false
+var has_enemy := false
 var category_is_hidden := true
 
 var can_spawn := true
@@ -58,7 +60,10 @@ func _ready() -> void:
 	load_all_resources()
 	hide_sandbox_menu()
 	selected_item.grab_focus()
-
+	
+	edit.flat = false
+	eraser.flat = false
+	update_tool_buttons_visuals()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -292,7 +297,6 @@ func _on_all_category_pressed() -> void:
 		add_item(item_data["object"])
 
 
-
 func _on_edit_pressed() -> void:
 	btn_is_click = true
 
@@ -300,6 +304,7 @@ func _on_edit_pressed() -> void:
 		current_tool = ToolMode.NONE
 		creative_mode = false
 		edit.release_focus()
+		update_tool_buttons_visuals()
 		return
 
 	current_tool = ToolMode.SPAWN
@@ -307,6 +312,8 @@ func _on_edit_pressed() -> void:
 
 	edit.grab_focus()
 	eraser.release_focus()
+	update_tool_buttons_visuals()
+
 
 	
 func _on_eraser_pressed() -> void:
@@ -315,6 +322,7 @@ func _on_eraser_pressed() -> void:
 	if current_tool == ToolMode.ERASE:
 		current_tool = ToolMode.NONE
 		eraser.release_focus()
+		update_tool_buttons_visuals()
 		return
 
 	current_tool = ToolMode.ERASE
@@ -322,6 +330,8 @@ func _on_eraser_pressed() -> void:
 
 	eraser.grab_focus()
 	edit.release_focus()
+	update_tool_buttons_visuals()
+
 
 
 func handle_erase_mode() -> void:
@@ -425,3 +435,26 @@ func keep_focus_alive() -> void:
 		eraser.grab_focus()
 	else:
 		selected_item.grab_focus()
+
+func make_tool_button_style(color: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = color
+	style.set_corner_radius_all(6)
+	style.content_margin_left = 6
+	style.content_margin_right = 6
+	style.content_margin_top = 6
+	style.content_margin_bottom = 6
+	return style
+
+
+func update_tool_buttons_visuals() -> void:
+	var edit_is_on := current_tool == ToolMode.SPAWN
+	var erase_is_on := current_tool == ToolMode.ERASE
+
+	edit.add_theme_stylebox_override("normal", make_tool_button_style(TOOL_ON_COLOR if edit_is_on else TOOL_OFF_COLOR))
+	edit.add_theme_stylebox_override("hover", make_tool_button_style(TOOL_ON_COLOR.lightened(0.15) if edit_is_on else TOOL_OFF_COLOR.lightened(0.15)))
+	edit.add_theme_stylebox_override("pressed", make_tool_button_style(TOOL_ON_COLOR.darkened(0.15) if edit_is_on else TOOL_OFF_COLOR.darkened(0.15)))
+
+	eraser.add_theme_stylebox_override("normal", make_tool_button_style(TOOL_ON_COLOR if erase_is_on else TOOL_OFF_COLOR))
+	eraser.add_theme_stylebox_override("hover", make_tool_button_style(TOOL_ON_COLOR.lightened(0.15) if erase_is_on else TOOL_OFF_COLOR.lightened(0.15)))
+	eraser.add_theme_stylebox_override("pressed", make_tool_button_style(TOOL_ON_COLOR.darkened(0.15) if erase_is_on else TOOL_OFF_COLOR.darkened(0.15)))

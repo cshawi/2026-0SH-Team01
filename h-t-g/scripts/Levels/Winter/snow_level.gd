@@ -18,7 +18,7 @@ class_name SnowLevel
 @onready var player_path := preload("res://scenes/Player/player.tscn")
 var player: Player
 var player_view: Camera2D
-var has_player := true
+var has_enemy := false
 
 var limit_top := -500
 var limit_right := 2300

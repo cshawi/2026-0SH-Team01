@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://btevwal8ebevf"]
+[gd_scene load_steps=30 format=3 uid="uid://btevwal8ebevf"]
 
-[ext_resource type="Script" path="res://scripts/Menu/menu.gd" id="1_2u3ty"]
+[ext_resource type="Script" uid="uid://b3uwm7ghewde7" path="res://scripts/Menu/menu.gd" id="1_2u3ty"]
 [ext_resource type="Texture2D" uid="uid://bthup0hojaers" path="res://assets/sprites/HUD/settings.png" id="2_e0arn"]
-[ext_resource type="PackedScene" uid="uid://dm8apnovjc75d" path="res://scenes/menu/background_menu.tscn" id="2_r8yej"]
+[ext_resource type="PackedScene" uid="uid://dm8apnovjc75d" path="res://scenes/Menu/background_menu.tscn" id="2_r8yej"]
 [ext_resource type="Texture2D" uid="uid://b5rv75k2d0vym" path="res://assets/sprites/HUD/exit.png" id="3_037ec"]
 [ext_resource type="Texture2D" uid="uid://dc0x6k2f2ll47" path="res://assets/sprites/HUD/play.png" id="3_t0a87"]
 [ext_resource type="Texture2D" uid="uid://ciuaiurs76al3" path="res://assets/sprites/HUD/settings-hover.png" id="3_y1o0p"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2cyugrxihaev" path="res://assets/sprites/Effects/Fire/fire_particle.png" id="9_f2fum"]
 [ext_resource type="Texture2D" uid="uid://vedhcvh6f7gt" path="res://assets/sprites/HUD/hand_title.png" id="9_k48pe"]
 [ext_resource type="Texture2D" uid="uid://bscqm2581ex1g" path="res://assets/sprites/HUD/title.png" id="10_f2fum"]
+[ext_resource type="Texture2D" uid="uid://cmcg2br33jwj1" path="res://assets/icons/loading_wheel.png" id="12_t022d"]
 
 [sub_resource type="CanvasItemMaterial" id="1"]
 blend_mode = 1
@@ -46,6 +47,70 @@ scale_max = 0.5
 scale_curve = SubResource("5")
 color_ramp = SubResource("GradientTexture1D_fv41j")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjj1y"]
+atlas = ExtResource("12_t022d")
+region = Rect2(2, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oglts"]
+atlas = ExtResource("12_t022d")
+region = Rect2(68, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0861t"]
+atlas = ExtResource("12_t022d")
+region = Rect2(134, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puavi"]
+atlas = ExtResource("12_t022d")
+region = Rect2(200, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rled8"]
+atlas = ExtResource("12_t022d")
+region = Rect2(266, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x15t3"]
+atlas = ExtResource("12_t022d")
+region = Rect2(332, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcwxj"]
+atlas = ExtResource("12_t022d")
+region = Rect2(398, 0, 66, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opsl0"]
+atlas = ExtResource("12_t022d")
+region = Rect2(464, 0, 66, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vd2iv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjj1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oglts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0861t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puavi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rled8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x15t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcwxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opsl0")
+}],
+"loop": true,
+"name": &"Loading",
+"speed": 5.0
+}]
+
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -64,9 +129,9 @@ material = SubResource("1")
 position = Vector2(190, 67)
 scale = Vector2(0.2, 0.2)
 amount = 32
-process_material = SubResource("6")
 texture = ExtResource("9_f2fum")
 lifetime = 0.75
+process_material = SubResource("6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -134,6 +199,11 @@ texture_normal = ExtResource("3_037ec")
 texture_hover = ExtResource("5_y1o0p")
 texture_focused = ExtResource("5_y1o0p")
 stretch_mode = 3
+
+[node name="Spinner" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 234)
+sprite_frames = SubResource("SpriteFrames_vd2iv")
+animation = &"Loading"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]

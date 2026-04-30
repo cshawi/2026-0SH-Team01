@@ -104,7 +104,6 @@ func action(delta: float):
 	# Sécurité de collision avec le joueur
 	if should_block_control():
 		desactivate()
-		current_grabbed_body.linear_velocity = current_grabbed_body.linear_velocity.limit_length(80)
 		return
 
 	# Calcul et application de la physique

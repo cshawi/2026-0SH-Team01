@@ -7,7 +7,7 @@ class_name ShipManager
 
 var player: Player
 var player_view: Camera2D
-var has_player := false
+var has_enemy := false
 
 signal level_finished
 # Called when the node enters the scene tree for the first time.

@@ -6,15 +6,14 @@ class_name GameManager
 @export_file("*.ogg") var world_music: String
 @export_file("*.ogg") var menu_music: String
 @export var music_fade_duration := 1.0
+@export var hand_tracking_camera_index := 0
+
 
 @onready var previous_music: AudioStreamPlayer = $PreviousMusic
 @onready var next_music: AudioStreamPlayer = $NextMusic
 
 #python
 var hand_tracking_pid := -1
-const HAND_TRACKING_NAME := "hand_tracking"
-const HAND_TRACKING_DEBUG_NAME := "hand_tracking_debug"
-
 
 var current_music_path := ""
 var active_music_player: AudioStreamPlayer
@@ -27,8 +26,6 @@ signal mouse_mode_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_hand_tracking()
-
 	active_music_player = previous_music
 	inactive_music_player = next_music
 
@@ -38,26 +35,31 @@ func _ready() -> void:
 
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 
 func start_hand_tracking() -> void:
-
 	if hand_tracking_pid != -1:
 		return
 
-	var exe_path := get_hand_tracking_path()
+	var exe_path = Udp.get_hand_tracking_path()
 
 	if not FileAccess.file_exists(exe_path):
 		push_warning("hand_tracking.exe introuvable: " + exe_path)
 		return
 
-	hand_tracking_pid = OS.create_process(exe_path, [])
+	hand_tracking_pid = OS.create_process(exe_path, ["--camera", str(hand_tracking_camera_index)])
 
 	if hand_tracking_pid == -1:
-		push_warning("Impossible de lancer hand_tracking.exe")
+		push_warning("Impossible de lancer hand_tracking")
+
+func restart_hand_tracking(camera_index: int) -> void:
+	hand_tracking_camera_index = camera_index
+	stop_hand_tracking()
+	start_hand_tracking()
 
 func stop_hand_tracking() -> void:
 	if hand_tracking_pid != -1:
@@ -65,41 +67,25 @@ func stop_hand_tracking() -> void:
 		hand_tracking_pid = -1
 
 	if OS.has_feature("windows"):
-		OS.execute("taskkill", ["/IM", get_hand_tracking_filename(false), "/F"], [], false, true)
-		OS.execute("taskkill", ["/IM", get_hand_tracking_filename(true), "/F"], [], false, true)
+		OS.execute("taskkill", ["/IM", Udp.get_hand_tracking_filename(false), "/F"], [], false, true)
+		OS.execute("taskkill", ["/IM", Udp.get_hand_tracking_filename(true), "/F"], [], false, true)
 
 	elif OS.has_feature("macos") or OS.has_feature("linux"):
-		OS.execute("pkill", ["-f", HAND_TRACKING_NAME], [], false, true)
-
-
+		OS.execute("pkill", ["-f", Udp.HAND_TRACKING_NAME], [], false, true)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		stop_hand_tracking()
 		get_tree().quit()
-
-func get_hand_tracking_filename(debug := false) -> String:
-	var file_name := HAND_TRACKING_DEBUG_NAME if debug else HAND_TRACKING_NAME
-
-	if OS.has_feature("windows"):
-		file_name += ".exe"
-
-	return file_name
-
-func get_hand_tracking_path() -> String:
-	if OS.has_feature("editor"):
-		var debug_file := get_hand_tracking_filename(true)
-		return ProjectSettings.globalize_path("res://../ht-udp/dist/" + debug_file)
-
-	var release_file := get_hand_tracking_filename(false)
-	return OS.get_executable_path().get_base_dir().path_join(release_file)
-
+		
+func is_hand_tracking_running() -> bool:
+	return hand_tracking_pid != -1
 
 
 func register_level(level: Node) -> void:
 	if level.has_signal("level_finished") and not level.level_finished.is_connected(on_level_finished):
 		level.level_finished.connect(on_level_finished)
-	if level.has_player:
+	if level.has_enemy:
 		Hud.set_player_connection(level.player.get_node("HealthComponent"))
 		Hud.show_player_control()
 

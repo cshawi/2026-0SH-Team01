@@ -12,7 +12,7 @@ extends Node2D
 @onready var player_path := preload("res://scenes/Player/player.tscn")
 var player: Player
 var player_view: Camera2D
-var has_player := true
+var has_enemy := true
 var first_time := true
 var first_time_dead := true
 

@@ -39,6 +39,5 @@ func _on_menu_pressed() -> void:
 	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/Menu/menu.tscn")
 
 func _on_exit_pressed() -> void:
-	print("Je ferme python")
 	GameMaster.stop_hand_tracking()
 	get_tree().quit()

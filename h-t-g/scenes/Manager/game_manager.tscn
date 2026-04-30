@@ -5,7 +5,7 @@
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_7wong")
 world_music = "uid://b8jjgwvlyfpfj"
-menu_music = "uid://b8jjgwvlyfpfj"
+menu_music = "uid://bmfeva3vg1l50"
 
 [node name="PreviousMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
