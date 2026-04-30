@@ -3,10 +3,13 @@ extends Control
 @onready var hand_tracking: CheckButton = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/hand_tracking
 @onready var mode_selected: Sprite2D = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ModeSelected
 @onready var list_cameras: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ListCameras
+@onready var music_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/Spacer/MusicSlider
 
 
 
 var go_back_to := ""
+
+signal volume_changed(value: float)
 
 func _ready() -> void:
 	hand_tracking.button_pressed = true
@@ -61,3 +64,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_hand_tracking_toggled(toggled_on: bool) -> void:
 	hand_tracking_mode(toggled_on)
+
+
+func _on_music_slider_value_changed(value: float) -> void:
+	volume_changed.emit(value)

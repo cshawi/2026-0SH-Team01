@@ -21,6 +21,7 @@ var inactive_music_player: AudioStreamPlayer
 var mouse_mode := true #temporaire le temps d'avoir les paramètres
 var player_hp: float
 var magic_cursor: MagicCursor
+var music_volume: float
 
 signal mouse_mode_changed
 
@@ -28,7 +29,8 @@ signal mouse_mode_changed
 func _ready() -> void:
 	active_music_player = previous_music
 	inactive_music_player = next_music
-
+	
+	Hud.settings_menu.volume_changed.connect(_on_volume_changed)
 	previous_music.finished.connect(_on_music_finished.bind(previous_music))
 	next_music.finished.connect(_on_music_finished.bind(next_music))
 	transition_to_music(menu_music)
@@ -100,6 +102,11 @@ func change_to_level(path: String) -> void: #passe de la carte du monde au nivea
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
 	
+
+func _on_volume_changed(value: float):
+	music_volume = value
+	active_music_player.volume_db = value
+
 func transition_to_music(music_path: String) -> void:
 	if music_path == "" or music_path == current_music_path:
 		return
@@ -114,7 +121,7 @@ func transition_to_music(music_path: String) -> void:
 	var new_player := inactive_music_player
 
 	new_player.stream = stream
-	new_player.volume_db = 0.0
+	new_player.volume_db = music_volume
 	new_player.play()
 
 	active_music_player = new_player
@@ -122,7 +129,7 @@ func transition_to_music(music_path: String) -> void:
 
 	var tween := create_tween()
 	tween.tween_property(old_player, "volume_db", -40.0, music_fade_duration)
-	tween.parallel().tween_property(new_player, "volume_db", 0.0, music_fade_duration)
+	tween.parallel().tween_property(new_player, "volume_db", music_volume, music_fade_duration)
 
 	tween.finished.connect(func():
 		old_player.stop()
