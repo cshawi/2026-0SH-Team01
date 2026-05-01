@@ -28,7 +28,9 @@ Un table vous sera installée avec accès à une prise électrique. Vous devez l
 7. Amplificateur de volume si possible (Haut-parleur, enceinte, etc)
 
 ## Heure d'arrivée
+7h30
 
-L'heure d'arrivé de tous les membres de l'équipe sera ici (préparez-vous à vous lever tôt !)
+## Table assignée
+#03
 
 <hr><p align="Center"><img src="./_bin/end.png" alt="drawing" width="100"/></p>
