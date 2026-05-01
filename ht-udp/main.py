@@ -22,6 +22,7 @@ def list_cameras(max_index=10):
             cameras.append({
                 "index": index,
                 "name": f"Camera {index + 1}"
+                
             })
 
         cap.release()
