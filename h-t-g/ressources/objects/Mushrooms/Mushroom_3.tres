@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://4ysb24ht65pc"]
+
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_8w8ww"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mr734"]
+load_path = "res://.godot/imported/Tiles.png-46b39d5c32d66d24d1d24645696d1890.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl7qj"]
+atlas = SubResource("CompressedTexture2D_mr734")
+region = Rect2(321, 251, 14, 21)
+
+[resource]
+script = ExtResource("1_8w8ww")
+name = "Mushroom_3"
+texture = SubResource("AtlasTexture_wl7qj")
+collision_polygon = PackedVector2Array(-2, -10, 2, -10, 4, -8, 6, -4, 7, -3, 7, -1, 5, 1, 2, 1, 2, 9, 3, 10, -3, 10, -2, 9, -2, 1, -5, 1, -7, -1, -7, -3, -6, -4, -4, -8, -3, -9)
+target_scene = "uid://cx3h1p2q21gld"
+metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

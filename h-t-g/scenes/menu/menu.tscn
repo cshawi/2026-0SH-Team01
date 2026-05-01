@@ -1,8 +1,8 @@
 [gd_scene load_steps=30 format=3 uid="uid://btevwal8ebevf"]
 
-[ext_resource type="Script" path="res://scripts/Menu/menu.gd" id="1_2u3ty"]
+[ext_resource type="Script" uid="uid://b3uwm7ghewde7" path="res://scripts/Menu/menu.gd" id="1_2u3ty"]
 [ext_resource type="Texture2D" uid="uid://bthup0hojaers" path="res://assets/sprites/HUD/settings.png" id="2_e0arn"]
-[ext_resource type="PackedScene" uid="uid://dm8apnovjc75d" path="res://scenes/menu/background_menu.tscn" id="2_r8yej"]
+[ext_resource type="PackedScene" uid="uid://dm8apnovjc75d" path="res://scenes/Menu/background_menu.tscn" id="2_r8yej"]
 [ext_resource type="Texture2D" uid="uid://b5rv75k2d0vym" path="res://assets/sprites/HUD/exit.png" id="3_037ec"]
 [ext_resource type="Texture2D" uid="uid://dc0x6k2f2ll47" path="res://assets/sprites/HUD/play.png" id="3_t0a87"]
 [ext_resource type="Texture2D" uid="uid://ciuaiurs76al3" path="res://assets/sprites/HUD/settings-hover.png" id="3_y1o0p"]
@@ -129,9 +129,9 @@ material = SubResource("1")
 position = Vector2(190, 67)
 scale = Vector2(0.2, 0.2)
 amount = 32
-process_material = SubResource("6")
 texture = ExtResource("9_f2fum")
 lifetime = 0.75
+process_material = SubResource("6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

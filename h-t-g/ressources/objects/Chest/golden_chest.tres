@@ -16,4 +16,5 @@ script = ExtResource("1_68u33")
 textures = Array[Texture2D]([SubResource("AtlasTexture_n1qtj"), SubResource("AtlasTexture_thqs5")])
 name = "Golden Chest"
 collision_polygon = PackedVector2Array(14, 13, 14, -14, -14, -14, -14, 13)
+target_scene = "uid://ca5cd7o3xvcfy"
 metadata/_custom_type_script = "uid://bfpgfq55phcy7"

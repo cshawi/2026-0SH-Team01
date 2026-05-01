@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx3h1p2q21gld"]
+[gd_scene load_steps=6 format=3 uid="uid://cx3h1p2q21gld"]
 
 [ext_resource type="PackedScene" uid="uid://djkv5jmkahema" path="res://scenes/Objects/Moveables/moveable_object.tscn" id="1_ddolp"]
-[ext_resource type="Script" path="res://scripts/Objects/Moveables/full_motion_object.gd" id="2_57fly"]
+[ext_resource type="Script" uid="uid://coh8wcdtl334c" path="res://scripts/Objects/Moveables/full_motion_object.gd" id="2_57fly"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mr734"]
+load_path = "res://.godot/imported/Tiles.png-46b39d5c32d66d24d1d24645696d1890.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl7qj"]
+atlas = SubResource("CompressedTexture2D_mr734")
+region = Rect2(290, 240, 28, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0puw"]
 radius = 5.0
@@ -11,6 +18,12 @@ top_level = true
 script = ExtResource("2_57fly")
 max_speed = inf
 cast_length = 0.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_wl7qj")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-2, -10, 2, -10, 4, -8, 6, -4, 7, -3, 7, -1, 5, 1, 2, 1, 2, 9, 3, 10, -3, 10, -2, 9, -2, 1, -5, 1, -7, -1, -7, -3, -6, -4, -4, -8, -3, -9)
 
 [node name="WallCast" type="ShapeCast2D" parent="." index="3"]
 visible = false

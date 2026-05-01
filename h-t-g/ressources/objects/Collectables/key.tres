@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://c8xqwenxml6gk"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_sa7ec"]
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_sa7ec"]
 [ext_resource type="Texture2D" uid="uid://c6f21f7oemb8o" path="res://assets/sprites/Background/Tiles.png" id="2_2vdwg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qckf"]
@@ -9,10 +9,9 @@ region = Rect2(241.253, 321.024, 14.1273, 10.5587)
 
 [resource]
 script = ExtResource("1_sa7ec")
-gravity_scale = 1.0
 weight = 1
-density = 1.0
 name = "Key"
 texture = SubResource("AtlasTexture_3qckf")
 collision_polygon = PackedVector2Array(4, -1, 4, 2, -5, 2, -5, -1)
+target_scene = "uid://cx3h1p2q21gld"
 metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

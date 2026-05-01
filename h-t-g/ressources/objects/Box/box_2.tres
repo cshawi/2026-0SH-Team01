@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveableConfig" load_steps=4 format=3 uid="uid://dlca3uxaj1eeu"]
+
+[ext_resource type="Script" uid="uid://cr1bkiuqvbqob" path="res://scripts/ressources/objects/moveable/moveable_config.gd" id="1_xv1c3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xv1c3"]
+load_path = "res://.godot/imported/Interior-01.png-71018fd81cff8678c3e0e99858086991.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dr8w"]
+atlas = SubResource("CompressedTexture2D_xv1c3")
+region = Rect2(128, 147, 48, 45)
+
+[resource]
+script = ExtResource("1_xv1c3")
+weight = 50
+name = "Box_2"
+texture = SubResource("AtlasTexture_2dr8w")
+collision_polygon = PackedVector2Array(24, 23, 24, -22, -24, -22, -24, 23)
+target_scene = "uid://cx3h1p2q21gld"
+metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

@@ -8,4 +8,5 @@ script = ExtResource("1_bonib")
 weight = 10
 name = "Corpse"
 texture = ExtResource("2_bjsp6")
+target_scene = "uid://bf4b6u868jgq4"
 metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

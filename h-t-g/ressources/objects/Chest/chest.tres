@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StaticObjectConfig" load_steps=5 format=3 uid="uid://ccr5ddfygqfco"]
 
-[ext_resource type="Script" path="res://scripts/ressources/objects/staticObjects/static_config.gd" id="1_s3xor"]
+[ext_resource type="Script" uid="uid://bfpgfq55phcy7" path="res://scripts/ressources/objects/staticObjects/static_config.gd" id="1_s3xor"]
 [ext_resource type="Texture2D" uid="uid://cyep4o3e8de33" path="res://assets/sprites/Objects/Chest/Interior-01.png" id="2_vq6gd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nd4f"]
@@ -14,7 +14,7 @@ region = Rect2(49, 115, 30, 30)
 [resource]
 script = ExtResource("1_s3xor")
 textures = Array[Texture2D]([SubResource("AtlasTexture_6nd4f"), SubResource("AtlasTexture_m0sv4")])
-is_open = false
 name = "Chest"
 collision_polygon = PackedVector2Array(14, 13, 14, -14, -14, -14, -14, 13)
+target_scene = "uid://ca5cd7o3xvcfy"
 metadata/_custom_type_script = "uid://bfpgfq55phcy7"

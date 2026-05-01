@@ -12,4 +12,5 @@ script = ExtResource("1_ki0u1")
 name = "Mushroom"
 texture = SubResource("AtlasTexture_byugu")
 collision_polygon = PackedVector2Array(16, -16, 16, 0, 0, 0, 0, -4, -4, -4, -13, -6, -15, -7, -15, -10, 0, -10, 0, -16)
+target_scene = "uid://tl6einth7v3u"
 metadata/_custom_type_script = "uid://cr1bkiuqvbqob"

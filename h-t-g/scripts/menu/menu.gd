@@ -9,14 +9,16 @@ const settings_path = "res://scenes/Menu/settings.tscn"
 var is_ready := false
 
 func _ready() -> void:
-	center_container.hide()
-	spinner.show()
-	spinner.play()
+	spinner.hide()
+	if not GameMaster.cam_loaded:
+		center_container.hide()
+		spinner.show()
+		spinner.play()
 
-	if not Udp.cameras_cached.is_connected(_on_cameras_cached):
-		Udp.cameras_cached.connect(_on_cameras_cached)
-
-	Udp.cache_available_cameras_async()
+		if not Udp.cameras_cached.is_connected(_on_cameras_cached):
+			Udp.cameras_cached.connect(_on_cameras_cached)
+		
+		Udp.cache_available_cameras_async()
 
 
 func change_scene(scene_path:String ):
@@ -47,6 +49,7 @@ func _on_cameras_cached() -> void:
 		return
 
 	is_ready = true
+	GameMaster.cam_loaded = true
 
 	GameMaster.start_hand_tracking()
 	spinner.stop()

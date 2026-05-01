@@ -14,6 +14,7 @@ class_name GameManager
 
 #python
 var hand_tracking_pid := -1
+var cam_loaded := false
 
 var current_music_path := ""
 var active_music_player: AudioStreamPlayer
@@ -96,6 +97,7 @@ func set_mouse_mode(new_mode: bool):
 	mouse_mode_changed.emit(new_mode)
 
 func on_level_finished(): #reçoit player.current_hp en paramètre
+	transition_to_music(world_music)
 	await Fade_transition.play_transition(GameMaster.change_to_level, world_map)
 	
 func change_to_level(path: String) -> void: #passe de la carte du monde au niveau choisi

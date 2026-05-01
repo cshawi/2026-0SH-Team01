@@ -16,6 +16,7 @@ const CATEGORY_PATHS := [
 	BASE_RESOURCE_PATH + "Mushrooms",
 	BASE_RESOURCE_PATH + "Rocks",
 	BASE_RESOURCE_PATH + "Specials",
+	BASE_RESOURCE_PATH + "Other"
 ]
 
 const FULL_MOTION_OBJECT := preload("res://scenes/Objects/Moveables/full_motion_object.tscn")
@@ -214,21 +215,22 @@ func _on_item_pressed(object) -> void:
 
 
 func get_scene_for_category(category_name: String, object) -> PackedScene:
-	match category_name:
-		"box", "collectables", "rocks":
-			return FULL_MOTION_OBJECT
-		"mushrooms":
-			return HORIZONTAL_MOTION_OBJECT
-		"specials":
-			if object.name.to_lower().contains("corpse"):
-				return CORPSE_OBJECT
-
-			if object.name.to_lower().contains("spring"):
-				return SPRING_MOTION_OBJECT
-
-			return null
-		_:
-			return null
+	return load(object.target_scene)
+	#match category_name:
+		#"box", "collectables", "rocks", "other":
+			#return FULL_MOTION_OBJECT
+		#"mushrooms":
+			#return HORIZONTAL_MOTION_OBJECT
+		#"specials":
+			#if object.name.to_lower().contains("corpse"):
+				#return CORPSE_OBJECT
+#
+			#if object.name.to_lower().contains("spring"):
+				#return SPRING_MOTION_OBJECT
+#
+			#return null
+		#_:
+			#return null
 
 
 
