@@ -20,7 +20,7 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
-	await Fade_transition.play_transition(get_tree().reload_current_scene)
+	await Fade_transition.play_level_transition(get_tree().reload_current_scene)
 
 func _on_settings_pressed() -> void:
 	get_parent().get_node("settings").go_back_to = "pause"
@@ -30,13 +30,13 @@ func _on_map_pressed() -> void:
 	get_tree().paused = false
 	get_parent().hide_all_menu()
 	GameMaster.transition_to_music(GameMaster.world_music)
-	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/Levels/World_map/world_map.tscn")
+	await Fade_transition.play_level_transition(GameMaster.change_to_level, "res://scenes/Levels/World_map/world_map.tscn")
 
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	get_parent().hide_all_menu()
 	GameMaster.transition_to_music(GameMaster.menu_music)
-	await Fade_transition.play_transition(GameMaster.change_to_level, "res://scenes/Menu/menu.tscn")
+	await Fade_transition.play_level_transition(GameMaster.change_to_level, "res://scenes/Menu/menu.tscn")
 
 func _on_exit_pressed() -> void:
 	GameMaster.stop_hand_tracking()

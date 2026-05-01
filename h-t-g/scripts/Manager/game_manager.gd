@@ -98,7 +98,7 @@ func set_mouse_mode(new_mode: bool):
 
 func on_level_finished(): #reçoit player.current_hp en paramètre
 	transition_to_music(world_music)
-	await Fade_transition.play_transition(GameMaster.change_to_level, world_map)
+	await Fade_transition.play_level_transition(GameMaster.change_to_level, world_map)
 	
 func change_to_level(path: String) -> void: #passe de la carte du monde au niveau choisi
 	get_tree().change_scene_to_file(path)

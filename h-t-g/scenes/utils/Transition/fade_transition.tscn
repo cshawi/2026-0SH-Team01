@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bh5khdhptxxwx"]
 
 [ext_resource type="Script" uid="uid://b1y0epkq7miof" path="res://scripts/utils/fade_transition.gd" id="1_24urp"]
-[ext_resource type="Shader" uid="uid://dyep35874kbs2" path="res://scenes/Utils/Transition/fade_transition.gdshader" id="2_55y30"]
+[ext_resource type="Shader" uid="uid://bri6sabm5pytu" path="res://scenes/Utils/Transition/fade_transition.gdshader" id="2_55y30"]
 [ext_resource type="Texture2D" uid="uid://6qg3l4fjbosg" path="res://assets/icons/thf_background.png" id="3_n7e88"]
 
 [sub_resource type="Gradient" id="Gradient_55y30"]
@@ -49,3 +49,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="BaseTransition" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

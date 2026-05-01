@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func change_scene(scene_path:String ):
-	await Fade_transition.play_transition(GameMaster.change_to_level,scene_path)
+	await Fade_transition.play_level_transition(GameMaster.change_to_level,scene_path)
 	
 
 func set_ui_enabled(is_enabled: bool):

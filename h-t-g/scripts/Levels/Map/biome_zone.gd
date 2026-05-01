@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 	if cursor_inside and (GameMaster.magic_cursor.is_grabing) and not click_locked:
 		click_locked = true
 		GameMaster.transition_to_music(sound_track)
-		await Fade_transition.play_transition(GameMaster.change_to_level, target_scene)
+		await Fade_transition.play_level_transition(GameMaster.change_to_level, target_scene)
 
 	# reset lock
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not GameMaster.magic_cursor.is_grabing:

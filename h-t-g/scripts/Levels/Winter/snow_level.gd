@@ -58,7 +58,7 @@ func spawn_player_at(marker: Marker2D) -> void:
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		await Fade_transition.play_transition(spawn_player_at, player_spawn_point)
+		await Fade_transition.play_dead_transition(spawn_player_at, player_spawn_point)
 
 
 func _on_end_level_area_body_entered(body: Node2D) -> void:

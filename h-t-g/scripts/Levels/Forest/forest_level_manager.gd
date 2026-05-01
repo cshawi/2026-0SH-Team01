@@ -101,12 +101,12 @@ func on_teleport(target: String):
 			
 
 func _on_player_dead():
-	await Fade_transition.play_transition(get_tree().reload_current_scene)
+	await Fade_transition.play_dead_transition(get_tree().reload_current_scene)
 	
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
-		await Fade_transition.play_transition(respawn, body)
+		await Fade_transition.play_dead_transition(respawn, body)
 
 
 func _on_end_level_area_body_entered(body: Node2D) -> void:
