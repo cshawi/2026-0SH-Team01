@@ -76,7 +76,9 @@ texture_scale = 1.5
 script = ExtResource("2_xf706")
 
 [node name="MagicCursor" parent="." instance=ExtResource("3_xf706")]
-mouse_mode = true
+size = null
+mouse_mode = null
+lerp_weight = null
 default_strength = 1
 
 [node name="EndLevelArea" type="Area2D" parent="."]

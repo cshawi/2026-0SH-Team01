@@ -1,4 +1,4 @@
-import cv2
+from cameras import *
 import argparse
 import json
 import sys
@@ -6,29 +6,13 @@ import sys
 import socket
 import time
 import random
+import mediapipe as mp
 
 GODOT_IP = "127.0.0.1" 
 GODOT_PORT = 4280
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-
-def list_cameras(max_index=10):
-    cameras = []
-
-    for index in range(max_index + 1):
-        cap = cv2.VideoCapture(index)
-
-        if cap.isOpened():
-            cameras.append({
-                "index": index,
-                "name": f"Camera {index + 1}"
-                
-            })
-
-        cap.release()
-
-    return cameras
-
+list_cameras()
 parser = argparse.ArgumentParser()
 parser.add_argument("--camera", type=int, default=0)
 parser.add_argument("--list-cameras", action="store_true")
@@ -40,7 +24,6 @@ if args.list_cameras:
 
 cap = cv2.VideoCapture(args.camera)
 
-import mediapipe as mp
 
 
 mp_hands = mp.solutions.hands
