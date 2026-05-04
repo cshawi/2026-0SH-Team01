@@ -1,11 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://qi07vnpirsvw"]
+[gd_scene load_steps=11 format=3 uid="uid://qi07vnpirsvw"]
 
 [ext_resource type="Script" uid="uid://ddssdii325grf" path="res://scripts/Menu/settings.gd" id="1_sfpbk"]
 [ext_resource type="Texture2D" uid="uid://osi5hs3cl5wj" path="res://assets/sprites/HUD/pngegg.png" id="2_37860"]
 [ext_resource type="Texture2D" uid="uid://cir1nq50wfyrj" path="res://assets/sprites/HUD/back_btn-hover.png" id="3_0t5g5"]
 [ext_resource type="Texture2D" uid="uid://db88dtragjknw" path="res://assets/sprites/HUD/mouse_settings_icon.png" id="4_0t5g5"]
 [ext_resource type="Shader" uid="uid://wo1uye0hqft6" path="res://scripts/shaders/settings.gdshader" id="4_h1isi"]
+[ext_resource type="Texture2D" uid="uid://dfmg6ttm5126u" path="res://assets/sprites/HUD/Base-01.png" id="4_j4cy7"]
 [ext_resource type="Texture2D" uid="uid://cqm0x3lfekndv" path="res://assets/icons/musical-note.png" id="5_3lrrc"]
+[ext_resource type="PackedScene" uid="uid://cc3c54iqr8ny7" path="res://scenes/Menu/instructions_panel.tscn" id="8_solbw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlole"]
+atlas = ExtResource("4_j4cy7")
+region = Rect2(50, 210, 12, 12)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4cy7"]
 shader = ExtResource("4_h1isi")
@@ -38,13 +44,26 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="BackButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+focus_neighbor_right = NodePath("../InstructionButton")
 texture_normal = ExtResource("2_37860")
 texture_hover = ExtResource("3_0t5g5")
 texture_focused = ExtResource("3_0t5g5")
+
+[node name="InstructionButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 10
+focus_neighbor_left = NodePath("../BackButton")
+text = "Instructions"
+icon = SubResource("AtlasTexture_hlole")
 
 [node name="Spacer" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
@@ -94,8 +113,15 @@ texture = ExtResource("4_0t5g5")
 [node name="ListCameras" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_next = NodePath("../HBoxContainer2/BackButton")
 alignment = 1
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[node name="InstructionsPanel" parent="." instance=ExtResource("8_solbw")]
+layout_mode = 1
+offset_right = -10.0
+offset_bottom = -5.0
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/InstructionButton" to="." method="_on_instruction_button_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/VBoxContainer/Spacer/HBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/hand_tracking" to="." method="_on_hand_tracking_toggled"]

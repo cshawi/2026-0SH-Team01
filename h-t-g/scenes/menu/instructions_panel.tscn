@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3c54iqr8ny7"]
+
+[ext_resource type="Texture2D" uid="uid://dfmg6ttm5126u" path="res://assets/sprites/HUD/Base-01.png" id="1_ex3qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujjdw"]
+atlas = ExtResource("1_ex3qt")
+region = Rect2(16, 224, 48, 48)
+
+[node name="InstructionsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Instructions" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_right = 319.0
+offset_bottom = 360.0
+texture = SubResource("AtlasTexture_ujjdw")
+
+[node name="Titre" type="Label" parent="Instructions"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 13.0
+offset_right = 219.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Instructions"
+
+[node name="Descriptions" type="TextEdit" parent="Instructions"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 45.0
+offset_right = 274.0
+offset_bottom = 337.0
+text = "Le but du jeu est de se servir 
+du curseur pour manipuler son
+ environement. Chaque niveau 
+est composé d'objets unique 
+avec des mécaniques inédites.
+Le biome désert est un mode 
+créatif, c'est-à-dire qu'il n'y a 
+pas de fin et on peut placer
+tous les objets disponible en 
+jeu."
+
+[node name="Commands" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 319.0
+offset_right = 611.0
+offset_bottom = 360.0
+texture = SubResource("AtlasTexture_ujjdw")
+
+[node name="Titre" type="Label" parent="Commands"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 13.0
+offset_right = 219.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Commandes"
+
+[node name="Descriptions" type="TextEdit" parent="Commands"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 46.0
+offset_right = 274.0
+offset_bottom = 190.0
+text = "Clavier:
+-Déplacement avec 'A ' et 'D'
+-Espace ou 'W' pour sauter
+-Utiliser la souris ou la main
+ pour intéragir avec les objets"
+
+[node name="Descriptions2" type="TextEdit" parent="Commands"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 192.0
+offset_right = 274.0
+offset_bottom = 337.0
+text = "Manette:
+-Déplacement avec le joystic ou
+les flèches
+- Gachette haut, flèche ou 
+joystic haut pour sauter"

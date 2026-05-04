@@ -3,18 +3,22 @@ extends Control
 @onready var hand_tracking: CheckButton = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/hand_tracking
 @onready var mode_selected: Sprite2D = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ModeSelected
 @onready var list_cameras: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/ListCameras
-@onready var music_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/Spacer/MusicSlider
-
-
+@onready var music_slider: HSlider = $PanelContainer/MarginContainer/VBoxContainer/Spacer/HBoxContainer/MusicSlider
+@onready var instructions_panel: Control = $InstructionsPanel
+@onready var back_button: TextureButton = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/BackButton
+@onready var instruction_button: Button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/InstructionButton
 
 var go_back_to := ""
 
 signal volume_changed(value: float)
 
 func _ready() -> void:
+	set_mouse_filter_recursive(instructions_panel, Control.MOUSE_FILTER_IGNORE)
+	instructions_panel.hide()
 	hand_tracking.button_pressed = true
-	hand_tracking_mode();
-	pass
+	hand_tracking_mode()
+	music_slider.value = GameMaster.default_music_volume
+
 
 func hand_tracking_mode( button_is_checked: bool = hand_tracking.button_pressed ):
 	GameMaster.set_mouse_mode(button_is_checked)
@@ -50,9 +54,15 @@ func populate_camera_buttons(container: VBoxContainer) -> void:
 
 		container.add_child(button)
 
+func set_mouse_filter_recursive(node: Node, filter: int) -> void:
+	if node is Control:
+		node.mouse_filter = filter
 
+	for child in node.get_children():
+		set_mouse_filter_recursive(child, filter)
 
 func _on_back_button_pressed() -> void:
+	instructions_panel.hide()
 	get_parent().hide_all_menu()
 
 	match go_back_to:
@@ -68,3 +78,8 @@ func _on_hand_tracking_toggled(toggled_on: bool) -> void:
 
 func _on_music_slider_value_changed(value: float) -> void:
 	volume_changed.emit(value)
+
+
+func _on_instruction_button_pressed() -> void:
+	instructions_panel.visible = not instructions_panel.visible
+	set_mouse_filter_recursive(instructions_panel, Control.MOUSE_FILTER_IGNORE)

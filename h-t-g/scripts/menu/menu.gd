@@ -9,7 +9,7 @@ const settings_path = "res://scenes/Menu/settings.tscn"
 var is_ready := false
 
 func _ready() -> void:
-	GameMaster.completed_levels = []
+	GameMaster.completed_levels.clear()
 	spinner.hide()
 
 	if GameMaster.cam_loaded:

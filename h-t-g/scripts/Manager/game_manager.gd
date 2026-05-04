@@ -7,6 +7,8 @@ class_name GameManager
 @export_file("*.ogg") var menu_music: String
 @export var music_fade_duration := 1.0
 @export var hand_tracking_camera_index := 0
+@export var default_music_volume := -20.0
+
 
 
 @onready var previous_music: AudioStreamPlayer = $PreviousMusic
@@ -29,6 +31,8 @@ signal mouse_mode_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	music_volume = default_music_volume
+	
 	active_music_player = previous_music
 	inactive_music_player = next_music
 	
