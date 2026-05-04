@@ -104,19 +104,24 @@ size_flags_vertical = 4
 
 [node name="hand_tracking_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Mouse Mode"
+text = "Mode d'intéraction"
 
 [node name="ModeSelected" type="Sprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-position = Vector2(187, 14)
+position = Vector2(223, 14)
 texture = ExtResource("4_0t5g5")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Liste de caméra:"
 
 [node name="ListCameras" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 focus_next = NodePath("../HBoxContainer2/BackButton")
 alignment = 1
 
 [node name="InstructionsPanel" parent="." instance=ExtResource("8_solbw")]
+visible = false
 layout_mode = 1
 offset_right = -10.0
 offset_bottom = -5.0

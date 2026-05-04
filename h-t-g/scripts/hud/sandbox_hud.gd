@@ -46,6 +46,10 @@ var last_object_config = null
 
 var all_items_with_category: Array = []
 
+var hand_scroll_speed := 90.0
+var hand_scroll_edge_size := 45.0
+var hand_scroll_remainder := 0.0
+
 
 func _ready() -> void:
 	load_all_resources()
@@ -73,8 +77,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		keep_focus_alive()
 
 
-func _process(_delta: float) -> void:
-	handle_hand_ui_buttons()
+func _process(delta: float) -> void:
+	handle_hand_ui_buttons(delta)
 
 	if current_tool == ToolMode.NONE:
 		return
@@ -167,6 +171,7 @@ func add_item(object) -> void:
 	item.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	item.expand_icon = true
 	item.pressed.connect(_on_item_pressed.bind(object))
+	item.focus_entered.connect(_on_item_focus_entered.bind(item))
 
 	item_of_category.add_child(item)
 
@@ -253,6 +258,21 @@ func _on_mushroom_category_pressed() -> void:
 
 func _on_special_category_pressed() -> void:
 	on_category_pressed("specials")
+
+
+func _on_item_focus_entered(item: Control) -> void:
+	await get_tree().process_frame
+
+	var item_top := item.global_position.y
+	var item_bottom := item_top + item.size.y
+
+	var container_top := scroll_container.global_position.y
+	var container_bottom := container_top + scroll_container.size.y
+
+	if item_top < container_top:
+		scroll_container.scroll_vertical -= int(container_top - item_top)
+	elif item_bottom > container_bottom:
+		scroll_container.scroll_vertical += int(item_bottom - container_bottom)
 
 
 func _on_all_category_pressed() -> void:
@@ -342,7 +362,7 @@ func find_sandbox_root(node: Node) -> Node:
 	return null
 
 
-func handle_hand_ui_buttons() -> void:
+func handle_hand_ui_buttons(delta: float) -> void:
 	if GameMaster.mouse_mode:
 		return
 
@@ -350,15 +370,22 @@ func handle_hand_ui_buttons() -> void:
 	if cursor == null:
 		return
 
-	var button := get_button_under_hand(cursor.global_position)
+	var screen_position := get_viewport().get_canvas_transform() * cursor.global_position
+	var is_pinching := Udp.is_pinching
+	var button := find_button_at_position(self, screen_position)
+
+	var is_inside_scroll := scroll_container.is_visible_in_tree() and scroll_container.get_global_rect().has_point(screen_position)
+
+	if is_inside_scroll and not is_pinching:
+		apply_hand_edge_scroll(screen_position, delta)
+	else:
+		hand_scroll_remainder = 0.0
 
 	if hovered_hand_button != button:
 		hovered_hand_button = button
 
 		if hovered_hand_button:
 			hovered_hand_button.grab_focus()
-
-	var is_pinching := Udp.is_pinching
 
 	if is_pinching and not was_hand_pinching_ui and button:
 		btn_is_click = true
@@ -369,6 +396,28 @@ func handle_hand_ui_buttons() -> void:
 
 	was_hand_pinching_ui = is_pinching
 
+
+func apply_hand_edge_scroll(screen_position: Vector2, delta: float) -> void:
+	var rect := scroll_container.get_global_rect()
+	var local_y := screen_position.y - rect.position.y
+
+	var direction := 0.0
+
+	if local_y < hand_scroll_edge_size:
+		direction = -1.0
+	elif local_y > rect.size.y - hand_scroll_edge_size:
+		direction = 1.0
+	else:
+		hand_scroll_remainder = 0.0
+		return
+
+	hand_scroll_remainder += direction * hand_scroll_speed * delta
+
+	var scroll_amount := int(hand_scroll_remainder)
+
+	if scroll_amount != 0:
+		scroll_container.scroll_vertical += scroll_amount
+		hand_scroll_remainder -= scroll_amount
 
 
 func get_button_under_hand(_world_position: Vector2) -> Button:

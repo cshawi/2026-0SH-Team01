@@ -47,7 +47,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	pass
+	apply_mouse_visibility()
 
 func start_hand_tracking() -> void:
 	if hand_tracking_pid != -1:
@@ -86,6 +86,10 @@ func _notification(what: int) -> void:
 		stop_hand_tracking()
 		get_tree().quit()
 		
+func _exit_tree() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	stop_hand_tracking()
+
 func is_hand_tracking_running() -> bool:
 	return hand_tracking_pid != -1
 
@@ -99,7 +103,17 @@ func register_level(level: Node) -> void:
 
 func set_mouse_mode(new_mode: bool):
 	mouse_mode = new_mode
+
+	apply_mouse_visibility()
+
 	mouse_mode_changed.emit(new_mode)
+
+func apply_mouse_visibility() -> void:
+	if get_tree().paused || magic_cursor == null:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 
 func on_level_finished():
 	var completed_level_path := get_tree().current_scene.scene_file_path
@@ -123,9 +137,11 @@ func register_completed_level(scene_path: String) -> void:
 		completed_levels.append(uid_text)
 
 
-func change_to_level(path: String) -> void: #passe de la carte du monde au niveau choisi
+func change_to_level(path: String) -> void:
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
+	apply_mouse_visibility()
+
 	
 
 func _on_volume_changed(value: float):

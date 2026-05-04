@@ -34,6 +34,7 @@ func write(delta: float):
 		if last_character != visible_characters:
 			last_character = visible_characters
 			audio_player.pitch_scale = randf_range(0.9, 1.1)
+			audio_player.volume_db = GameMaster.music_volume
 			audio_player.play()
 	else:
 		writing = false
