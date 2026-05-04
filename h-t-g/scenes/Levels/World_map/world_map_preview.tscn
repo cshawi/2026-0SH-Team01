@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://5xvtx66ergdk"]
+[gd_scene load_steps=8 format=3 uid="uid://5xvtx66ergdk"]
 
 [ext_resource type="Texture2D" uid="uid://b0m5q5aot1ujd" path="res://assets/sprites/HUD/SpriteSheet.png" id="1_1o818"]
 [ext_resource type="Script" uid="uid://dxhcwsp7mtrhm" path="res://scripts/utils/world_map_preview.gd" id="1_h3k81"]
 [ext_resource type="FontFile" uid="uid://r1bm2fkq4gmx" path="res://assets/fonts/Creepster-Regular.ttf" id="2_fwsd0"]
+[ext_resource type="Texture2D" uid="uid://dfmg6ttm5126u" path="res://assets/sprites/HUD/Base-01.png" id="3_y2cwi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3k81"]
 atlas = ExtResource("1_1o818")
 region = Rect2(30.205627, 29.264793, 162.00409, 69.43032)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pis4n"]
+atlas = ExtResource("3_y2cwi")
+region = Rect2(140, 60, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xisho"]
+atlas = ExtResource("3_y2cwi")
+region = Rect2(50.070335, 194.00087, 12.103058, 10.82402)
 
 [node name="WorldMapPreview" type="Control"]
 layout_mode = 3
@@ -40,6 +49,31 @@ offset_bottom = 1002.6797
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.07, 0.04)
+
+[node name="LevelDone" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 24.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_pis4n")
+
+[node name="Done" type="TextureRect" parent="Background/LevelDone"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -5.1245556
+offset_right = 12.0
+offset_bottom = 4.8754444
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_xisho")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

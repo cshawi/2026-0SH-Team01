@@ -15,9 +15,13 @@ var click_locked := false
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
-	preview = get_node_or_null(preview_path)
-	if preview != null: preview.hide()
-	
+
+	preview = get_node_or_null(preview_path) as WorldMapPreview
+
+	if preview != null:
+		preview.hide()
+
+	call_deferred("update_done_visual")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -31,6 +35,17 @@ func _process(_delta: float) -> void:
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and not GameMaster.magic_cursor.is_grabing:
 		click_locked = false
 
+
+
+func update_done_visual() -> void:
+	if preview == null:
+		return
+
+	if GameMaster.completed_levels.has(target_scene):
+		preview.show_done()
+	else:
+		preview.hide_done()
+		
 func _on_area_entered(area: Area2D):
 	if area is MagicCursor:
 		cursor_inside = true

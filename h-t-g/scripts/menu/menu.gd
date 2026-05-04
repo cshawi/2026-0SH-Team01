@@ -10,16 +10,20 @@ var is_ready := false
 
 func _ready() -> void:
 	spinner.hide()
-	if not GameMaster.cam_loaded:
-		center_container.hide()
-		spinner.show()
-		spinner.play()
 
-		if not Udp.cameras_cached.is_connected(_on_cameras_cached):
-			Udp.cameras_cached.connect(_on_cameras_cached)
-		
-		Udp.cache_available_cameras_async()
+	if GameMaster.cam_loaded:
+		center_container.show()
+		start.grab_focus()
+		return
 
+	center_container.hide()
+	spinner.show()
+	spinner.play()
+
+	if not Udp.cameras_cached.is_connected(_on_cameras_cached):
+		Udp.cameras_cached.connect(_on_cameras_cached)
+
+	Udp.cache_available_cameras_async()
 
 func change_scene(scene_path:String ):
 	await Fade_transition.play_level_transition(GameMaster.change_to_level,scene_path)

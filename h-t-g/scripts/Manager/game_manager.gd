@@ -23,6 +23,7 @@ var mouse_mode := true #temporaire le temps d'avoir les paramètres
 var player_hp: float
 var magic_cursor: MagicCursor
 var music_volume: float
+var completed_levels: Array[String] = []
 
 signal mouse_mode_changed
 
@@ -96,10 +97,28 @@ func set_mouse_mode(new_mode: bool):
 	mouse_mode = new_mode
 	mouse_mode_changed.emit(new_mode)
 
-func on_level_finished(): #reçoit player.current_hp en paramètre
+func on_level_finished():
+	var completed_level_path := get_tree().current_scene.scene_file_path
+	register_completed_level(completed_level_path)
+
 	transition_to_music(world_music)
 	await Fade_transition.play_level_transition(GameMaster.change_to_level, world_map)
-	
+
+func register_completed_level(scene_path: String) -> void:
+	if scene_path == "":
+		return
+
+	var uid := ResourceLoader.get_resource_uid(scene_path)
+
+	if uid == -1:
+		return
+
+	var uid_text := ResourceUID.id_to_text(uid)
+
+	if not completed_levels.has(uid_text):
+		completed_levels.append(uid_text)
+
+
 func change_to_level(path: String) -> void: #passe de la carte du monde au niveau choisi
 	get_tree().change_scene_to_file(path)
 	await get_tree().process_frame
