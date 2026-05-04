@@ -64,6 +64,7 @@ layout_mode = 2
 size_flags_vertical = 4
 min_value = -40.0
 max_value = 0.0
+value = -20.0
 
 [node name="MusicIcon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/Spacer/HBoxContainer"]
 material = SubResource("ShaderMaterial_j4cy7")
