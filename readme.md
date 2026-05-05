@@ -1,3 +1,12 @@
+<p align="Center"><img src="./_bin/logo.svg" alt="drawing" width="100"/></p>
+<h4 align="Center">0SH - Gestion de projet (2026)</h4>
+
+<h1 align="center">The Hand of Fate</h1>
+
+## Description du produit final
+
+Avez-vous déjà rêvé de maitriser la magie sur le bout des doigts ? Venez expérimenter la télékinésie dans un univers fantastique.
+
 ## Build du module Python (Tracking MediaPipe)
 
 Le jeu utilise un module Python pour détecter la main avec MediaPipe et envoyer les coordonnées à Godot via UDP.
