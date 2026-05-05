@@ -36,7 +36,7 @@ b = Vector2(0, 57)
 size = Vector2(109, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gysx5"]
-size = Vector2(109, 92)
+size = Vector2(109, 119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jbob"]
 size = Vector2(494, 124)
@@ -199,7 +199,7 @@ shape = SubResource("RectangleShape2D_fhm2u")
 [node name="FlotationZone2" parent="." instance=ExtResource("10_v15wg")]
 
 [node name="CollisionShape" parent="FlotationZone2" index="0"]
-position = Vector2(657.5, 346)
+position = Vector2(657.5, 359.5)
 shape = SubResource("RectangleShape2D_gysx5")
 
 [node name="FlotationZone3" parent="." instance=ExtResource("10_v15wg")]
