@@ -132,8 +132,16 @@ func get_files_from_resource_directory(path_to_resource: String) -> Array:
 
 	while file_name != "":
 		if not directory.current_is_dir():
+			if file_name.ends_with(".remap"):
+				file_name = file_name.replace(".remap", "")
+
+			if not file_name.ends_with(".tres"):
+				file_name = directory.get_next()
+				continue
+
 			var full_path := path_to_resource + "/" + file_name
 			var object = load(full_path)
+
 
 			if object != null:
 				files.append({

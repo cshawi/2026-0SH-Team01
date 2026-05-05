@@ -13,6 +13,7 @@ ht-udp/dist/
 ht-udp/*.spec
 ht-udp/__pycache__/
 ht-udp/*.pyc
+*.exe
 
 
 

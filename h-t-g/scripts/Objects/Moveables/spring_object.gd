@@ -2,7 +2,7 @@ extends MoveableObject
 class_name SpringObject
 
 @export var resistance := 1.0
-@export var power := 10.0
+@export var power := 11.0
 @export var max_compression := 64.0
 
 var max_height : float

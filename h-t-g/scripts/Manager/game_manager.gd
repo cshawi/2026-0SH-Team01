@@ -25,6 +25,7 @@ var mouse_mode := true #temporaire le temps d'avoir les paramètres
 var player_hp: float
 var magic_cursor: MagicCursor
 var music_volume: float
+var current_level_uid := ""
 var completed_levels: Array[String] = []
 
 signal mouse_mode_changed
@@ -116,26 +117,19 @@ func apply_mouse_visibility() -> void:
 
 
 func on_level_finished():
-	var completed_level_path := get_tree().current_scene.scene_file_path
-	register_completed_level(completed_level_path)
+	register_completed_level(current_level_uid)
 
 	transition_to_music(world_music)
 	await Fade_transition.play_level_transition(GameMaster.change_to_level, world_map)
 
-func register_completed_level(scene_path: String) -> void:
-	if scene_path == "":
+
+func register_completed_level(level_uid: String) -> void:
+	if level_uid == "":
+		push_warning("Aucun UID de niveau courant à enregistrer.")
 		return
 
-	var uid := ResourceLoader.get_resource_uid(scene_path)
-
-	if uid == -1:
-		return
-
-	var uid_text := ResourceUID.id_to_text(uid)
-
-	if not completed_levels.has(uid_text):
-		completed_levels.append(uid_text)
-
+	if not completed_levels.has(level_uid):
+		completed_levels.append(level_uid)
 
 func change_to_level(path: String) -> void:
 	get_tree().change_scene_to_file(path)

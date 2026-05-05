@@ -40,13 +40,13 @@ offset_right = 274.0
 offset_bottom = 337.0
 text = "Le but du jeu est de se servir 
 du curseur pour manipuler son
- environement. Chaque niveau 
-est composé d'objets unique 
+environnement. Chaque niveau 
+est composé d'objets uniques 
 avec des mécaniques inédites.
 Le biome désert est un mode 
 créatif, c'est-à-dire qu'il n'y a 
-pas de fin et on peut placer
-tous les objets disponible en 
+pas de fin et qu'on peut placer
+tous les objets disponibles en 
 jeu."
 
 [node name="Commands" type="TextureRect" parent="."]
@@ -73,10 +73,10 @@ offset_top = 46.0
 offset_right = 274.0
 offset_bottom = 190.0
 text = "Clavier:
--Déplacement avec 'A ' et 'D'
--Espace ou 'W' pour sauter
+-Déplacements avec 'A' et 'D'
+-'Espace' ou 'W' pour sauter
 -Utiliser la souris ou la main
- pour intéragir avec les objets"
+ pour interagir avec les objets"
 
 [node name="Descriptions2" type="TextEdit" parent="Commands"]
 layout_mode = 0
@@ -85,7 +85,7 @@ offset_top = 192.0
 offset_right = 274.0
 offset_bottom = 337.0
 text = "Manette:
--Déplacement avec le joystic ou
-les flèches
-- Gachette haut, flèche ou 
-joystic haut pour sauter"
+-Déplacements avec le joystick
+ ou les flèches
+-Gachette, flèche ou 
+ joystick du haut pour sauter"

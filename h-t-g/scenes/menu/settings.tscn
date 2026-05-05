@@ -104,7 +104,7 @@ size_flags_vertical = 4
 
 [node name="hand_tracking_label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Mode d'intéraction"
+text = "Mode d'interaction"
 
 [node name="ModeSelected" type="Sprite2D" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 position = Vector2(223, 14)

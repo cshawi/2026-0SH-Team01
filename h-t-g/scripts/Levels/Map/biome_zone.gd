@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 	# clic curseur magique
 	if cursor_inside and (GameMaster.magic_cursor.is_grabing) and not click_locked:
 		click_locked = true
+		GameMaster.current_level_uid = target_scene
 		GameMaster.transition_to_music(sound_track)
 		await Fade_transition.play_level_transition(GameMaster.change_to_level, target_scene)
 
@@ -41,11 +42,26 @@ func update_done_visual() -> void:
 	if preview == null:
 		return
 
-	if GameMaster.completed_levels.has(target_scene):
+	var target_uid := get_scene_uid_text(target_scene)
+
+	if GameMaster.completed_levels.has(target_uid):
 		preview.show_done()
 	else:
 		preview.hide_done()
-		
+
+
+func get_scene_uid_text(scene_path: String) -> String:
+	if scene_path.begins_with("uid://"):
+		return scene_path
+
+	var uid := ResourceLoader.get_resource_uid(scene_path)
+
+	if uid == -1:
+		return scene_path
+
+	return ResourceUID.id_to_text(uid)
+
+
 func _on_area_entered(area: Area2D):
 	if area is MagicCursor:
 		cursor_inside = true

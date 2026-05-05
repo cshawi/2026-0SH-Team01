@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func set_ui_enabled(is_enabled: bool):
 	_set_mouse_filter_recursive(sandbox_hud, is_enabled)
+	sandbox_hud.visible = is_enabled
 
 
 func _set_mouse_filter_recursive(node: Node, is_enabled: bool):

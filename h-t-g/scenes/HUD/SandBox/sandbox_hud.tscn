@@ -51,12 +51,12 @@ icon = ExtResource("4_ch6hi")
 layout_mode = 0
 offset_left = 7.0
 offset_top = 101.0
-offset_right = 102.0
+offset_right = 106.0
 offset_bottom = 317.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Category"]
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
 alignment = 1
 
