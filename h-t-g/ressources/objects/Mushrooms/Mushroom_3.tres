@@ -11,6 +11,7 @@ region = Rect2(321, 251, 14, 21)
 
 [resource]
 script = ExtResource("1_8w8ww")
+weight = 7
 name = "Mushroom_3"
 texture = SubResource("AtlasTexture_wl7qj")
 collision_polygon = PackedVector2Array(-2, -10, 2, -10, 4, -8, 6, -4, 7, -3, 7, -1, 5, 1, 2, 1, 2, 9, 3, 10, -3, 10, -2, 9, -2, 1, -5, 1, -7, -1, -7, -3, -6, -4, -4, -8, -3, -9)

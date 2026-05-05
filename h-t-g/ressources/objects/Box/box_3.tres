@@ -11,6 +11,7 @@ region = Rect2(81, 163, 46, 29)
 
 [resource]
 script = ExtResource("1_84nya")
+weight = 25
 name = "Box_3"
 texture = SubResource("AtlasTexture_wl7qj")
 collision_polygon = PackedVector2Array(23, 14, 23, -14, -23, -14, -23, 14)
